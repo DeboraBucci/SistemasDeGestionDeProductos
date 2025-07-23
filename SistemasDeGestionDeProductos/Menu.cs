@@ -1,5 +1,6 @@
 using SistemasDeGestionDeProductos.Service;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeProductos;
+using SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeRubros;
 
 namespace SistemasDeGestionDeProductos
@@ -11,7 +12,10 @@ namespace SistemasDeGestionDeProductos
         ModificacionDeProducto modificacionDeProducto = new();
 
         // GESTION DE RUBROS
-        AltaDeRubro altaDeRubro = new AltaDeRubro();
+        AltaDeRubro altaDeRubro = new();
+
+        // GESTION DE PROVEEDORES
+        AltaDeProveedor altaDeProveedor = new();
 
         private Form? currOpenedForm = null;
 
@@ -27,6 +31,9 @@ namespace SistemasDeGestionDeProductos
 
             modificacionDeProducto.MdiParent = this;
             modificacionDeProducto.Dock = DockStyle.Fill;
+
+            altaDeProveedor.MdiParent = this;
+            altaDeProveedor.Dock = DockStyle.Fill;
 
             AbrirForm(altaDeProducto);
         }
@@ -50,11 +57,18 @@ namespace SistemasDeGestionDeProductos
             AbrirForm(altaDeRubro);
         }
 
+        // PROVEEDORES
+        private void altaDeProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(altaDeProveedor);
+        }
+
         // OTROS
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
 
         // HELPER METHODS
 
@@ -66,6 +80,7 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
-   
+
+       
     }
 }

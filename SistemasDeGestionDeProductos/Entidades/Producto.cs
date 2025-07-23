@@ -9,13 +9,15 @@ namespace SistemasDeGestionDeProductos.Entidades
 {
     public class Producto
     {
+        private static decimal porcentajeIncrementoPrecio = 0.5m; // 50%
+
         public Guid Id { get; private set; }
         public string? Nombre { get; set; }
         public string? Descripcion { get; set; }
         public decimal PrecioUnitarioCompra { get; set; }
         public decimal PrecioUnitarioVenta { get
             {
-                return PrecioUnitarioCompra + ((30 * PrecioUnitarioCompra) / 100); 
+                return PrecioUnitarioCompra + (PrecioUnitarioCompra * porcentajeIncrementoPrecio); 
             } 
         }
         public int Stock { get; set; }

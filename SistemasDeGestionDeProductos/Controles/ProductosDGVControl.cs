@@ -77,8 +77,6 @@ namespace SistemasDeGestionDeProductos
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
-        
-
             dgvProductos.Columns["colId"].Visible = false;
 
             dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;

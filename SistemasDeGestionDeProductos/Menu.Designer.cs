@@ -152,6 +152,7 @@
             altaDeProveedorToolStripMenuItem.Name = "altaDeProveedorToolStripMenuItem";
             altaDeProveedorToolStripMenuItem.Size = new Size(217, 22);
             altaDeProveedorToolStripMenuItem.Text = "Alta de Proveedor";
+            altaDeProveedorToolStripMenuItem.Click += altaDeProveedorToolStripMenuItem_Click;
             // 
             // modificaciónDeProveedorToolStripMenuItem
             // 
