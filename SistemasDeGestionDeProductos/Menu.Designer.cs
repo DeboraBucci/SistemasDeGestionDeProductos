@@ -94,6 +94,7 @@
             modificaciónDeProductoToolStripMenuItem.Name = "modificaciónDeProductoToolStripMenuItem";
             modificaciónDeProductoToolStripMenuItem.Size = new Size(212, 22);
             modificaciónDeProductoToolStripMenuItem.Text = "Modificación de Producto";
+            modificaciónDeProductoToolStripMenuItem.Click += modificaciónDeProductoToolStripMenuItem_Click;
             // 
             // bajaDeProductoToolStripMenuItem
             // 
@@ -243,6 +244,7 @@
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.Size = new Size(41, 20);
             salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // Menu
             // 

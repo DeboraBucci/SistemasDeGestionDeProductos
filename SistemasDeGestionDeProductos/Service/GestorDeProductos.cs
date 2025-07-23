@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Service
 {
-    internal class GestorDeProductos
+    public class GestorDeProductos
     {
         private readonly RepositorioProductos repositorioProductos;
 
@@ -17,9 +17,25 @@ namespace SistemasDeGestionDeProductos.Service
             repositorioProductos = new RepositorioProductos();
         }
 
-        public void CrearProducto(string nombre, string descripcion, double precioUnitario, int stock, Rubro rubro)
+        public void CrearProducto(string nombre, string descripcion, decimal precioUnitario, int stock, Guid idRubro)
         {
+            var productoYaExistente = repositorioProductos.BuscarPorNombre(nombre);
 
+            if (productoYaExistente != null)
+                throw new Exception("Ya existe un producto con el mismo nombre.");
+
+            Producto producto = new()
+            {
+                Nombre = nombre,
+                Descripcion = descripcion,
+                PrecioUnitario = precioUnitario,
+                Stock = stock,
+                IdRubro = idRubro
+            };
+
+            repositorioProductos.Agregar(producto);
         }
+
+        public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos();
     }
 }

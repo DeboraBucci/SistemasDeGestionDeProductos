@@ -1,7 +1,12 @@
+using SistemasDeGestionDeProductos.Service;
+
 namespace SistemasDeGestionDeProductos
 {
     internal static class Program
     {
+        public static GestorDeRubros GestorDeRubros = new();
+        public static GestorDeProductos GestorDeProductos = new();
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

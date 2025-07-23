@@ -43,9 +43,8 @@
             dgvProductos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, PrecioUnitario, Stock });
             dgvProductos.Location = new Point(0, 0);
             dgvProductos.Name = "dgvProductos";
-            dgvProductos.Size = new Size(451, 346);
+            dgvProductos.Size = new Size(522, 346);
             dgvProductos.TabIndex = 0;
-            dgvProductos.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Nombre
             // 
@@ -74,7 +73,7 @@
             AutoSize = true;
             Controls.Add(dgvProductos);
             Name = "ProductosDGVControl";
-            Size = new Size(454, 349);
+            Size = new Size(525, 349);
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ResumeLayout(false);
         }

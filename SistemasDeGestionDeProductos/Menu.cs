@@ -1,3 +1,4 @@
+using SistemasDeGestionDeProductos.Service;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeProductos;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeRubros;
 
@@ -9,9 +10,9 @@ namespace SistemasDeGestionDeProductos
         AltaDeProducto altaDeProducto = new();
 
         // GESTION DE RUBROS
-        AltaDeRubro altaDeRubro = new();
-        
-        
+        AltaDeRubro altaDeRubro = new AltaDeRubro();
+
+
         public Menu()
         {
             InitializeComponent();
@@ -38,6 +39,16 @@ namespace SistemasDeGestionDeProductos
         {
             altaDeProducto.Hide();
             altaDeRubro.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void modificaciónDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

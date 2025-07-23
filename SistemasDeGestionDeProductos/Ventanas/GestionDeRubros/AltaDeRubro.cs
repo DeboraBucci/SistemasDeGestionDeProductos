@@ -15,23 +15,22 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 {
     public partial class AltaDeRubro : Form
     {
-        internal readonly GestorDeRubros gestorDeRubros;
-
         public AltaDeRubro()
         {
             InitializeComponent();
-            gestorDeRubros = new();
 
-            rubrosdgvControl1.RefrescarRubros(gestorDeRubros.BuscarRubros());
+            rubrosdgvControl1.RefrescarRubros(Program.GestorDeRubros.BuscarRubros());
+
+
         }
 
         private void btnCrearRubro_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text.Trim();
             string descripcion = rtxtDescripcion.Text.Trim();
-
-            gestorDeRubros.CrearRubro(nombre, descripcion);
-            rubrosdgvControl1.RefrescarRubros(gestorDeRubros.BuscarRubros());
+            
+            Program.GestorDeRubros.CrearRubro(nombre, descripcion);
+            rubrosdgvControl1.RefrescarRubros(Program.GestorDeRubros.BuscarRubros());
         }
     }
 }

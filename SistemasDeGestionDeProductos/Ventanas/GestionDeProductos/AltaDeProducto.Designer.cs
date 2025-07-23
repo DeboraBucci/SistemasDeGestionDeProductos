@@ -166,6 +166,7 @@
             btnCrearProducto.TabIndex = 13;
             btnCrearProducto.Text = "Crear Producto";
             btnCrearProducto.UseVisualStyleBackColor = false;
+            btnCrearProducto.Click += btnCrearProducto_Click;
             // 
             // AltaDeProducto
             // 

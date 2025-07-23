@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
@@ -14,7 +15,15 @@ namespace SistemasDeGestionDeProductos.Entidades
 
         public Rubro()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
+        }
+
+        [JsonConstructor]
+        public Rubro(Guid id, string? nombre, string? descripcion)
+        {
+            Id = id;
+            Nombre = nombre;
+            Descripcion = descripcion;
         }
     }
 }

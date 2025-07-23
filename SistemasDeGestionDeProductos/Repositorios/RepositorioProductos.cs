@@ -1,21 +1,27 @@
 ﻿using SistemasDeGestionDeProductos.Entidades;
+using SistemasDeGestionDeProductos.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    internal class RepositorioProductos
+    internal class RepositorioProductos : IRepositorio<Producto>
     {
-        private readonly List<Producto> productos;
+        private static readonly string archivoProductos = "productos.json";
+        private readonly List<Producto> productos = JsonHelper.LeerDesdeArchivo<Producto>(archivoProductos);
 
-        public RepositorioProductos()
-        {
-            productos = new List<Producto>();
+        public void Agregar(Producto producto) {
+            productos.Add(producto);
+            JsonHelper.GuardarEnArchivo(productos, archivoProductos);
         }
 
-        public void AgregarProducto(Producto producto) => productos.Add(producto);
+        public Producto? BuscarPorNombre(string nombre) => productos.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
+
+        public IReadOnlyCollection<Producto> BuscarTodos() => productos.AsReadOnly();
+
     }
 }

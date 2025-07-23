@@ -1,4 +1,5 @@
 ﻿using SistemasDeGestionDeProductos.Entidades;
+using SistemasDeGestionDeProductos.Helpers;
 using SistemasDeGestionDeProductos.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Service
 {
-    internal class GestorDeRubros
+    public class GestorDeRubros
     {
         private readonly RepositorioRubros repositorioRubros;
 
@@ -18,19 +19,39 @@ namespace SistemasDeGestionDeProductos.Service
             repositorioRubros = new();
         }
 
-
         public void CrearRubro(string nombre, string descripcion)
         {
-            Rubro rubro = new() {
-                Nombre = nombre,
-                Descripcion = descripcion
-            };
+            try
+            {
+                if (nombre.Trim() == "")
+                    throw new Exception("El rubro no puede tener nombre vacio.");
 
-            repositorioRubros.Agregar(rubro);
+                if (repositorioRubros.BuscarPorNombre(nombre) != null)
+                    throw new Exception("Ya existe un rubro con ese nombre, intenta con otro.");
+
+                Rubro rubro = new()
+                {
+                    Nombre = nombre,
+                    Descripcion = descripcion
+                };
+
+                repositorioRubros.Agregar(rubro);
+
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage.ShowErrorMessage(ex.Message);
+            }
+
         }
 
-        public ReadOnlyCollection<Rubro> BuscarRubros() => repositorioRubros.BuscarTodos();
+        public IReadOnlyCollection<Rubro> BuscarRubros() => repositorioRubros.BuscarTodos();
 
-
+        public Rubro? BuscarRubroPorNombre(string nombre) => repositorioRubros.BuscarPorNombre(nombre);
+        public Rubro? BuscarRubroPorId(Guid id)
+        {
+            var rubro = repositorioRubros.BuscarPorId(id);
+            return rubro;
+        }
     }
 }
