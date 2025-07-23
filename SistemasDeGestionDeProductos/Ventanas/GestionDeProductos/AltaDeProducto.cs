@@ -15,14 +15,10 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 {
     public partial class AltaDeProducto : Form
     {
-        private List<string> nombreRubros = new();
 
         public AltaDeProducto()
         {
             InitializeComponent();
-            LlenarComboBoxRubros();
-
-            productosdgvControl1.RefrescarProductos(Program.GestorDeProductos.BuscarProductos());
         }
 
         private void btnCrearProducto_Click(object sender, EventArgs e)
@@ -33,7 +29,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 string descripcion = rtxtDescripcion.Text.Trim();
                 string precioUnitarioStr = txtPrecioUnitario.Text.Trim();
                 string stockStr = txtStock.Text.Trim();
-                string rubroNombre = cbRubros.Text;
+                string rubroNombre = rubroscbControl1.CbRubrosTxt;
 
                 if (nombre == "")
                     throw new Exception("El nombre del producto no puede estar vacio.");
@@ -53,8 +49,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
 
                 Program.GestorDeProductos.CrearProducto(nombre, descripcion, precioUnit, stock, idRubro);
-                productosdgvControl1.RefrescarProductos(Program.GestorDeProductos.BuscarProductos());
-
+                productosdgvControl1.RefrescarProductos();
             }
 
             catch (Exception ex)
@@ -62,19 +57,5 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 ErrorMessage.ShowErrorMessage(ex.Message);
             }
         }
-
-        // HELPER FUNCTIONS
-        public void LlenarComboBoxRubros()
-        {
-            var rubros = Program.GestorDeRubros.BuscarRubros();
-
-            foreach (var rubro in rubros)
-                nombreRubros.Add(rubro.Nombre + "");
-
-            cbRubros.DataSource = nombreRubros;
-
-        }
-
-  
     }
 }

@@ -12,7 +12,12 @@ namespace SistemasDeGestionDeProductos.Entidades
         public Guid Id { get; private set; }
         public string? Nombre { get; set; }
         public string? Descripcion { get; set; }
-        public decimal PrecioUnitario { get; set; }
+        public decimal PrecioUnitarioCompra { get; set; }
+        public decimal PrecioUnitarioVenta { get
+            {
+                return PrecioUnitarioCompra + ((30 * PrecioUnitarioCompra) / 100); 
+            } 
+        }
         public int Stock { get; set; }
         public Guid IdRubro { get; set; }
 
@@ -22,12 +27,12 @@ namespace SistemasDeGestionDeProductos.Entidades
         }
 
         [JsonConstructor]
-        public Producto(Guid id, string? nombre, string? descripcion, decimal precioUnitario, int stock, Guid idRubro)
+        public Producto(Guid id, string? nombre, string? descripcion, decimal precioUnitarioCompra,  int stock, Guid idRubro)
         {
             Id = id;
             Nombre = nombre;
             Descripcion = descripcion;
-            PrecioUnitario = precioUnitario;
+            PrecioUnitarioCompra = precioUnitarioCompra;
             Stock = stock;
             IdRubro = idRubro;
         }

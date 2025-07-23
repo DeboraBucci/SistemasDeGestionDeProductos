@@ -13,12 +13,13 @@ namespace SistemasDeGestionDeProductos
 {
     public partial class ProductosDGVControl : UserControl
     {
+        public event EventHandler? SelectionChangedExternal;
+
         public ProductosDGVControl()
         {
             InitializeComponent();
 
             dgvProductos.Columns.Clear();
-            dgvProductos.AutoGenerateColumns = false;
 
             dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -38,9 +39,17 @@ namespace SistemasDeGestionDeProductos
 
             dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "colPrecioUnitario",
-                HeaderText = "Precio Unitario",
-                DataPropertyName = "PrecioUnitario",
+                Name = "colPrecioUnitarioCompra",
+                HeaderText = "Compra c/u",
+                DataPropertyName = "PrecioUnitarioCompra",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colPrecioUnitarioVenta",
+                HeaderText = "Venta c/u",
+                DataPropertyName = "PrecioUnitarioVenta",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
@@ -60,23 +69,66 @@ namespace SistemasDeGestionDeProductos
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colId",
+                HeaderText = "Id",
+                DataPropertyName = "Id",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+        
+
+            dgvProductos.Columns["colId"].Visible = false;
+
+            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
         }
 
-        public void RefrescarProductos(IReadOnlyCollection<Producto> productos)
+        public void RefrescarProductos()
+
         {
+            var productos = Program.GestorDeProductos.BuscarProductos();
+
             var productosVM = productos.Select(p => new
             {
                 p.Id,
                 p.Nombre,
                 p.Descripcion,
-                p.PrecioUnitario,
-                p.Stock,    
+                p.PrecioUnitarioCompra,
+                p.PrecioUnitarioVenta,
+                p.Stock,
                 Rubro = (Program.GestorDeRubros.BuscarRubroPorId(p.IdRubro))?.Nombre,
             }).ToList();
 
             dgvProductos.DataSource = productosVM;
-            
         }
 
+        private void dgvProductos_SelectionChanged(object? sender, EventArgs e)
+        {
+            SelectionChangedExternal?.Invoke(this, e);
+        }
+
+        private void ProductosDGVControl_Load(object sender, EventArgs e)
+        {
+            RefrescarProductos();
+        }
+
+        /// <summary>
+        /// Devuelve el Guid del producto actualmente seleccionado,
+        /// o null si no hay selección.
+        /// </summary>
+        public Guid? SelectedProductId
+        {
+            get
+            {
+                if (dgvProductos.SelectedRows.Count == 0)
+                    return null;
+
+                // "colId" es la columna oculta que contiene el Guid
+                return dgvProductos.SelectedRows[0]
+                                  .Cells["colId"]
+                                  .Value as Guid?;
+            }
+        }
     }
 }

@@ -40,8 +40,8 @@
             txtStock = new TextBox();
             label6 = new Label();
             label7 = new Label();
-            cbRubros = new ComboBox();
             btnCrearProducto = new Button();
+            rubroscbControl1 = new Controles.RubrosCBControl();
             SuspendLayout();
             // 
             // label1
@@ -57,16 +57,16 @@
             // productosdgvControl1
             // 
             productosdgvControl1.AutoSize = true;
-            productosdgvControl1.Location = new Point(343, 89);
+            productosdgvControl1.Location = new Point(334, 88);
             productosdgvControl1.Name = "productosdgvControl1";
-            productosdgvControl1.Size = new Size(454, 349);
+            productosdgvControl1.Size = new Size(554, 419);
             productosdgvControl1.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(343, 50);
+            label2.Location = new Point(334, 49);
             label2.Name = "label2";
             label2.Size = new Size(110, 30);
             label2.TabIndex = 2;
@@ -146,14 +146,6 @@
             label7.TabIndex = 11;
             label7.Text = "Rubro";
             // 
-            // cbRubros
-            // 
-            cbRubros.FormattingEnabled = true;
-            cbRubros.Location = new Point(34, 347);
-            cbRubros.Name = "cbRubros";
-            cbRubros.Size = new Size(265, 23);
-            cbRubros.TabIndex = 12;
-            // 
             // btnCrearProducto
             // 
             btnCrearProducto.BackColor = Color.RoyalBlue;
@@ -168,13 +160,22 @@
             btnCrearProducto.UseVisualStyleBackColor = false;
             btnCrearProducto.Click += btnCrearProducto_Click;
             // 
+            // rubroscbControl1
+            // 
+            rubroscbControl1.AutoSize = true;
+            rubroscbControl1.CbRubrosTxt = null;
+            rubroscbControl1.Location = new Point(34, 347);
+            rubroscbControl1.Name = "rubroscbControl1";
+            rubroscbControl1.Size = new Size(268, 26);
+            rubroscbControl1.TabIndex = 14;
+            // 
             // AltaDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(900, 550);
+            Controls.Add(rubroscbControl1);
             Controls.Add(btnCrearProducto);
-            Controls.Add(cbRubros);
             Controls.Add(label7);
             Controls.Add(txtStock);
             Controls.Add(label6);
@@ -208,7 +209,7 @@
         private TextBox txtStock;
         private Label label6;
         private Label label7;
-        private ComboBox cbRubros;
         private Button btnCrearProducto;
+        private Controles.RubrosCBControl rubroscbControl1;
     }
 }

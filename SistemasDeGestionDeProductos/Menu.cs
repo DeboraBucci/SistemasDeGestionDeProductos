@@ -8,10 +8,12 @@ namespace SistemasDeGestionDeProductos
     {
         // GESTION DE PRODUCTOS
         AltaDeProducto altaDeProducto = new();
+        ModificacionDeProducto modificacionDeProducto = new();
 
         // GESTION DE RUBROS
         AltaDeRubro altaDeRubro = new AltaDeRubro();
 
+        private Form? currOpenedForm = null;
 
         public Menu()
         {
@@ -23,32 +25,47 @@ namespace SistemasDeGestionDeProductos
             altaDeRubro.MdiParent = this;
             altaDeRubro.Dock = DockStyle.Fill;
 
-            altaDeProducto.Show();
+            modificacionDeProducto.MdiParent = this;
+            modificacionDeProducto.Dock = DockStyle.Fill;
+
+            AbrirForm(altaDeProducto);
         }
 
 
         // PRODUCTOS
         private void altaDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            altaDeProducto.Show();
-            altaDeRubro.Hide();
+            AbrirForm(altaDeProducto);
+        }
+
+        private void modificaciónDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(modificacionDeProducto);
+
         }
 
         // RUBROS
         private void altaDeRubroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            altaDeProducto.Hide();
-            altaDeRubro.Show();
+            AbrirForm(altaDeRubro);
         }
 
+        // OTROS
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void modificaciónDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        // HELPER METHODS
 
+        private void AbrirForm(Form form)
+        {
+            if (currOpenedForm != null)
+                currOpenedForm.Hide();
+
+            currOpenedForm = form;
+            currOpenedForm.Show();
         }
+   
     }
 }

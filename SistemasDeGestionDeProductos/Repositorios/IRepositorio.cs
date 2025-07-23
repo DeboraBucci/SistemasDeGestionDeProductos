@@ -12,6 +12,7 @@ namespace SistemasDeGestionDeProductos.Repositorios
     {
         IReadOnlyCollection<T> BuscarTodos();
         T? BuscarPorNombre(string nombre);
+        T? BuscarPorId(Guid id);
         void Agregar(T entidad);
     }
 }

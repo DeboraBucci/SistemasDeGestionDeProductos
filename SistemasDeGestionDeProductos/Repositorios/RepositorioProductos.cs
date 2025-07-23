@@ -22,6 +22,7 @@ namespace SistemasDeGestionDeProductos.Repositorios
         public Producto? BuscarPorNombre(string nombre) => productos.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
 
         public IReadOnlyCollection<Producto> BuscarTodos() => productos.AsReadOnly();
+        public Producto? BuscarPorId(Guid id) => productos.FirstOrDefault(r => r.Id == id);
 
     }
 }
