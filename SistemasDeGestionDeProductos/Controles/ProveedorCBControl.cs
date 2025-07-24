@@ -51,5 +51,7 @@ namespace SistemasDeGestionDeProductos.Controles
         {
             cbProveedor.SelectedItem = seleccionado;
         }
+
+   
     }
 }

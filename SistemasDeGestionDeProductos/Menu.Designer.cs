@@ -127,6 +127,7 @@
             modificaciónDeRubroToolStripMenuItem.Name = "modificaciónDeRubroToolStripMenuItem";
             modificaciónDeRubroToolStripMenuItem.Size = new Size(195, 22);
             modificaciónDeRubroToolStripMenuItem.Text = "Modificación de Rubro";
+            modificaciónDeRubroToolStripMenuItem.Click += modificaciónDeRubroToolStripMenuItem_Click;
             // 
             // bajaDeRubroToolStripMenuItem
             // 

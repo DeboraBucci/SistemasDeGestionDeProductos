@@ -13,10 +13,12 @@ namespace SistemasDeGestionDeProductos
 
         // GESTION DE RUBROS
         AltaDeRubro altaDeRubro = new();
+        ModificacionDeRubro modificacionDeRubro = new();
 
         // GESTION DE PROVEEDORES
         AltaDeProveedor altaDeProveedor = new();
         ModificacionDeProveedor modificacionDeProveedor = new();
+
 
         private Form? currOpenedForm = null;
 
@@ -27,11 +29,14 @@ namespace SistemasDeGestionDeProductos
             altaDeProducto.MdiParent = this;
             altaDeProducto.Dock = DockStyle.Fill;
 
+            modificacionDeProducto.MdiParent = this;
+            modificacionDeProducto.Dock = DockStyle.Fill;
+
             altaDeRubro.MdiParent = this;
             altaDeRubro.Dock = DockStyle.Fill;
 
-            modificacionDeProducto.MdiParent = this;
-            modificacionDeProducto.Dock = DockStyle.Fill;
+            modificacionDeRubro.MdiParent = this;
+            modificacionDeRubro.Dock = DockStyle.Fill;
 
             altaDeProveedor.MdiParent = this;
             altaDeProveedor.Dock = DockStyle.Fill;
@@ -59,6 +64,11 @@ namespace SistemasDeGestionDeProductos
         private void altaDeRubroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirForm(altaDeRubro);
+        }
+
+        private void modificaciónDeRubroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(modificacionDeRubro);
         }
 
         // PROVEEDORES
@@ -90,6 +100,5 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm.Show();
         }
 
-      
     }
 }
