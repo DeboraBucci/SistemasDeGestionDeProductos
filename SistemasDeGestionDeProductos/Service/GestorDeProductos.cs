@@ -17,21 +17,23 @@ namespace SistemasDeGestionDeProductos.Service
             repositorioProductos = new RepositorioProductos();
         }
 
-        public void CrearProducto(string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro, Guid idProveedor)
+        public void CrearProducto(string nombre, string descripcion, decimal precioUnitarioCompra, int stock, string nombreRubro, string nombreProveedor)
         {
+            // VERIFICAR SI EXISTE PRODUCTO
             var productoYaExistente = repositorioProductos.BuscarPorNombre(nombre);
 
             if (productoYaExistente != null)
-                throw new Exception("Ya existe un producto con el mismo nombre.");
+                throw new InvalidOperationException("Ya existe un producto con el mismo nombre.");
 
+            // CREAR PRODUCTO
             Producto producto = new()
             {
                 Nombre = nombre,
                 Descripcion = descripcion,
                 PrecioUnitarioCompra = precioUnitarioCompra,
                 Stock = stock,
-                IdRubro = idRubro,
-                IdProveedor = idProveedor
+                IdRubro = BuscarIdRubro(nombreRubro),
+                IdProveedor = BuscarIdProveedor(nombreProveedor)
             };
 
             repositorioProductos.Agregar(producto);
@@ -41,10 +43,30 @@ namespace SistemasDeGestionDeProductos.Service
 
         public Producto? BuscarProductoPorId(Guid id) => repositorioProductos.BuscarPorId(id);
 
-        public void ModificarProducto(Guid? productoId, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro, Guid idProveedor)
+        public void ModificarProducto(Guid? productoId, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, string nombreRubro, string nombreProveedor)
         {
             if (productoId != null)
-                repositorioProductos.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, stock, idRubro, idProveedor);
+                repositorioProductos.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, stock, BuscarIdRubro(nombreRubro), BuscarIdProveedor(nombreProveedor));
+        }
+
+        private Guid BuscarIdRubro(string nombre)
+        {
+            var rubro = Program.GestorDeRubros.BuscarRubroPorNombre(nombre);
+
+            if (rubro == null)
+                throw new InvalidOperationException("El rubro seleccionado no existe.");
+
+            return rubro.Id;
+        }
+
+        private Guid BuscarIdProveedor(string nombre)
+        {
+            var proveedor = Program.GestorDeProveedores.BuscarProveedorPorNombre(nombre);
+
+            if (proveedor == null)
+                throw new InvalidOperationException("El proveedor seleccionado no existe.");
+
+            return proveedor.Id;
         }
     }
 }

@@ -19,12 +19,6 @@ namespace SistemasDeGestionDeProductos.Repositorios
             JsonHelper.GuardarEnArchivo(proveedores, archivoProveedores);
         }
 
-        public IReadOnlyCollection<Proveedor> BuscarTodos() => proveedores.AsReadOnly();
-
-        public Proveedor? BuscarPorNombre(string nombre) => proveedores.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
-        
-        public Proveedor? BuscarPorId(Guid id) => proveedores.FirstOrDefault(p => p.Id == id);
-
         public void Modificar(Guid id, string nombre, string contacto, string telefono, string direccion)
         {
             var proveedor = BuscarPorId(id);
@@ -36,6 +30,14 @@ namespace SistemasDeGestionDeProductos.Repositorios
                 proveedor.Telefono = telefono;
                 proveedor.Direccion = direccion;
             }
+
+            JsonHelper.GuardarEnArchivo(proveedores, archivoProveedores);
         }
+
+        public IReadOnlyCollection<Proveedor> BuscarTodos() => proveedores.AsReadOnly();
+
+        public Proveedor? BuscarPorNombre(string nombre) => proveedores.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
+        
+        public Proveedor? BuscarPorId(Guid id) => proveedores.FirstOrDefault(p => p.Id == id);
     }
 }

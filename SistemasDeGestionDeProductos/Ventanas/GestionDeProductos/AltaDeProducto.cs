@@ -1,6 +1,7 @@
 ﻿using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
 using SistemasDeGestionDeProductos.Service;
+using SistemasDeGestionDeProductos.Validadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,37 +26,16 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         {
             try
             {
-                string nombre = txtNombre.Text.Trim();
-                string descripcion = rtxtDescripcion.Text.Trim();
-                string precioUnitarioStr = txtPrecioUnitario.Text.Trim();
-                string stockStr = txtStock.Text.Trim();
+                string nombre = txtNombre.Text;
+                string descripcion = rtxtDescripcion.Text;
+                string precioUnitarioStr = txtPrecioUnitario.Text;
+                string stockStr = txtStock.Text;
                 string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
                 string proveedorNombre = proveedorcbControl1.CbProveedorTxt + "";
 
-                if (nombre == "")
-                    throw new Exception("El nombre del producto no puede estar vacio.");
+                var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr, stockStr );
 
-                if (!decimal.TryParse(precioUnitarioStr, out decimal precioUnit))
-                    throw new Exception("El precio unitario es invalido, pruebe nuevamente.");
-
-                if (!int.TryParse(stockStr, out int stock) || stock < 0)
-                    throw new Exception("El stock debe ser un numero entero mayor o igual a 0.");
-
-                var rubro = Program.GestorDeRubros.BuscarRubroPorNombre(rubroNombre);
-
-                if (rubro == null)
-                    throw new Exception("El rubro seleccionado no existe.");
-
-                Guid idRubro = rubro.Id;
-
-                var proveedor = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre);
-
-                if (proveedor == null)
-                    throw new Exception("El proveedor seleccionado no existe.");
-
-                Guid idProveedor = proveedor.Id;
-
-                Program.GestorDeProductos.CrearProducto(nombre, descripcion, precioUnit, stock, idRubro, idProveedor);
+                Program.GestorDeProductos.CrearProducto(prod.Nombre, prod.Descripcion, prod.PrecioUnitarioCompra, prod.Stock, rubroNombre, proveedorNombre);
 
                 ActualizarDataGrid();
             }

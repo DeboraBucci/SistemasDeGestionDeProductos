@@ -19,11 +19,6 @@ namespace SistemasDeGestionDeProductos.Repositorios
             JsonHelper.GuardarEnArchivo(productos, archivoProductos);
         }
 
-        public Producto? BuscarPorNombre(string nombre) => productos.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
-
-        public IReadOnlyCollection<Producto> BuscarTodos() => productos.AsReadOnly();
-        public Producto? BuscarPorId(Guid id) => productos.FirstOrDefault(r => r.Id == id);
-
         public void Modificar(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro, Guid idProveedor)
         {
             var producto = BuscarPorId(id);
@@ -36,7 +31,14 @@ namespace SistemasDeGestionDeProductos.Repositorios
                 producto.Stock = stock;
                 producto.IdRubro = idRubro;
                 producto.IdProveedor = idProveedor;
-            }   
+            }
+
+            JsonHelper.GuardarEnArchivo(productos, archivoProductos);
         }
+
+        public Producto? BuscarPorNombre(string nombre) => productos.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
+
+        public IReadOnlyCollection<Producto> BuscarTodos() => productos.AsReadOnly();
+        public Producto? BuscarPorId(Guid id) => productos.FirstOrDefault(r => r.Id == id);
     }
 }
