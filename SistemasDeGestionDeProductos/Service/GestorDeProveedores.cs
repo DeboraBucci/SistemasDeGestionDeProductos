@@ -44,7 +44,7 @@ namespace SistemasDeGestionDeProductos.Service
         public void ModificarProveedor(Guid? proveedorId, string nombre, string contacto, string telefono, string direccion)
         {
             if (proveedorId != null)
-                repositorioProveedores.ModificarProveedor(proveedorId.Value, nombre, contacto, telefono, direccion);
+                repositorioProveedores.Modificar(proveedorId.Value, nombre, contacto, telefono, direccion);
         }
     }
 }

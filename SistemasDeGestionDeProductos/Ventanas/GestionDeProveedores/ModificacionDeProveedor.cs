@@ -22,7 +22,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
             InitializeComponent();
         }
 
-        private void proveedordgvControl1_SelectionChangedExternal(object sender, EventArgs e)
+
+        private void dgvControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
             var proveedorId = dgvControl1.SelectedItemId;
             ProveedorId = proveedorId;
@@ -83,5 +84,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
         {
             dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());
         }
+
+      
     }
 }

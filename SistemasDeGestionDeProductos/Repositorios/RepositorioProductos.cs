@@ -24,5 +24,19 @@ namespace SistemasDeGestionDeProductos.Repositorios
         public IReadOnlyCollection<Producto> BuscarTodos() => productos.AsReadOnly();
         public Producto? BuscarPorId(Guid id) => productos.FirstOrDefault(r => r.Id == id);
 
+        public void Modificar(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro, Guid idProveedor)
+        {
+            var producto = BuscarPorId(id);
+
+            if (producto != null)
+            {
+                producto.Nombre = nombre;
+                producto.Descripcion = descripcion;
+                producto.PrecioUnitarioCompra = precioUnitarioCompra;
+                producto.Stock = stock;
+                producto.IdRubro = idRubro;
+                producto.IdProveedor = idProveedor;
+            }   
+        }
     }
 }

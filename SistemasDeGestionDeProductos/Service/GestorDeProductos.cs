@@ -40,5 +40,11 @@ namespace SistemasDeGestionDeProductos.Service
         public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos();
 
         public Producto? BuscarProductoPorId(Guid id) => repositorioProductos.BuscarPorId(id);
+
+        public void ModificarProducto(Guid? productoId, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro, Guid idProveedor)
+        {
+            if (productoId != null)
+                repositorioProductos.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, stock, idRubro, idProveedor);
+        }
     }
 }

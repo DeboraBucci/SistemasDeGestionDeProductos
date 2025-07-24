@@ -25,7 +25,7 @@ namespace SistemasDeGestionDeProductos.Repositorios
         
         public Proveedor? BuscarPorId(Guid id) => proveedores.FirstOrDefault(p => p.Id == id);
 
-        public void ModificarProveedor(Guid id, string nombre, string contacto, string telefono, string direccion)
+        public void Modificar(Guid id, string nombre, string contacto, string telefono, string direccion)
         {
             var proveedor = BuscarPorId(id);
 

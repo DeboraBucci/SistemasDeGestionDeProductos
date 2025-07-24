@@ -147,6 +147,7 @@
             dgvControl1.Name = "dgvControl1";
             dgvControl1.Size = new Size(554, 417);
             dgvControl1.TabIndex = 38;
+            dgvControl1.SelectionChangedExternal += dgvControl1_SelectionChangedExternal;
             // 
             // ModificacionDeProveedor
             // 

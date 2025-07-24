@@ -42,6 +42,8 @@
             label1 = new Label();
             rubroscbControl1 = new Controles.RubrosCBControl();
             dgvControl1 = new DGVControl();
+            proveedorcbControl1 = new Controles.ProveedorCBControl();
+            label8 = new Label();
             SuspendLayout();
             // 
             // btnModificarProducto
@@ -50,7 +52,7 @@
             btnModificarProducto.FlatAppearance.BorderSize = 0;
             btnModificarProducto.FlatStyle = FlatStyle.Flat;
             btnModificarProducto.ForeColor = SystemColors.ButtonFace;
-            btnModificarProducto.Location = new Point(23, 374);
+            btnModificarProducto.Location = new Point(26, 456);
             btnModificarProducto.Name = "btnModificarProducto";
             btnModificarProducto.Size = new Size(265, 49);
             btnModificarProducto.TabIndex = 27;
@@ -168,12 +170,33 @@
             dgvControl1.Name = "dgvControl1";
             dgvControl1.Size = new Size(554, 417);
             dgvControl1.TabIndex = 29;
+            dgvControl1.SelectionChangedExternal += dgvControl1_SelectionChangedExternal;
+            // 
+            // proveedorcbControl1
+            // 
+            proveedorcbControl1.AutoSize = true;
+            proveedorcbControl1.CbProveedorTxt = null;
+            proveedorcbControl1.Location = new Point(23, 391);
+            proveedorcbControl1.Name = "proveedorcbControl1";
+            proveedorcbControl1.Size = new Size(268, 26);
+            proveedorcbControl1.TabIndex = 31;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(23, 373);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 15);
+            label8.TabIndex = 30;
+            label8.Text = "Proveedor";
             // 
             // ModificacionDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 550);
+            Controls.Add(proveedorcbControl1);
+            Controls.Add(label8);
             Controls.Add(dgvControl1);
             Controls.Add(rubroscbControl1);
             Controls.Add(btnModificarProducto);
@@ -212,5 +235,7 @@
         private Label label1;
         private Controles.RubrosCBControl rubroscbControl1;
         private DGVControl dgvControl1;
+        private Controles.ProveedorCBControl proveedorcbControl1;
+        private Label label8;
     }
 }
