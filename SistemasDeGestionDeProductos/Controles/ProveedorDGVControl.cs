@@ -68,7 +68,7 @@ namespace SistemasDeGestionDeProductos.Controles
         public void RefrescarProveedores()
 
         {
-            dgvProveedores.DataSource = Program.GestorDeProvedores.BuscarProveedores();
+            dgvProveedores.DataSource = Program.GestorDeProveedores.BuscarProveedores();
         }
 
         private void dgvProductos_SelectionChanged(object? sender, EventArgs e)

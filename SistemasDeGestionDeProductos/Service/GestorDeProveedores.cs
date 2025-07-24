@@ -38,5 +38,13 @@ namespace SistemasDeGestionDeProductos.Service
         public IReadOnlyCollection<Proveedor> BuscarProveedores() => repositorioProveedores.BuscarTodos();
 
         public Proveedor? BuscarProveedorPorId(Guid id) => repositorioProveedores.BuscarPorId(id);
+
+        public Proveedor? BuscarProveedorPorNombre(string nombre) => repositorioProveedores.BuscarPorNombre(nombre);
+
+        public void ModificarProveedor(Guid? proveedorId, string nombre, string contacto, string telefono, string direccion)
+        {
+            if (proveedorId != null)
+                repositorioProveedores.ModificarProveedor(proveedorId.Value, nombre, contacto, telefono, direccion);
+        }
     }
 }

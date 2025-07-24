@@ -153,13 +153,13 @@
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 26);
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // AltaDeProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(884, 511);
+            ClientSize = new Size(900, 550);
             Controls.Add(proveedordgvControl1);
             Controls.Add(label6);
             Controls.Add(txtDireccion);

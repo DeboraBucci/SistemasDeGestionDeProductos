@@ -16,6 +16,7 @@ namespace SistemasDeGestionDeProductos
 
         // GESTION DE PROVEEDORES
         AltaDeProveedor altaDeProveedor = new();
+        ModificacionDeProveedor modificacionDeProveedor = new();
 
         private Form? currOpenedForm = null;
 
@@ -34,6 +35,9 @@ namespace SistemasDeGestionDeProductos
 
             altaDeProveedor.MdiParent = this;
             altaDeProveedor.Dock = DockStyle.Fill;
+
+            modificacionDeProveedor.MdiParent = this;
+            modificacionDeProveedor.Dock = DockStyle.Fill;
 
             AbrirForm(altaDeProducto);
         }
@@ -63,6 +67,11 @@ namespace SistemasDeGestionDeProductos
             AbrirForm(altaDeProveedor);
         }
 
+        private void modificaciónDeProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(modificacionDeProveedor);
+        }
+
         // OTROS
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -81,6 +90,6 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm.Show();
         }
 
-       
+      
     }
 }

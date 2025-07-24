@@ -23,6 +23,19 @@ namespace SistemasDeGestionDeProductos.Repositorios
 
         public Proveedor? BuscarPorNombre(string nombre) => proveedores.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
         
-        public Proveedor? BuscarPorId(Guid id) => proveedores.FirstOrDefault(r => r.Id == id);
+        public Proveedor? BuscarPorId(Guid id) => proveedores.FirstOrDefault(p => p.Id == id);
+
+        public void ModificarProveedor(Guid id, string nombre, string contacto, string telefono, string direccion)
+        {
+            var proveedor = BuscarPorId(id);
+
+            if (proveedor != null)
+            {
+                proveedor.Nombre = nombre;
+                proveedor.Contacto = contacto;
+                proveedor.Telefono = telefono;
+                proveedor.Direccion = direccion;
+            }
+        }
     }
 }

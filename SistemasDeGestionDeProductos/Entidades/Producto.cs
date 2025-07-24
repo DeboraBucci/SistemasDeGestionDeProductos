@@ -22,6 +22,7 @@ namespace SistemasDeGestionDeProductos.Entidades
         }
         public int Stock { get; set; }
         public Guid IdRubro { get; set; }
+        public Guid IdProveedor { get; set; }   
 
         public Producto()
         {
@@ -29,7 +30,7 @@ namespace SistemasDeGestionDeProductos.Entidades
         }
 
         [JsonConstructor]
-        public Producto(Guid id, string? nombre, string? descripcion, decimal precioUnitarioCompra,  int stock, Guid idRubro)
+        public Producto(Guid id, string? nombre, string? descripcion, decimal precioUnitarioCompra,  int stock, Guid idRubro, Guid idProveedor)
         {
             Id = id;
             Nombre = nombre;
@@ -37,6 +38,7 @@ namespace SistemasDeGestionDeProductos.Entidades
             PrecioUnitarioCompra = precioUnitarioCompra;
             Stock = stock;
             IdRubro = idRubro;
+            IdProveedor = idProveedor;
         }
     }
 }

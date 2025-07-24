@@ -77,6 +77,15 @@ namespace SistemasDeGestionDeProductos
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
+            dgvProductos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "colProveedor",
+                HeaderText = "Proveedor",
+                DataPropertyName = "Proveedor",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+
             dgvProductos.Columns["colId"].Visible = false;
 
             dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;

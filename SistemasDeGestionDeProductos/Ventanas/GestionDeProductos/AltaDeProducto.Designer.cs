@@ -42,6 +42,8 @@
             label7 = new Label();
             btnCrearProducto = new Button();
             rubroscbControl1 = new Controles.RubrosCBControl();
+            label8 = new Label();
+            proveedorcbControl1 = new Controles.ProveedorCBControl();
             SuspendLayout();
             // 
             // label1
@@ -152,7 +154,7 @@
             btnCrearProducto.FlatAppearance.BorderSize = 0;
             btnCrearProducto.FlatStyle = FlatStyle.Flat;
             btnCrearProducto.ForeColor = SystemColors.ButtonFace;
-            btnCrearProducto.Location = new Point(34, 389);
+            btnCrearProducto.Location = new Point(34, 458);
             btnCrearProducto.Name = "btnCrearProducto";
             btnCrearProducto.Size = new Size(265, 49);
             btnCrearProducto.TabIndex = 13;
@@ -169,11 +171,31 @@
             rubroscbControl1.Size = new Size(268, 26);
             rubroscbControl1.TabIndex = 14;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(34, 387);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 15);
+            label8.TabIndex = 15;
+            label8.Text = "Proveedor";
+            // 
+            // proveedorcbControl1
+            // 
+            proveedorcbControl1.AutoSize = true;
+            proveedorcbControl1.CbProveedorTxt = null;
+            proveedorcbControl1.Location = new Point(34, 405);
+            proveedorcbControl1.Name = "proveedorcbControl1";
+            proveedorcbControl1.Size = new Size(268, 26);
+            proveedorcbControl1.TabIndex = 16;
+            // 
             // AltaDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 550);
+            Controls.Add(proveedorcbControl1);
+            Controls.Add(label8);
             Controls.Add(rubroscbControl1);
             Controls.Add(btnCrearProducto);
             Controls.Add(label7);
@@ -211,5 +233,7 @@
         private Label label7;
         private Button btnCrearProducto;
         private Controles.RubrosCBControl rubroscbControl1;
+        private Label label8;
+        private Controles.ProveedorCBControl proveedorcbControl1;
     }
 }

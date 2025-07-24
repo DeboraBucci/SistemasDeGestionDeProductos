@@ -17,7 +17,7 @@ namespace SistemasDeGestionDeProductos.Service
             repositorioProductos = new RepositorioProductos();
         }
 
-        public void CrearProducto(string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro)
+        public void CrearProducto(string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro, Guid idProveedor)
         {
             var productoYaExistente = repositorioProductos.BuscarPorNombre(nombre);
 
@@ -30,7 +30,8 @@ namespace SistemasDeGestionDeProductos.Service
                 Descripcion = descripcion,
                 PrecioUnitarioCompra = precioUnitarioCompra,
                 Stock = stock,
-                IdRubro = idRubro
+                IdRubro = idRubro,
+                IdProveedor = idProveedor
             };
 
             repositorioProductos.Agregar(producto);

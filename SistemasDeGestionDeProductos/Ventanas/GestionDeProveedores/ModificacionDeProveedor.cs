@@ -1,4 +1,5 @@
 ﻿using SistemasDeGestionDeProductos.Controles;
+using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
 using System;
 using System.Collections.Generic;
@@ -12,18 +13,36 @@ using System.Windows.Forms;
 
 namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 {
-    public partial class AltaDeProveedor : Form
+    public partial class ModificacionDeProveedor : Form
     {
-        public AltaDeProveedor()
+        private Guid? ProveedorId = null;
+
+        public ModificacionDeProveedor()
         {
             InitializeComponent();
-
-            proveedordgvControl1.RefrescarProveedores();
         }
 
-        private void btnAgregarProveedor_Click(object sender, EventArgs e)
+        private void proveedordgvControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
+            var proveedorId = proveedordgvControl1.SelectedProveedortId;
+            ProveedorId = proveedorId;
+            Proveedor? proveedor = null;
 
+            if (proveedorId != null)
+                proveedor = Program.GestorDeProveedores.BuscarProveedorPorId(proveedorId.Value);
+
+
+            if (proveedor != null)
+            {
+                txtNombre.Text = proveedor.Nombre;
+                txtDireccion.Text = proveedor.Direccion;
+                txtContacto.Text = proveedor.Contacto;
+                txtTelefono.Text = proveedor.Telefono;
+            }
+        }
+
+        private void btnModificarProveedor_Click(object sender, EventArgs e)
+        {
             try
             {
                 string nombre = txtNombre.Text.Trim();
@@ -44,7 +63,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
                     throw new Exception("La direccion del proveedor no puede estar vacia.");
 
 
-                Program.GestorDeProveedores.CrearProveedor(nombre, contacto, telefono, direccion);
+                Program.GestorDeProveedores.ModificarProveedor(ProveedorId, nombre, contacto, telefono, direccion);
                 proveedordgvControl1.RefrescarProveedores();
             }
 

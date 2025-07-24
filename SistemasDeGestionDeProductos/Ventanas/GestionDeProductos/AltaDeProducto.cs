@@ -29,7 +29,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 string descripcion = rtxtDescripcion.Text.Trim();
                 string precioUnitarioStr = txtPrecioUnitario.Text.Trim();
                 string stockStr = txtStock.Text.Trim();
-                string rubroNombre = rubroscbControl1.CbRubrosTxt;
+                string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
+                string proveedorNombre = proveedorcbControl1.CbProveedorTxt + "";
 
                 if (nombre == "")
                     throw new Exception("El nombre del producto no puede estar vacio.");
@@ -47,8 +48,14 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
                 Guid idRubro = rubro.Id;
 
+                var proveedor = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre);
 
-                Program.GestorDeProductos.CrearProducto(nombre, descripcion, precioUnit, stock, idRubro);
+                if (proveedor == null)
+                    throw new Exception("El proveedor seleccionado no existe.");
+
+                Guid idProveedor = proveedor.Id;
+
+                Program.GestorDeProductos.CrearProducto(nombre, descripcion, precioUnit, stock, idRubro, idProveedor);
                 productosdgvControl1.RefrescarProductos();
             }
 

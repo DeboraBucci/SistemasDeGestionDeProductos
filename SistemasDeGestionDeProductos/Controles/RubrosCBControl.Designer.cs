@@ -47,7 +47,7 @@
             AutoSize = true;
             Controls.Add(cbRubros);
             Name = "RubrosCBControl";
-            Size = new Size(268, 150);
+            Size = new Size(268, 26);
             Load += RubrosCBControl_Load;
             ResumeLayout(false);
         }

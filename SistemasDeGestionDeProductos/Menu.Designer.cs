@@ -159,6 +159,7 @@
             modificaciónDeProveedorToolStripMenuItem.Name = "modificaciónDeProveedorToolStripMenuItem";
             modificaciónDeProveedorToolStripMenuItem.Size = new Size(217, 22);
             modificaciónDeProveedorToolStripMenuItem.Text = "Modificación de Proveedor";
+            modificaciónDeProveedorToolStripMenuItem.Click += modificaciónDeProveedorToolStripMenuItem_Click;
             // 
             // bajaDeProveedorToolStripMenuItem
             // 

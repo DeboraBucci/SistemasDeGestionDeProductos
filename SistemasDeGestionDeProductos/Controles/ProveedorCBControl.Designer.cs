@@ -1,6 +1,6 @@
 ﻿namespace SistemasDeGestionDeProductos.Controles
 {
-    partial class ProveedorDGVControl
+    partial class ProveedorCBControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,34 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvProveedores = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
+            cbProveedor = new ComboBox();
             SuspendLayout();
             // 
-            // dgvProveedores
+            // cbProveedor
             // 
-            dgvProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProveedores.Location = new Point(0, 0);
-            dgvProveedores.Name = "dgvProveedores";
-            dgvProveedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProveedores.Size = new Size(554, 419);
-            dgvProveedores.TabIndex = 0;
+            cbProveedor.FormattingEnabled = true;
+            cbProveedor.Location = new Point(0, 0);
+            cbProveedor.Name = "cbProveedor";
+            cbProveedor.Size = new Size(265, 23);
+            cbProveedor.TabIndex = 0;
+            cbProveedor.SelectedValueChanged += cbProveedor_SelectedValueChanged;
             // 
-            // ProveedorDGVControl
+            // ProveedorCBControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            Controls.Add(dgvProveedores);
-            Name = "ProveedorDGVControl";
-            Size = new Size(557, 422);
-            Load += ProveedorDGVControl_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvProveedores).EndInit();
+            Controls.Add(cbProveedor);
+            Name = "ProveedorCBControl";
+            Size = new Size(268, 150);
+            Load += ProveedorCBControl_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvProveedores;
+        private ComboBox cbProveedor;
     }
 }
