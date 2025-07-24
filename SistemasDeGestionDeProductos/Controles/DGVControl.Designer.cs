@@ -1,6 +1,6 @@
 ﻿namespace SistemasDeGestionDeProductos
 {
-    partial class ProductosDGVControl
+    partial class DGVControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvProductos = new DataGridView();
+            dgvGenerica = new DataGridView();
             Nombre = new DataGridViewTextBoxColumn();
             Descripcion = new DataGridViewTextBoxColumn();
             PrecioUnitario = new DataGridViewTextBoxColumn();
             Stock = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGenerica).BeginInit();
             SuspendLayout();
             // 
-            // dgvProductos
+            // dgvGenerica
             // 
-            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, PrecioUnitario, Stock });
-            dgvProductos.Location = new Point(0, 0);
-            dgvProductos.Name = "dgvProductos";
-            dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProductos.Size = new Size(551, 416);
-            dgvProductos.TabIndex = 0;
-            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
+            dgvGenerica.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvGenerica.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvGenerica.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, PrecioUnitario, Stock });
+            dgvGenerica.Location = new Point(0, 0);
+            dgvGenerica.Name = "dgvGenerica";
+            dgvGenerica.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvGenerica.Size = new Size(551, 414);
+            dgvGenerica.TabIndex = 0;
+            dgvGenerica.SelectionChanged += dgvProductos_SelectionChanged;
             // 
             // Nombre
             // 
@@ -73,17 +73,16 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            Controls.Add(dgvProductos);
+            Controls.Add(dgvGenerica);
             Name = "ProductosDGVControl";
             Size = new Size(554, 419);
-            Load += ProductosDGVControl_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvGenerica).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvProductos;
+        private DataGridView dgvGenerica;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn PrecioUnitario;

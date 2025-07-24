@@ -17,8 +17,6 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
         public AltaDeProveedor()
         {
             InitializeComponent();
-
-            proveedordgvControl1.RefrescarProveedores();
         }
 
         private void btnAgregarProveedor_Click(object sender, EventArgs e)
@@ -45,13 +43,24 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
 
                 Program.GestorDeProveedores.CrearProveedor(nombre, contacto, telefono, direccion);
-                proveedordgvControl1.RefrescarProveedores();
+                ActualizarDataGrid();
             }
 
             catch (Exception ex)
             {
                 ErrorMessage.ShowErrorMessage(ex.Message);
             }
+        }
+
+        private void AltaDeProveedor_Load(object sender, EventArgs e)
+        {
+            dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProveedor;
+            ActualizarDataGrid();
+        }
+
+        private void ActualizarDataGrid()
+        {
+            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());
         }
     }
 }

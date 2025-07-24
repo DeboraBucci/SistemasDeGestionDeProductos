@@ -1,4 +1,5 @@
 ﻿using SistemasDeGestionDeProductos.Entidades;
+using SistemasDeGestionDeProductos.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void productosdgvControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
-            var productId = productosdgvControl1.SelectedProductId;
+            var productId = dgvControl1.SelectedItemId;
             Producto? producto = null;
 
             if (productId != null)
@@ -43,6 +44,18 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         private void btnModificarProducto_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ModificacionDeProducto_Load(object sender, EventArgs e)
+        {
+            dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
+            ActualizarDataGrid();
+        }
+
+        private void ActualizarDataGrid()
+        {
+            var productos = Program.GestorDeProductos.BuscarProductos();
+            dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productos));
         }
     }
 }

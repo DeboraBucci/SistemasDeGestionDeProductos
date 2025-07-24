@@ -39,9 +39,9 @@
             txtNombre = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            productosdgvControl1 = new ProductosDGVControl();
             label1 = new Label();
             rubroscbControl1 = new Controles.RubrosCBControl();
+            dgvControl1 = new DGVControl();
             SuspendLayout();
             // 
             // btnModificarProducto
@@ -142,15 +142,6 @@
             label2.TabIndex = 16;
             label2.Text = "Productos";
             // 
-            // productosdgvControl1
-            // 
-            productosdgvControl1.AutoSize = true;
-            productosdgvControl1.Location = new Point(326, 74);
-            productosdgvControl1.Name = "productosdgvControl1";
-            productosdgvControl1.Size = new Size(554, 419);
-            productosdgvControl1.TabIndex = 15;
-            productosdgvControl1.SelectionChangedExternal += productosdgvControl1_SelectionChangedExternal;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -170,11 +161,20 @@
             rubroscbControl1.Size = new Size(268, 26);
             rubroscbControl1.TabIndex = 28;
             // 
+            // dgvControl1
+            // 
+            dgvControl1.AutoSize = true;
+            dgvControl1.Location = new Point(326, 88);
+            dgvControl1.Name = "dgvControl1";
+            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.TabIndex = 29;
+            // 
             // ModificacionDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 550);
+            Controls.Add(dgvControl1);
             Controls.Add(rubroscbControl1);
             Controls.Add(btnModificarProducto);
             Controls.Add(label7);
@@ -187,11 +187,11 @@
             Controls.Add(txtNombre);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(productosdgvControl1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModificacionDeProducto";
             Text = "ModificacionDeProducto";
+            Load += ModificacionDeProducto_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -209,8 +209,8 @@
         private TextBox txtNombre;
         private Label label3;
         private Label label2;
-        private ProductosDGVControl productosdgvControl1;
         private Label label1;
         private Controles.RubrosCBControl rubroscbControl1;
+        private DGVControl dgvControl1;
     }
 }

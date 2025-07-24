@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            productosdgvControl1 = new ProductosDGVControl();
             label2 = new Label();
             label3 = new Label();
             txtNombre = new TextBox();
@@ -44,6 +43,7 @@
             rubroscbControl1 = new Controles.RubrosCBControl();
             label8 = new Label();
             proveedorcbControl1 = new Controles.ProveedorCBControl();
+            dgvControl1 = new DGVControl();
             SuspendLayout();
             // 
             // label1
@@ -55,14 +55,6 @@
             label1.Size = new Size(160, 30);
             label1.TabIndex = 0;
             label1.Text = "Crear Producto";
-            // 
-            // productosdgvControl1
-            // 
-            productosdgvControl1.AutoSize = true;
-            productosdgvControl1.Location = new Point(334, 88);
-            productosdgvControl1.Name = "productosdgvControl1";
-            productosdgvControl1.Size = new Size(554, 419);
-            productosdgvControl1.TabIndex = 1;
             // 
             // label2
             // 
@@ -189,11 +181,20 @@
             proveedorcbControl1.Size = new Size(268, 26);
             proveedorcbControl1.TabIndex = 16;
             // 
+            // dgvControl1
+            // 
+            dgvControl1.AutoSize = true;
+            dgvControl1.Location = new Point(334, 90);
+            dgvControl1.Name = "dgvControl1";
+            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.TabIndex = 17;
+            // 
             // AltaDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 550);
+            Controls.Add(dgvControl1);
             Controls.Add(proveedorcbControl1);
             Controls.Add(label8);
             Controls.Add(rubroscbControl1);
@@ -208,11 +209,11 @@
             Controls.Add(txtNombre);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(productosdgvControl1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltaDeProducto";
             Text = "AltaDeProducto";
+            Load += AltaDeProducto_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -220,7 +221,6 @@
         #endregion
 
         private Label label1;
-        private ProductosDGVControl productosdgvControl1;
         private Label label2;
         private Label label3;
         private TextBox txtNombre;
@@ -235,5 +235,6 @@
         private Controles.RubrosCBControl rubroscbControl1;
         private Label label8;
         private Controles.ProveedorCBControl proveedorcbControl1;
+        private DGVControl dgvControl1;
     }
 }

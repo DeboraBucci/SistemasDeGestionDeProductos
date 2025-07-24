@@ -35,7 +35,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            rubrosdgvControl1 = new Controles.RubrosDGVControl();
+            dgvControl1 = new DGVControl();
             SuspendLayout();
             // 
             // btnCrearRubro
@@ -105,20 +105,20 @@
             label1.TabIndex = 14;
             label1.Text = "Crear Rubro";
             // 
-            // rubrosdgvControl1
+            // dgvControl1
             // 
-            rubrosdgvControl1.AutoSize = true;
-            rubrosdgvControl1.Location = new Point(328, 70);
-            rubrosdgvControl1.Name = "rubrosdgvControl1";
-            rubrosdgvControl1.Size = new Size(454, 349);
-            rubrosdgvControl1.TabIndex = 22;
+            dgvControl1.AutoSize = true;
+            dgvControl1.Location = new Point(328, 74);
+            dgvControl1.Name = "dgvControl1";
+            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.TabIndex = 22;
             // 
             // AltaDeRubro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(rubrosdgvControl1);
+            ClientSize = new Size(900, 550);
+            Controls.Add(dgvControl1);
             Controls.Add(btnCrearRubro);
             Controls.Add(rtxtDescripcion);
             Controls.Add(label4);
@@ -129,6 +129,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltaDeRubro";
             Text = "AltaDeRubro";
+            Load += AltaDeRubro_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,6 +143,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Controles.RubrosDGVControl rubrosdgvControl1;
+        private DGVControl dgvControl1;
     }
 }

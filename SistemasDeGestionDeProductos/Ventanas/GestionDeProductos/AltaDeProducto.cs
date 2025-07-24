@@ -56,13 +56,27 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 Guid idProveedor = proveedor.Id;
 
                 Program.GestorDeProductos.CrearProducto(nombre, descripcion, precioUnit, stock, idRubro, idProveedor);
-                productosdgvControl1.RefrescarProductos();
+
+                ActualizarDataGrid();
             }
 
             catch (Exception ex)
             {
                 ErrorMessage.ShowErrorMessage(ex.Message);
             }
+        }
+
+        private void AltaDeProducto_Load(object sender, EventArgs e)
+        {
+            
+            dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
+            ActualizarDataGrid();
+        }
+
+        private void ActualizarDataGrid()
+        {
+            var productos = Program.GestorDeProductos.BuscarProductos();
+            dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productos));
         }
     }
 }

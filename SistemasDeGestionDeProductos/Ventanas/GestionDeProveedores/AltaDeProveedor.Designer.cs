@@ -40,8 +40,8 @@
             txtDireccion = new TextBox();
             label5 = new Label();
             label6 = new Label();
-            proveedordgvControl1 = new Controles.ProveedorDGVControl();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            dgvControl1 = new DGVControl();
             SuspendLayout();
             // 
             // btnAgregarProveedor
@@ -142,25 +142,25 @@
             label6.TabIndex = 25;
             label6.Text = "Proveedores";
             // 
-            // proveedordgvControl1
-            // 
-            proveedordgvControl1.AutoSize = true;
-            proveedordgvControl1.Location = new Point(306, 65);
-            proveedordgvControl1.Name = "proveedordgvControl1";
-            proveedordgvControl1.Size = new Size(557, 422);
-            proveedordgvControl1.TabIndex = 26;
-            // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // dgvControl1
+            // 
+            dgvControl1.AutoSize = true;
+            dgvControl1.Location = new Point(306, 84);
+            dgvControl1.Name = "dgvControl1";
+            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.TabIndex = 26;
             // 
             // AltaDeProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 550);
-            Controls.Add(proveedordgvControl1);
+            Controls.Add(dgvControl1);
             Controls.Add(label6);
             Controls.Add(txtDireccion);
             Controls.Add(label5);
@@ -175,6 +175,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltaDeProveedor";
             Text = "AltaDeProveedor";
+            Load += AltaDeProveedor_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -192,7 +193,7 @@
         private TextBox txtDireccion;
         private Label label5;
         private Label label6;
-        private Controles.ProveedorDGVControl proveedordgvControl1;
         private ContextMenuStrip contextMenuStrip1;
+        private DGVControl dgvControl1;
     }
 }
