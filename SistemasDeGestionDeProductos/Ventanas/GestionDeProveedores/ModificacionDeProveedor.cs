@@ -24,7 +24,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
         private void proveedordgvControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
-            var proveedorId = proveedordgvControl1.SelectedProveedortId;
+            var proveedorId = dgvControl1.SelectedItemId;
             ProveedorId = proveedorId;
             Proveedor? proveedor = null;
 
@@ -64,13 +64,24 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
 
                 Program.GestorDeProveedores.ModificarProveedor(ProveedorId, nombre, contacto, telefono, direccion);
-                proveedordgvControl1.RefrescarProveedores();
+                ActualizarDataGrid();
             }
 
             catch (Exception ex)
             {
                 ErrorMessage.ShowErrorMessage(ex.Message);
             }
+        }
+
+        private void ModificacionDeProveedor_Load(object sender, EventArgs e)
+        {
+            dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProveedor;
+            ActualizarDataGrid();
+        }
+
+        private void ActualizarDataGrid()
+        {
+            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            proveedordgvControl1 = new Controles.ProveedorDGVControl();
             label6 = new Label();
             txtDireccion = new TextBox();
             label5 = new Label();
@@ -40,16 +39,8 @@
             txtNombre = new TextBox();
             label3 = new Label();
             label1 = new Label();
+            dgvControl1 = new DGVControl();
             SuspendLayout();
-            // 
-            // proveedordgvControl1
-            // 
-            proveedordgvControl1.AutoSize = true;
-            proveedordgvControl1.Location = new Point(315, 81);
-            proveedordgvControl1.Name = "proveedordgvControl1";
-            proveedordgvControl1.Size = new Size(557, 422);
-            proveedordgvControl1.TabIndex = 38;
-            proveedordgvControl1.SelectionChangedExternal += proveedordgvControl1_SelectionChangedExternal;
             // 
             // label6
             // 
@@ -149,12 +140,20 @@
             label1.TabIndex = 27;
             label1.Text = "Modificar Proveedor";
             // 
-            // ModificionDeProveedor
+            // dgvControl1
+            // 
+            dgvControl1.AutoSize = true;
+            dgvControl1.Location = new Point(315, 92);
+            dgvControl1.Name = "dgvControl1";
+            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.TabIndex = 38;
+            // 
+            // ModificacionDeProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 550);
-            Controls.Add(proveedordgvControl1);
+            Controls.Add(dgvControl1);
             Controls.Add(label6);
             Controls.Add(txtDireccion);
             Controls.Add(label5);
@@ -167,15 +166,15 @@
             Controls.Add(label3);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ModificionDeProveedor";
+            Name = "ModificacionDeProveedor";
             Text = "ModificionDeProveedor";
+            Load += ModificacionDeProveedor_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Controles.ProveedorDGVControl proveedordgvControl1;
         private Label label6;
         private TextBox txtDireccion;
         private Label label5;
@@ -187,5 +186,6 @@
         private TextBox txtNombre;
         private Label label3;
         private Label label1;
+        private DGVControl dgvControl1;
     }
 }
