@@ -12,6 +12,7 @@ using SistemasDeGestionDeProductos.Controles;
 using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
 using SistemasDeGestionDeProductos.Service;
+using SistemasDeGestionDeProductos.Validadores;
 
 namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 {
@@ -25,11 +26,20 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 
         private void btnCrearRubro_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text.Trim();
-            string descripcion = rtxtDescripcion.Text.Trim();
+            try
+            {
+                string nombre = txtNombre.Text;
+                string descripcion = rtxtDescripcion.Text;
 
-            Program.GestorDeRubros.CrearRubro(nombre, descripcion);
-            ActualizarDataGrid();
+                var rubro = ValidadorInputRubro.ValidarInformacion(nombre, descripcion);
+
+                Program.GestorDeRubros.CrearRubro(rubro.Nombre, rubro.Descripcion);
+                ActualizarDataGrid();
+
+            } catch (Exception ex)
+            {
+                ErrorMessage.ShowErrorMessage(ex.ToString());
+            }
         }
 
         private void AltaDeRubro_Load(object sender, EventArgs e)

@@ -51,17 +51,25 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void btnModificarProducto_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string descripcion = rtxtDescripcion.Text;
-            string precioUnitarioStr = txtPrecioUnitario.Text;
-            string stockStr = txtStock.Text;
-            string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
-            string proveedorNombre = proveedorcbControl1.CbProveedorTxt + "";
+            try
+            {
+                string nombre = txtNombre.Text;
+                string descripcion = rtxtDescripcion.Text;
+                string precioUnitarioStr = txtPrecioUnitario.Text;
+                string stockStr = txtStock.Text;
+                string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
+                string proveedorNombre = proveedorcbControl1.CbProveedorTxt + "";
 
-            var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr, stockStr);
+                var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr, stockStr);
 
-            Program.GestorDeProductos.ModificarProducto(ProductoId, prod.Nombre, prod.Descripcion, prod.PrecioUnitarioCompra, prod.Stock, rubroNombre, proveedorNombre);
-            ActualizarDataGrid();
+                Program.GestorDeProductos.ModificarProducto(ProductoId, prod.Nombre, prod.Descripcion, prod.PrecioUnitarioCompra, prod.Stock, rubroNombre, proveedorNombre);
+                ActualizarDataGrid();
+            }
+
+            catch (Exception ex)
+            {
+                ErrorMessage.ShowErrorMessage(ex.Message);
+            }
         }
 
         private void ModificacionDeProducto_Load(object sender, EventArgs e)

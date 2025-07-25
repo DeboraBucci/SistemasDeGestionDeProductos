@@ -20,7 +20,20 @@ namespace SistemasDeGestionDeProductos.Repositorios
             rubros.Add(rubro);
             JsonHelper.GuardarEnArchivo(rubros, archivoRubros);
         }
-        
+
+        public void Modificar(Guid id, string nombre, string descripcion)
+        {
+            var rubro = BuscarPorId(id);
+
+            if (rubro != null)
+            {
+                rubro.Nombre = nombre;
+                rubro.Descripcion = descripcion;
+            }
+
+            JsonHelper.GuardarEnArchivo(rubros, archivoRubros);
+        }
+
         public IReadOnlyCollection<Rubro> BuscarTodos() => rubros.AsReadOnly();
 
         public Rubro? BuscarPorNombre(string nombre) => rubros.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));

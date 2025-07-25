@@ -23,9 +23,6 @@ namespace SistemasDeGestionDeProductos.Service
         {
             try
             {
-                if (nombre.Trim() == "")
-                    throw new Exception("El rubro no puede tener nombre vacio.");
-
                 if (repositorioRubros.BuscarPorNombre(nombre) != null)
                     throw new Exception("Ya existe un rubro con ese nombre, intenta con otro.");
 
@@ -43,6 +40,12 @@ namespace SistemasDeGestionDeProductos.Service
                 ErrorMessage.ShowErrorMessage(ex.Message);
             }
 
+        }
+
+        public void ModificarRubro(Guid? rubroId, string nombre, string descripcion)
+        {
+            if (rubroId != null)
+                repositorioRubros.Modificar(rubroId.Value, nombre, descripcion);
         }
 
         public IReadOnlyCollection<Rubro> BuscarRubros() => repositorioRubros.BuscarTodos();

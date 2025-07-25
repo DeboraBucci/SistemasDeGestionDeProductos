@@ -39,15 +39,16 @@ namespace SistemasDeGestionDeProductos.Service
             repositorioProductos.Agregar(producto);
         }
 
-        public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos();
-
-        public Producto? BuscarProductoPorId(Guid id) => repositorioProductos.BuscarPorId(id);
-
         public void ModificarProducto(Guid? productoId, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, string nombreRubro, string nombreProveedor)
         {
             if (productoId != null)
                 repositorioProductos.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, stock, BuscarIdRubro(nombreRubro), BuscarIdProveedor(nombreProveedor));
         }
+
+        public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos();
+
+        public Producto? BuscarProductoPorId(Guid id) => repositorioProductos.BuscarPorId(id);
+
 
         private Guid BuscarIdRubro(string nombre)
         {
