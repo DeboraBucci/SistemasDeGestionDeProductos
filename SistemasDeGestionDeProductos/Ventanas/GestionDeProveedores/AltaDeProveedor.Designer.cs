@@ -50,7 +50,7 @@
             btnAgregarProveedor.FlatAppearance.BorderSize = 0;
             btnAgregarProveedor.FlatStyle = FlatStyle.Flat;
             btnAgregarProveedor.ForeColor = SystemColors.ButtonFace;
-            btnAgregarProveedor.Location = new Point(19, 367);
+            btnAgregarProveedor.Location = new Point(38, 413);
             btnAgregarProveedor.Name = "btnAgregarProveedor";
             btnAgregarProveedor.Size = new Size(265, 49);
             btnAgregarProveedor.TabIndex = 17;
@@ -60,7 +60,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(19, 131);
+            txtNombre.Location = new Point(38, 177);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 16;
@@ -68,7 +68,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(19, 113);
+            label3.Location = new Point(38, 159);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 15;
@@ -78,7 +78,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(38, 52);
+            label1.Location = new Point(57, 98);
             label1.Name = "label1";
             label1.Size = new Size(200, 30);
             label1.TabIndex = 14;
@@ -86,7 +86,7 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(19, 189);
+            txtContacto.Location = new Point(38, 235);
             txtContacto.Name = "txtContacto";
             txtContacto.Size = new Size(265, 23);
             txtContacto.TabIndex = 19;
@@ -94,7 +94,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(19, 171);
+            label2.Location = new Point(38, 217);
             label2.Name = "label2";
             label2.Size = new Size(96, 15);
             label2.TabIndex = 18;
@@ -102,7 +102,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(19, 249);
+            txtTelefono.Location = new Point(38, 295);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(265, 23);
             txtTelefono.TabIndex = 21;
@@ -110,7 +110,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(19, 231);
+            label4.Location = new Point(38, 277);
             label4.Name = "label4";
             label4.Size = new Size(53, 15);
             label4.TabIndex = 20;
@@ -118,7 +118,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(19, 306);
+            txtDireccion.Location = new Point(38, 352);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(265, 23);
             txtDireccion.TabIndex = 23;
@@ -126,7 +126,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(19, 288);
+            label5.Location = new Point(38, 334);
             label5.Name = "label5";
             label5.Size = new Size(57, 15);
             label5.TabIndex = 22;
@@ -136,7 +136,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F);
-            label6.Location = new Point(306, 32);
+            label6.Location = new Point(351, 18);
             label6.Name = "label6";
             label6.Size = new Size(136, 30);
             label6.TabIndex = 25;
@@ -150,16 +150,16 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(306, 84);
+            dgvControl1.Location = new Point(351, 70);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 26;
             // 
             // AltaDeProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 550);
+            ClientSize = new Size(1100, 600);
             Controls.Add(dgvControl1);
             Controls.Add(label6);
             Controls.Add(txtDireccion);

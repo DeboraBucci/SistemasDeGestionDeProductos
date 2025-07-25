@@ -46,7 +46,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F);
-            label6.Location = new Point(315, 48);
+            label6.Location = new Point(371, 24);
             label6.Name = "label6";
             label6.Size = new Size(136, 30);
             label6.TabIndex = 37;
@@ -54,7 +54,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(28, 322);
+            txtDireccion.Location = new Point(50, 347);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(265, 23);
             txtDireccion.TabIndex = 36;
@@ -62,7 +62,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(28, 304);
+            label5.Location = new Point(50, 329);
             label5.Name = "label5";
             label5.Size = new Size(57, 15);
             label5.TabIndex = 35;
@@ -70,7 +70,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(28, 265);
+            txtTelefono.Location = new Point(50, 290);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(265, 23);
             txtTelefono.TabIndex = 34;
@@ -78,7 +78,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(28, 247);
+            label4.Location = new Point(50, 272);
             label4.Name = "label4";
             label4.Size = new Size(53, 15);
             label4.TabIndex = 33;
@@ -86,7 +86,7 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(28, 205);
+            txtContacto.Location = new Point(50, 230);
             txtContacto.Name = "txtContacto";
             txtContacto.Size = new Size(265, 23);
             txtContacto.TabIndex = 32;
@@ -94,7 +94,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(28, 187);
+            label2.Location = new Point(50, 212);
             label2.Name = "label2";
             label2.Size = new Size(96, 15);
             label2.TabIndex = 31;
@@ -106,7 +106,7 @@
             btnModificarProveedor.FlatAppearance.BorderSize = 0;
             btnModificarProveedor.FlatStyle = FlatStyle.Flat;
             btnModificarProveedor.ForeColor = SystemColors.ButtonFace;
-            btnModificarProveedor.Location = new Point(28, 383);
+            btnModificarProveedor.Location = new Point(50, 408);
             btnModificarProveedor.Name = "btnModificarProveedor";
             btnModificarProveedor.Size = new Size(265, 49);
             btnModificarProveedor.TabIndex = 30;
@@ -116,7 +116,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(28, 147);
+            txtNombre.Location = new Point(50, 172);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 29;
@@ -124,7 +124,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(28, 129);
+            label3.Location = new Point(50, 154);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 28;
@@ -134,7 +134,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(47, 68);
+            label1.Location = new Point(69, 93);
             label1.Name = "label1";
             label1.Size = new Size(213, 30);
             label1.TabIndex = 27;
@@ -143,9 +143,9 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(315, 92);
+            dgvControl1.Location = new Point(371, 68);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 38;
             dgvControl1.SelectionChangedExternal += dgvControl1_SelectionChangedExternal;
             // 
@@ -153,7 +153,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 550);
+            ClientSize = new Size(1100, 600);
             Controls.Add(dgvControl1);
             Controls.Add(label6);
             Controls.Add(txtDireccion);

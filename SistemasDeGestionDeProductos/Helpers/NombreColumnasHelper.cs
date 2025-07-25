@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasDeGestionDeProductos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,7 @@ namespace SistemasDeGestionDeProductos.Helpers
             new("Descripcion", "Descripción"),
             new("PrecioUnitarioCompra", "Compra c/u"),
             new("PrecioUnitarioVenta", "Venta c/u"),
-            new("Stock", "Stock"),
             new("Rubro", "Rubro"),
-            new("Proveedor", "Proveedor"),
             new("Id", "Id"),
             ];
 
@@ -45,8 +44,17 @@ namespace SistemasDeGestionDeProductos.Helpers
             new("Id", "Id"),
             ];
 
-    }
+        public static NombreColumna[] nombresColumnasMovimientos = [
+            new("IdMovimiento", "Id"),
+            new("Producto", "Producto"),
+            new("Tipo", "Tipo"),
+            new("Stock", "Stock"),
+            new("FechaMovimiento", "Fecha de Movimiento"),
+            new("FechaVencimiento", "Fecha de Vencimiento"),
 
+            ];
+
+    }
 
 }
 

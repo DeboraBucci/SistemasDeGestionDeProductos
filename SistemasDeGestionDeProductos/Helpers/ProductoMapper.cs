@@ -17,9 +17,7 @@ namespace SistemasDeGestionDeProductos.Helpers
                 p.Descripcion ?? string.Empty,
                 p.PrecioUnitarioCompra,
                 p.PrecioUnitarioVenta,
-                p.Stock,
-                Program.GestorDeRubros.BuscarRubroPorId(p.IdRubro)?.Nombre ?? string.Empty,
-                Program.GestorDeProveedores.BuscarProveedorPorId(p.IdProveedor)?.Nombre ?? string.Empty
+                Program.GestorDeRubros.BuscarRubroPorId(p.IdRubro)?.Nombre ?? string.Empty
                 )).ToList();
         }
     }

@@ -19,7 +19,7 @@ namespace SistemasDeGestionDeProductos.Repositorios
             JsonHelper.GuardarEnArchivo(productos, archivoProductos);
         }
 
-        public void Modificar(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, Guid idRubro, Guid idProveedor)
+        public void Modificar(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, Guid idRubro)
         {
             var producto = BuscarPorId(id);
 
@@ -28,9 +28,7 @@ namespace SistemasDeGestionDeProductos.Repositorios
                 producto.Nombre = nombre;
                 producto.Descripcion = descripcion;
                 producto.PrecioUnitarioCompra = precioUnitarioCompra;
-                producto.Stock = stock;
                 producto.IdRubro = idRubro;
-                producto.IdProveedor = idProveedor;
             }
 
             JsonHelper.GuardarEnArchivo(productos, archivoProductos);

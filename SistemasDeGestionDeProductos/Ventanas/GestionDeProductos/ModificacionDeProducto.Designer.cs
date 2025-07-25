@@ -30,8 +30,6 @@
         {
             btnModificarProducto = new Button();
             label7 = new Label();
-            txtStock = new TextBox();
-            label6 = new Label();
             txtPrecioUnitario = new TextBox();
             label5 = new Label();
             rtxtDescripcion = new RichTextBox();
@@ -42,8 +40,6 @@
             label1 = new Label();
             rubroscbControl1 = new Controles.RubrosCBControl();
             dgvControl1 = new DGVControl();
-            proveedorcbControl1 = new Controles.ProveedorCBControl();
-            label8 = new Label();
             SuspendLayout();
             // 
             // btnModificarProducto
@@ -52,7 +48,7 @@
             btnModificarProducto.FlatAppearance.BorderSize = 0;
             btnModificarProducto.FlatStyle = FlatStyle.Flat;
             btnModificarProducto.ForeColor = SystemColors.ButtonFace;
-            btnModificarProducto.Location = new Point(26, 456);
+            btnModificarProducto.Location = new Point(43, 474);
             btnModificarProducto.Name = "btnModificarProducto";
             btnModificarProducto.Size = new Size(265, 49);
             btnModificarProducto.TabIndex = 27;
@@ -63,39 +59,23 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(23, 314);
+            label7.Location = new Point(40, 326);
             label7.Name = "label7";
             label7.Size = new Size(39, 15);
             label7.TabIndex = 25;
             label7.Text = "Rubro";
             // 
-            // txtStock
-            // 
-            txtStock.Location = new Point(162, 270);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(126, 23);
-            txtStock.TabIndex = 24;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(162, 252);
-            label6.Name = "label6";
-            label6.Size = new Size(36, 15);
-            label6.TabIndex = 23;
-            label6.Text = "Stock";
-            // 
             // txtPrecioUnitario
             // 
-            txtPrecioUnitario.Location = new Point(23, 270);
+            txtPrecioUnitario.Location = new Point(40, 282);
             txtPrecioUnitario.Name = "txtPrecioUnitario";
-            txtPrecioUnitario.Size = new Size(126, 23);
+            txtPrecioUnitario.Size = new Size(265, 23);
             txtPrecioUnitario.TabIndex = 22;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(23, 252);
+            label5.Location = new Point(40, 264);
             label5.Name = "label5";
             label5.Size = new Size(85, 15);
             label5.TabIndex = 21;
@@ -103,7 +83,7 @@
             // 
             // rtxtDescripcion
             // 
-            rtxtDescripcion.Location = new Point(23, 164);
+            rtxtDescripcion.Location = new Point(40, 176);
             rtxtDescripcion.Name = "rtxtDescripcion";
             rtxtDescripcion.Size = new Size(265, 72);
             rtxtDescripcion.TabIndex = 20;
@@ -112,7 +92,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(23, 146);
+            label4.Location = new Point(40, 158);
             label4.Name = "label4";
             label4.Size = new Size(69, 15);
             label4.TabIndex = 19;
@@ -120,7 +100,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(23, 106);
+            txtNombre.Location = new Point(40, 118);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 18;
@@ -128,7 +108,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(23, 88);
+            label3.Location = new Point(40, 100);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 17;
@@ -138,7 +118,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(326, 35);
+            label2.Location = new Point(363, 22);
             label2.Name = "label2";
             label2.Size = new Size(110, 30);
             label2.TabIndex = 16;
@@ -148,7 +128,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(42, 35);
+            label1.Location = new Point(59, 47);
             label1.Name = "label1";
             label1.Size = new Size(199, 30);
             label1.TabIndex = 14;
@@ -158,7 +138,7 @@
             // 
             rubroscbControl1.AutoSize = true;
             rubroscbControl1.CbRubrosTxt = null;
-            rubroscbControl1.Location = new Point(23, 332);
+            rubroscbControl1.Location = new Point(40, 344);
             rubroscbControl1.Name = "rubroscbControl1";
             rubroscbControl1.Size = new Size(268, 26);
             rubroscbControl1.TabIndex = 28;
@@ -166,43 +146,21 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(326, 88);
+            dgvControl1.Location = new Point(363, 75);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 29;
             dgvControl1.SelectionChangedExternal += dgvControl1_SelectionChangedExternal;
-            // 
-            // proveedorcbControl1
-            // 
-            proveedorcbControl1.AutoSize = true;
-            proveedorcbControl1.CbProveedorTxt = null;
-            proveedorcbControl1.Location = new Point(23, 391);
-            proveedorcbControl1.Name = "proveedorcbControl1";
-            proveedorcbControl1.Size = new Size(268, 26);
-            proveedorcbControl1.TabIndex = 31;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(23, 373);
-            label8.Name = "label8";
-            label8.Size = new Size(61, 15);
-            label8.TabIndex = 30;
-            label8.Text = "Proveedor";
             // 
             // ModificacionDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 550);
-            Controls.Add(proveedorcbControl1);
-            Controls.Add(label8);
+            ClientSize = new Size(1100, 600);
             Controls.Add(dgvControl1);
             Controls.Add(rubroscbControl1);
             Controls.Add(btnModificarProducto);
             Controls.Add(label7);
-            Controls.Add(txtStock);
-            Controls.Add(label6);
             Controls.Add(txtPrecioUnitario);
             Controls.Add(label5);
             Controls.Add(rtxtDescripcion);
@@ -223,8 +181,6 @@
 
         private Button btnModificarProducto;
         private Label label7;
-        private TextBox txtStock;
-        private Label label6;
         private TextBox txtPrecioUnitario;
         private Label label5;
         private RichTextBox rtxtDescripcion;
@@ -235,7 +191,5 @@
         private Label label1;
         private Controles.RubrosCBControl rubroscbControl1;
         private DGVControl dgvControl1;
-        private Controles.ProveedorCBControl proveedorcbControl1;
-        private Label label8;
     }
 }

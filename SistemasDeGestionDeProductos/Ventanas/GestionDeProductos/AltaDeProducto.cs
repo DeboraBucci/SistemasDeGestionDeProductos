@@ -26,16 +26,27 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         {
             try
             {
+                // INFO PRODUCTO
                 string nombre = txtNombre.Text;
                 string descripcion = rtxtDescripcion.Text;
                 string precioUnitarioStr = txtPrecioUnitario.Text;
-                string stockStr = txtStock.Text;
                 string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
+
+                // INFO PRIMER MOVIMIENTO
+                string stockStr = txtStock.Text;
                 string proveedorNombre = proveedorcbControl1.CbProveedorTxt + "";
+                DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
 
-                var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr, stockStr );
 
-                Program.GestorDeProductos.CrearProducto(prod.Nombre, prod.Descripcion, prod.PrecioUnitarioCompra, prod.Stock, rubroNombre, proveedorNombre);
+                if (!int.TryParse(stockStr, out int stock))
+                    throw new Exception("Numero de stock invalido.");
+                
+                var infoProd = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr);
+
+                var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre)?.Id ?? Guid.Empty;
+                var producto = Program.GestorDeProductos.CrearProducto(infoProd.Nombre, infoProd.Descripcion, infoProd.PrecioUnitarioCompra, rubroNombre);
+                
+                Program.GestorDeMovimientos.IngresarStock(producto.Id, stock, fechaVencimiento, proveedorId);
 
                 ActualizarDataGrid();
             }

@@ -7,6 +7,7 @@ namespace SistemasDeGestionDeProductos
         public static GestorDeRubros GestorDeRubros = new();
         public static GestorDeProductos GestorDeProductos = new();
         public static GestorDeProveedores GestorDeProveedores = new();
+        public static GestorDeMovimientos GestorDeMovimientos = new();
 
         /// <summary>
         ///  The main entry point for the application.

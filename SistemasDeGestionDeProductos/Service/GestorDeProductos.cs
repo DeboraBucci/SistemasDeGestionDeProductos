@@ -17,7 +17,7 @@ namespace SistemasDeGestionDeProductos.Service
             repositorioProductos = new RepositorioProductos();
         }
 
-        public void CrearProducto(string nombre, string descripcion, decimal precioUnitarioCompra, int stock, string nombreRubro, string nombreProveedor)
+        public Producto CrearProducto(string nombre, string descripcion, decimal precioUnitarioCompra, string nombreRubro)
         {
             // VERIFICAR SI EXISTE PRODUCTO
             var productoYaExistente = repositorioProductos.BuscarPorNombre(nombre);
@@ -31,18 +31,18 @@ namespace SistemasDeGestionDeProductos.Service
                 Nombre = nombre,
                 Descripcion = descripcion,
                 PrecioUnitarioCompra = precioUnitarioCompra,
-                Stock = stock,
                 IdRubro = BuscarIdRubro(nombreRubro),
-                IdProveedor = BuscarIdProveedor(nombreProveedor)
             };
 
             repositorioProductos.Agregar(producto);
+
+            return producto;
         }
 
-        public void ModificarProducto(Guid? productoId, string nombre, string descripcion, decimal precioUnitarioCompra, int stock, string nombreRubro, string nombreProveedor)
+        public void ModificarProducto(Guid? productoId, string nombre, string descripcion, decimal precioUnitarioCompra, string nombreRubro)
         {
             if (productoId != null)
-                repositorioProductos.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, stock, BuscarIdRubro(nombreRubro), BuscarIdProveedor(nombreProveedor));
+                repositorioProductos.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, BuscarIdRubro(nombreRubro));
         }
 
         public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos();
@@ -58,16 +58,6 @@ namespace SistemasDeGestionDeProductos.Service
                 throw new InvalidOperationException("El rubro seleccionado no existe.");
 
             return rubro.Id;
-        }
-
-        private Guid BuscarIdProveedor(string nombre)
-        {
-            var proveedor = Program.GestorDeProveedores.BuscarProveedorPorNombre(nombre);
-
-            if (proveedor == null)
-                throw new InvalidOperationException("El proveedor seleccionado no existe.");
-
-            return proveedor.Id;
         }
     }
 }

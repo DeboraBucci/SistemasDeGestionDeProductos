@@ -1,4 +1,5 @@
 using SistemasDeGestionDeProductos.Service;
+using SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeProductos;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeRubros;
@@ -18,6 +19,9 @@ namespace SistemasDeGestionDeProductos
         // GESTION DE PROVEEDORES
         AltaDeProveedor altaDeProveedor = new();
         ModificacionDeProveedor modificacionDeProveedor = new();
+
+        // GESTION DE MOVIMIENTOS DE STOCK
+        IngresoDeStock ingresoDeStock = new();
 
 
         private Form? currOpenedForm = null;
@@ -43,6 +47,9 @@ namespace SistemasDeGestionDeProductos
 
             modificacionDeProveedor.MdiParent = this;
             modificacionDeProveedor.Dock = DockStyle.Fill;
+
+            ingresoDeStock.MdiParent = this;
+            ingresoDeStock.Dock = DockStyle.Fill;
 
             AbrirForm(altaDeProducto);
         }
@@ -82,6 +89,12 @@ namespace SistemasDeGestionDeProductos
             AbrirForm(modificacionDeProveedor);
         }
 
+        // MOVIMIENTOS DE STOCK
+        private void ingresoDeStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(ingresoDeStock);
+        }
+
         // OTROS
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -100,5 +113,6 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm.Show();
         }
 
+       
     }
 }

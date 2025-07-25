@@ -44,13 +44,15 @@
             label8 = new Label();
             proveedorcbControl1 = new Controles.ProveedorCBControl();
             dgvControl1 = new DGVControl();
+            dtpFechaVencimiento = new DateTimePicker();
+            label9 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(53, 50);
+            label1.Location = new Point(62, 36);
             label1.Name = "label1";
             label1.Size = new Size(160, 30);
             label1.TabIndex = 0;
@@ -60,7 +62,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(334, 49);
+            label2.Location = new Point(374, 22);
             label2.Name = "label2";
             label2.Size = new Size(110, 30);
             label2.TabIndex = 2;
@@ -69,7 +71,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(34, 103);
+            label3.Location = new Point(43, 76);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 3;
@@ -77,7 +79,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(34, 121);
+            txtNombre.Location = new Point(43, 94);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 4;
@@ -85,7 +87,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(34, 161);
+            label4.Location = new Point(43, 134);
             label4.Name = "label4";
             label4.Size = new Size(69, 15);
             label4.TabIndex = 5;
@@ -93,23 +95,23 @@
             // 
             // rtxtDescripcion
             // 
-            rtxtDescripcion.Location = new Point(34, 179);
+            rtxtDescripcion.Location = new Point(43, 152);
             rtxtDescripcion.Name = "rtxtDescripcion";
-            rtxtDescripcion.Size = new Size(265, 72);
+            rtxtDescripcion.Size = new Size(265, 58);
             rtxtDescripcion.TabIndex = 6;
             rtxtDescripcion.Text = "";
             // 
             // txtPrecioUnitario
             // 
-            txtPrecioUnitario.Location = new Point(34, 285);
+            txtPrecioUnitario.Location = new Point(43, 241);
             txtPrecioUnitario.Name = "txtPrecioUnitario";
-            txtPrecioUnitario.Size = new Size(126, 23);
+            txtPrecioUnitario.Size = new Size(265, 23);
             txtPrecioUnitario.TabIndex = 8;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(34, 267);
+            label5.Location = new Point(43, 223);
             label5.Name = "label5";
             label5.Size = new Size(85, 15);
             label5.TabIndex = 7;
@@ -117,24 +119,24 @@
             // 
             // txtStock
             // 
-            txtStock.Location = new Point(173, 285);
+            txtStock.Location = new Point(43, 346);
             txtStock.Name = "txtStock";
-            txtStock.Size = new Size(126, 23);
+            txtStock.Size = new Size(265, 23);
             txtStock.TabIndex = 10;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(173, 267);
+            label6.Location = new Point(43, 328);
             label6.Name = "label6";
-            label6.Size = new Size(36, 15);
+            label6.Size = new Size(70, 15);
             label6.TabIndex = 9;
-            label6.Text = "Stock";
+            label6.Text = "Stock Inicial";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(34, 329);
+            label7.Location = new Point(43, 276);
             label7.Name = "label7";
             label7.Size = new Size(39, 15);
             label7.TabIndex = 11;
@@ -146,7 +148,7 @@
             btnCrearProducto.FlatAppearance.BorderSize = 0;
             btnCrearProducto.FlatStyle = FlatStyle.Flat;
             btnCrearProducto.ForeColor = SystemColors.ButtonFace;
-            btnCrearProducto.Location = new Point(34, 458);
+            btnCrearProducto.Location = new Point(46, 517);
             btnCrearProducto.Name = "btnCrearProducto";
             btnCrearProducto.Size = new Size(265, 49);
             btnCrearProducto.TabIndex = 13;
@@ -158,7 +160,7 @@
             // 
             rubroscbControl1.AutoSize = true;
             rubroscbControl1.CbRubrosTxt = null;
-            rubroscbControl1.Location = new Point(34, 347);
+            rubroscbControl1.Location = new Point(43, 294);
             rubroscbControl1.Name = "rubroscbControl1";
             rubroscbControl1.Size = new Size(268, 26);
             rubroscbControl1.TabIndex = 14;
@@ -166,7 +168,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(34, 387);
+            label8.Location = new Point(43, 379);
             label8.Name = "label8";
             label8.Size = new Size(61, 15);
             label8.TabIndex = 15;
@@ -176,7 +178,7 @@
             // 
             proveedorcbControl1.AutoSize = true;
             proveedorcbControl1.CbProveedorTxt = null;
-            proveedorcbControl1.Location = new Point(34, 405);
+            proveedorcbControl1.Location = new Point(43, 397);
             proveedorcbControl1.Name = "proveedorcbControl1";
             proveedorcbControl1.Size = new Size(268, 26);
             proveedorcbControl1.TabIndex = 16;
@@ -184,16 +186,34 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(334, 90);
+            dgvControl1.Location = new Point(374, 63);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(554, 417);
+            dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 17;
+            // 
+            // dtpFechaVencimiento
+            // 
+            dtpFechaVencimiento.Location = new Point(43, 451);
+            dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            dtpFechaVencimiento.Size = new Size(265, 23);
+            dtpFechaVencimiento.TabIndex = 18;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(43, 433);
+            label9.Name = "label9";
+            label9.Size = new Size(123, 15);
+            label9.TabIndex = 19;
+            label9.Text = "Fecha de Vencimiento";
             // 
             // AltaDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 550);
+            ClientSize = new Size(1100, 600);
+            Controls.Add(label9);
+            Controls.Add(dtpFechaVencimiento);
             Controls.Add(dgvControl1);
             Controls.Add(proveedorcbControl1);
             Controls.Add(label8);
@@ -236,5 +256,7 @@
         private Label label8;
         private Controles.ProveedorCBControl proveedorcbControl1;
         private DGVControl dgvControl1;
+        private DateTimePicker dtpFechaVencimiento;
+        private Label label9;
     }
 }

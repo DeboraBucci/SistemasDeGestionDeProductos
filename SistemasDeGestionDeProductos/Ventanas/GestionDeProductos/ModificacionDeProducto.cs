@@ -38,13 +38,9 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 txtNombre.Text = producto.Nombre;
                 rtxtDescripcion.Text = producto.Descripcion;
                 txtPrecioUnitario.Text = producto.PrecioUnitarioCompra.ToString();
-                txtStock.Text = producto.Stock.ToString();
 
                 string rubroSeleccionado = Program.GestorDeRubros.BuscarRubroPorId(producto.IdRubro)?.Nombre + "";
                 rubroscbControl1.CambiarSeleccionado(rubroSeleccionado);
-
-                string proveedorSeleccionado = Program.GestorDeProveedores.BuscarProveedorPorId(producto.IdProveedor)?.Nombre + "";
-                proveedorcbControl1.CambiarSeleccionado(proveedorSeleccionado);
             }
         }
 
@@ -56,13 +52,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 string nombre = txtNombre.Text;
                 string descripcion = rtxtDescripcion.Text;
                 string precioUnitarioStr = txtPrecioUnitario.Text;
-                string stockStr = txtStock.Text;
                 string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
-                string proveedorNombre = proveedorcbControl1.CbProveedorTxt + "";
 
-                var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr, stockStr);
+                var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr);
 
-                Program.GestorDeProductos.ModificarProducto(ProductoId, prod.Nombre, prod.Descripcion, prod.PrecioUnitarioCompra, prod.Stock, rubroNombre, proveedorNombre);
+                Program.GestorDeProductos.ModificarProducto(ProductoId, prod.Nombre, prod.Descripcion, prod.PrecioUnitarioCompra, rubroNombre);
                 ActualizarDataGrid();
             }
 

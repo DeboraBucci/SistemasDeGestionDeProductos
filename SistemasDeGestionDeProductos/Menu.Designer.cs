@@ -71,7 +71,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { gestiónDeProductosToolStripMenuItem, gestiónDeRubrosToolStripMenuItem, gestiónDeProveedoresToolStripMenuItem, gestiónDeMovimientosDeStockToolStripMenuItem, reportesToolStripMenuItem, integrantesDelDesarrolloToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(934, 24);
+            menuStrip1.Size = new Size(1114, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -186,6 +186,7 @@
             ingresoDeStockToolStripMenuItem.Name = "ingresoDeStockToolStripMenuItem";
             ingresoDeStockToolStripMenuItem.Size = new Size(210, 22);
             ingresoDeStockToolStripMenuItem.Text = "Ingreso de Stock";
+            ingresoDeStockToolStripMenuItem.Click += ingresoDeStockToolStripMenuItem_Click;
             // 
             // egresoDeStockToolStripMenuItem
             // 
@@ -253,7 +254,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(934, 561);
+            ClientSize = new Size(1114, 611);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             Name = "Menu";

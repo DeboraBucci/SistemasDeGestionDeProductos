@@ -52,7 +52,11 @@ namespace SistemasDeGestionDeProductos
         public DGVControl()
         {
             InitializeComponent();
+
+            dgvGenerica.AutoGenerateColumns = false;
+
             ConstruirColumnas();
+
         }
 
 

@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             dgvGenerica = new DataGridView();
-            Nombre = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
-            PrecioUnitario = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvGenerica).BeginInit();
             SuspendLayout();
             // 
@@ -40,42 +36,21 @@
             // 
             dgvGenerica.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvGenerica.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGenerica.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, PrecioUnitario, Stock });
             dgvGenerica.Location = new Point(0, 0);
             dgvGenerica.Name = "dgvGenerica";
             dgvGenerica.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvGenerica.Size = new Size(551, 414);
+            dgvGenerica.Size = new Size(700, 500);
             dgvGenerica.TabIndex = 0;
             dgvGenerica.SelectionChanged += dgvProductos_SelectionChanged;
             // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.Name = "Descripcion";
-            // 
-            // PrecioUnitario
-            // 
-            PrecioUnitario.HeaderText = "Precio Unitario";
-            PrecioUnitario.Name = "PrecioUnitario";
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "Stock";
-            Stock.Name = "Stock";
-            // 
-            // ProductosDGVControl
+            // DGVControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             Controls.Add(dgvGenerica);
-            Name = "ProductosDGVControl";
-            Size = new Size(554, 419);
+            Name = "DGVControl";
+            Size = new Size(703, 503);
             ((System.ComponentModel.ISupportInitialize)dgvGenerica).EndInit();
             ResumeLayout(false);
         }
@@ -83,9 +58,5 @@
         #endregion
 
         private DataGridView dgvGenerica;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Descripcion;
-        private DataGridViewTextBoxColumn PrecioUnitario;
-        private DataGridViewTextBoxColumn Stock;
     }
 }

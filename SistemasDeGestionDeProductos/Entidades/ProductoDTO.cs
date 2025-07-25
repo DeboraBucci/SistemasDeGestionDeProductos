@@ -13,9 +13,7 @@ namespace SistemasDeGestionDeProductos.Entidades
         public string Descripcion { get; }
         public decimal PrecioUnitarioCompra { get; }
         public decimal PrecioUnitarioVenta { get; }
-        public int Stock { get; }
         public string Rubro { get;  }
-        public string Proveedor { get; }
 
         public ProductoDTO(
             Guid id, 
@@ -23,9 +21,7 @@ namespace SistemasDeGestionDeProductos.Entidades
             string descripcion, 
             decimal precioUnitarioCompra, 
             decimal precioUnitarioVenta, 
-            int stock,
-            string rubro,
-            string proveedor
+            string rubro
             )
         {
             Id = id;
@@ -33,9 +29,7 @@ namespace SistemasDeGestionDeProductos.Entidades
             Descripcion = descripcion;
             PrecioUnitarioCompra = precioUnitarioCompra;
             PrecioUnitarioVenta = precioUnitarioVenta;
-            Stock = stock;
             Rubro = rubro;
-            Proveedor = proveedor;
         } 
     }
 }
