@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasDeGestionDeProductos.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public class Producto
+    public class Producto : INombre
     {
         private static readonly decimal _porcentajeIncrementoPrecio = 0.5m; // 50%
-
         public Guid Id { get; private set; }
         public string? Nombre { get; set; }
         public string? Descripcion { get; set; }

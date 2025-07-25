@@ -40,7 +40,7 @@
             label6 = new Label();
             label7 = new Label();
             btnCrearProducto = new Button();
-            rubroscbControl1 = new Controles.RubrosCBControl();
+            cbControl1 = new Controles.CBControl();
             label8 = new Label();
             proveedorcbControl1 = new Controles.ProveedorCBControl();
             dgvControl1 = new DGVControl();
@@ -156,14 +156,14 @@
             btnCrearProducto.UseVisualStyleBackColor = false;
             btnCrearProducto.Click += btnCrearProducto_Click;
             // 
-            // rubroscbControl1
+            // cbControl1
             // 
-            rubroscbControl1.AutoSize = true;
-            rubroscbControl1.CbRubrosTxt = null;
-            rubroscbControl1.Location = new Point(43, 294);
-            rubroscbControl1.Name = "rubroscbControl1";
-            rubroscbControl1.Size = new Size(268, 26);
-            rubroscbControl1.TabIndex = 14;
+            cbControl1.AutoSize = true;
+            cbControl1.CbTxt = null;
+            cbControl1.Location = new Point(43, 294);
+            cbControl1.Name = "cbControl1";
+            cbControl1.Size = new Size(268, 26);
+            cbControl1.TabIndex = 14;
             // 
             // label8
             // 
@@ -217,7 +217,7 @@
             Controls.Add(dgvControl1);
             Controls.Add(proveedorcbControl1);
             Controls.Add(label8);
-            Controls.Add(rubroscbControl1);
+            Controls.Add(cbControl1);
             Controls.Add(btnCrearProducto);
             Controls.Add(label7);
             Controls.Add(txtStock);
@@ -252,7 +252,7 @@
         private Label label6;
         private Label label7;
         private Button btnCrearProducto;
-        private Controles.RubrosCBControl rubroscbControl1;
+        private Controles.CBControl cbControl1;
         private Label label8;
         private Controles.ProveedorCBControl proveedorcbControl1;
         private DGVControl dgvControl1;

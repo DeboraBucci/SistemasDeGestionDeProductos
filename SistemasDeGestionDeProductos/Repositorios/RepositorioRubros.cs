@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
+using SistemasDeGestionDeProductos.Interfaces;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {

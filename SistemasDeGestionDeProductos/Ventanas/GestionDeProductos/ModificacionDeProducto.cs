@@ -40,7 +40,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 txtPrecioUnitario.Text = producto.PrecioUnitarioCompra.ToString();
 
                 string rubroSeleccionado = Program.GestorDeRubros.BuscarRubroPorId(producto.IdRubro)?.Nombre + "";
-                rubroscbControl1.CambiarSeleccionado(rubroSeleccionado);
+                cbControl1.CambiarSeleccionado(rubroSeleccionado);
             }
         }
 
@@ -52,7 +52,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 string nombre = txtNombre.Text;
                 string descripcion = rtxtDescripcion.Text;
                 string precioUnitarioStr = txtPrecioUnitario.Text;
-                string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
+                string rubroNombre = cbControl1.CbTxt + "";
 
                 var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr);
 
@@ -70,6 +70,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         {
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
             ActualizarDataGrid();
+
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
         }
 
         private void ActualizarDataGrid()

@@ -30,7 +30,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 string nombre = txtNombre.Text;
                 string descripcion = rtxtDescripcion.Text;
                 string precioUnitarioStr = txtPrecioUnitario.Text;
-                string rubroNombre = rubroscbControl1.CbRubrosTxt + "";
+                string rubroNombre = cbControl1.CbTxt + "";
 
                 // INFO PRIMER MOVIMIENTO
                 string stockStr = txtStock.Text;
@@ -62,6 +62,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
             ActualizarDataGrid();
+
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
         }
 
         private void ActualizarDataGrid()

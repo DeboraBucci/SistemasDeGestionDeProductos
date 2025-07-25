@@ -38,7 +38,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            rubroscbControl1 = new Controles.RubrosCBControl();
+            cbControl1 = new Controles.CBControl();
             dgvControl1 = new DGVControl();
             SuspendLayout();
             // 
@@ -134,14 +134,14 @@
             label1.TabIndex = 14;
             label1.Text = "Modificar Producto";
             // 
-            // rubroscbControl1
+            // cbControl1
             // 
-            rubroscbControl1.AutoSize = true;
-            rubroscbControl1.CbRubrosTxt = null;
-            rubroscbControl1.Location = new Point(40, 344);
-            rubroscbControl1.Name = "rubroscbControl1";
-            rubroscbControl1.Size = new Size(268, 26);
-            rubroscbControl1.TabIndex = 28;
+            cbControl1.AutoSize = true;
+            cbControl1.CbTxt = null;
+            cbControl1.Location = new Point(40, 344);
+            cbControl1.Name = "cbControl1";
+            cbControl1.Size = new Size(268, 26);
+            cbControl1.TabIndex = 28;
             // 
             // dgvControl1
             // 
@@ -158,7 +158,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 600);
             Controls.Add(dgvControl1);
-            Controls.Add(rubroscbControl1);
+            Controls.Add(cbControl1);
             Controls.Add(btnModificarProducto);
             Controls.Add(label7);
             Controls.Add(txtPrecioUnitario);
@@ -189,7 +189,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Controles.RubrosCBControl rubroscbControl1;
+        private Controles.CBControl cbControl1;
         private DGVControl dgvControl1;
     }
 }

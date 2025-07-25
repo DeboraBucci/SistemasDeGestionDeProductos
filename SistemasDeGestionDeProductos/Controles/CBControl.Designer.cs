@@ -1,6 +1,6 @@
 ﻿namespace SistemasDeGestionDeProductos.Controles
 {
-    partial class RubrosCBControl
+    partial class CBControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cbRubros = new ComboBox();
+            cbGenerico = new ComboBox();
             SuspendLayout();
             // 
-            // cbRubros
+            // cbGenerico
             // 
-            cbRubros.FormattingEnabled = true;
-            cbRubros.Location = new Point(0, 0);
-            cbRubros.Name = "cbRubros";
-            cbRubros.Size = new Size(265, 23);
-            cbRubros.TabIndex = 0;
-            cbRubros.SelectedValueChanged += cbRubros_SelectedValueChanged;
+            cbGenerico.FormattingEnabled = true;
+            cbGenerico.Location = new Point(0, 0);
+            cbGenerico.Name = "cbGenerico";
+            cbGenerico.Size = new Size(265, 23);
+            cbGenerico.TabIndex = 0;
+            cbGenerico.SelectedValueChanged += cbGenerico_SelectedValueChanged;
             // 
-            // RubrosCBControl
+            // CBControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            Controls.Add(cbRubros);
-            Name = "RubrosCBControl";
+            Controls.Add(cbGenerico);
+            Name = "CBControl";
             Size = new Size(268, 26);
-            Load += RubrosCBControl_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ComboBox cbRubros;
+        private ComboBox cbGenerico;
     }
 }

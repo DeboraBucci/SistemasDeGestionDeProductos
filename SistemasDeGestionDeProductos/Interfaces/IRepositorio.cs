@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemasDeGestionDeProductos.Repositorios
+namespace SistemasDeGestionDeProductos.Interfaces
 {
     public interface IRepositorio<T>
     {

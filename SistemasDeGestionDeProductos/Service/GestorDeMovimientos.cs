@@ -21,7 +21,7 @@ namespace SistemasDeGestionDeProductos.Service
             {
                 ProductoId = productoId,
                 Tipo = TipoMovimiento.Ingreso,
-                Cantidad = cantidad,
+                Stock = cantidad,
                 FechaMovimiento = DateTime.Now,
                 FechaVencimiento = vencimiento,
                 ProveedorId = proveedorId,
@@ -59,10 +59,10 @@ namespace SistemasDeGestionDeProductos.Service
             var lotes = ingresos
                 .Select(i => new {
                     Movimiento = i,
-                    Restante = i.Cantidad - 
+                    Restante = i.Stock - 
                             egresos 
                             .Where(e => e.FechaVencimiento == i.FechaVencimiento)
-                            .Sum(e => e.Cantidad) // Suma todos los egresos con misma fecha de vencimiento que ingreso.
+                            .Sum(e => e.Stock) // Suma todos los egresos con misma fecha de vencimiento que ingreso.
                 })
                 .Where(x => x.Restante > 0) // Solo agrega productos donde la cantidad restante de stock sea mayor que 0.
                 .ToList();
@@ -84,7 +84,7 @@ namespace SistemasDeGestionDeProductos.Service
                     {
                         ProductoId = productoId,
                         Tipo = TipoMovimiento.Egreso,
-                        Cantidad = valorTomado,
+                        Stock = valorTomado,
                         FechaMovimiento = DateTime.Now,
                         FechaVencimiento = lote.Movimiento.FechaVencimiento,
                         Motivo = motivo
@@ -114,14 +114,14 @@ namespace SistemasDeGestionDeProductos.Service
                 .GroupBy(m => m.ProductoId) // agrupa x mismo id
                 .Select(g => (
                     prod: Program.GestorDeProductos.BuscarProductoPorId(g.Key),
-                    stock: g.Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Cantidad : -m.Cantidad)
+                    stock: g.Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock)
                 ));
 
         public int ObtenerStockActual(Guid prodId) => 
             _repositorioMovimientos
                             .BuscarTodos()
                             .Where(m => m.ProductoId == prodId)
-                            .Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Cantidad : -m.Cantidad);
+                            .Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock);
 
 
         public IEnumerable<(Producto? producto, DateTime vencimiento, int stock)>
@@ -149,14 +149,14 @@ namespace SistemasDeGestionDeProductos.Service
                                     vencimiento: movimiento.FechaVencimiento,
                                     stock: grupoFecha
                                             .Sum(movFecha => 
-                                                movFecha.Cantidad) - 
+                                                movFecha.Stock) - 
                                                 _repositorioMovimientos
                                                     .BuscarTodos()
                                                     .Where(e => 
                                                         e.Tipo == TipoMovimiento.Egreso
                                                         && e.FechaVencimiento == movimiento.FechaVencimiento
                                                         && e.ProductoId == movimiento.ProductoId)
-                                                    .Sum(e => e.Cantidad)
+                                                    .Sum(e => e.Stock)
                                              )
                                 )
                         );

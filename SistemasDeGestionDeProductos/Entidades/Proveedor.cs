@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasDeGestionDeProductos.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public class Proveedor
+    public class Proveedor : INombre
     {
         public Guid Id { get; private set;  }
         public string? Nombre { get; set; } = null;
