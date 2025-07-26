@@ -25,6 +25,7 @@ namespace SistemasDeGestionDeProductos
 
         // GESTION DE MOVIMIENTOS DE STOCK
         IngresoDeStock ingresoDeStock = new();
+        EgresoDeStock egresoDeStock = new();
 
 
         private Form? currOpenedForm = null;
@@ -66,6 +67,9 @@ namespace SistemasDeGestionDeProductos
             // MOVIMIENTOS STOCK
             ingresoDeStock.MdiParent = this;
             ingresoDeStock.Dock = DockStyle.Fill;
+
+            egresoDeStock.MdiParent = this;
+            egresoDeStock.Dock = DockStyle.Fill;
 
             AbrirForm(altaDeProducto);
         }
@@ -124,6 +128,11 @@ namespace SistemasDeGestionDeProductos
         private void ingresoDeStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirForm(ingresoDeStock);
+        }
+
+        private void egresoDeStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(egresoDeStock);
         }
 
         // OTROS

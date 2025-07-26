@@ -196,6 +196,7 @@
             egresoDeStockToolStripMenuItem.Name = "egresoDeStockToolStripMenuItem";
             egresoDeStockToolStripMenuItem.Size = new Size(210, 22);
             egresoDeStockToolStripMenuItem.Text = "Egreso de Stock";
+            egresoDeStockToolStripMenuItem.Click += egresoDeStockToolStripMenuItem_Click;
             // 
             // consultaDeMovimientosToolStripMenuItem
             // 
