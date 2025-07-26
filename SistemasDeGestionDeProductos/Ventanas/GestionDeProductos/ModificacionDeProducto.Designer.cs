@@ -172,6 +172,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModificacionDeProducto";
             Text = "ModificacionDeProducto";
+            Activated += ModificacionDeProducto_Activated;
             Load += ModificacionDeProducto_Load;
             ResumeLayout(false);
             PerformLayout();

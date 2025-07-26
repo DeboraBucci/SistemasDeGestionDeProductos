@@ -16,22 +16,38 @@ namespace SistemasDeGestionDeProductos.Entidades
 
     public class MovimientoStock
     {
-        public Guid Id { get; private set; } = Guid.NewGuid();
+        public Guid Id { get; private set; }
         public Guid ProductoId { get; set; }
         public TipoMovimiento Tipo {  get; set; }
         public int Stock {  get; set; }
-        public DateTime FechaMovimiento {  get; set; } = DateTime.Now;
+        public DateTime FechaMovimiento {  get; set; }
         public DateTime FechaVencimiento { get; set; }
 
-    }
+        public Guid? ProveedorId { get; set; } = null; // SOLO INGRESOS
+        public string Motivo { get; set; } = string.Empty; // SOLO EGRESOS
 
-    public class IngresoStock : MovimientoStock
-    {
-        public Guid ProveedorId { get; set; }
-    }
+        [JsonConstructor]
+        public MovimientoStock(
+        Guid id,
+        Guid productoId,
+        TipoMovimiento tipo,
+        int stock,
+        DateTime fechaMovimiento,
+        DateTime fechaVencimiento)
+        {
+            Id = id;
+            ProductoId = productoId;
+            Tipo = tipo;
+            Stock = stock;
+            FechaMovimiento = fechaMovimiento;
+            FechaVencimiento = fechaVencimiento;
+        }
 
-    public class EgresoStock : MovimientoStock
-    {
-        public string Motivo { get; set; }   = string.Empty;
+        public MovimientoStock()
+        {
+            Id = Guid.NewGuid();
+            FechaMovimiento = DateTime.Now;
+        }
+
     }
 }

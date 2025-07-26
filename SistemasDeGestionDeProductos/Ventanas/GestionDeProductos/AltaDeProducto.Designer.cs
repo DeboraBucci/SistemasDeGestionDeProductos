@@ -233,6 +233,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltaDeProducto";
             Text = "AltaDeProducto";
+            Activated += AltaDeProducto_Activated;
             Load += AltaDeProducto_Load;
             ResumeLayout(false);
             PerformLayout();

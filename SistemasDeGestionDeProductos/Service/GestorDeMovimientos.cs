@@ -17,7 +17,7 @@ namespace SistemasDeGestionDeProductos.Service
             if (cantidad <= 0)
                 throw new ArgumentException("Cantidad debe ser > 0");
 
-            _repositorioMovimientos.Agregar(new IngresoStock
+            _repositorioMovimientos.Agregar(new MovimientoStock
             {
                 ProductoId = productoId,
                 Tipo = TipoMovimiento.Ingreso,
@@ -80,7 +80,7 @@ namespace SistemasDeGestionDeProductos.Service
 
                 // Genera un nuevo movimiento por cada lote con fecha de vencimiento diferente
                 _repositorioMovimientos.Agregar(
-                    new EgresoStock
+                    new MovimientoStock
                     {
                         ProductoId = productoId,
                         Tipo = TipoMovimiento.Egreso,
@@ -164,17 +164,28 @@ namespace SistemasDeGestionDeProductos.Service
 
         public IReadOnlyCollection<Proveedor?> ObtenerProveedoresPorProducto(Guid productoId)
         {
+
+            var movimientos = 
+                _repositorioMovimientos
+                .BuscarTodos();
+
+            var mov = movimientos.FirstOrDefault();
+
             var ingresos = _repositorioMovimientos
                 .BuscarTodos()
-                .OfType<IngresoStock>()                         
-                .Where(m => m.ProductoId == productoId);
+                .Where(m => m.ProductoId == productoId && m.Tipo == TipoMovimiento.Ingreso);
+
+            var ingreso = ingresos.FirstOrDefault();
+
 
             var proveedoresIds = ingresos
                 .Select(m => m.ProveedorId)                    
                 .Distinct();
 
+            var id = proveedoresIds.FirstOrDefault();
+
             var proveedores = proveedoresIds
-                .Select(id => Program.GestorDeProveedores.BuscarProveedorPorId(id))
+                .Select(id => Program.GestorDeProveedores.BuscarProveedorPorId(id ?? Guid.Empty))
                 .Where(p => p != null)!
                 .ToList();
 

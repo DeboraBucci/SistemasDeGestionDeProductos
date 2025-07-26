@@ -74,12 +74,17 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
         }
 
+        private void ModificacionDeProducto_Activated(object sender, EventArgs e)
+        {
+            ActualizarDataGrid();
+        }
+
         private void ActualizarDataGrid()
         {
             var productos = Program.GestorDeProductos.BuscarProductos();
             dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productos));
         }
 
-        
+       
     }
 }

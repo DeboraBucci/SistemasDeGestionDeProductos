@@ -38,12 +38,17 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
                 cbControl2.LlenarComboBox(proovedores);
         }
 
+        private void IngresoDeStock_Activated(object sender, EventArgs e)
+        {
+            ActualizarDataGrid();
+        }
+
         private void ActualizarDataGrid()
         {
             var movimientos = Program.GestorDeMovimientos.ListarMovimientos();
             dgvControl1.Refrescar(movimientos);
         }
 
-       
+      
     }
 }

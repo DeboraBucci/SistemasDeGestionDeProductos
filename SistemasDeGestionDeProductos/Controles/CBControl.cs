@@ -27,9 +27,8 @@ namespace SistemasDeGestionDeProductos.Controles
         // EVENTOS
         private void cbGenerico_SelectedValueChanged(object sender, EventArgs e)
         {
-            SelectionChangedExternal?.Invoke(this, e);
-
             CbTxt = cbGenerico.Text;
+            SelectionChangedExternal?.Invoke(this, e);
         }
 
         // HANDLERS

@@ -173,6 +173,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "IngresoDeStock";
             Text = "IngresoDeStock";
+            Activated += IngresoDeStock_Activated;
             Load += IngresoDeStock_Load;
             ResumeLayout(false);
             PerformLayout();

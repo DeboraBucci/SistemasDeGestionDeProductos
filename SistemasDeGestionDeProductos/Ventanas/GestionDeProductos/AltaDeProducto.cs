@@ -40,12 +40,12 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
                 if (!int.TryParse(stockStr, out int stock))
                     throw new Exception("Numero de stock invalido.");
-                
+
                 var infoProd = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr);
 
                 var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre)?.Id ?? Guid.Empty;
                 var producto = Program.GestorDeProductos.CrearProducto(infoProd.Nombre, infoProd.Descripcion, infoProd.PrecioUnitarioCompra, rubroNombre);
-                
+
                 Program.GestorDeMovimientos.IngresarStock(producto.Id, stock, fechaVencimiento, proveedorId);
 
                 ActualizarDataGrid();
@@ -59,11 +59,16 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void AltaDeProducto_Load(object sender, EventArgs e)
         {
-            
+
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
             ActualizarDataGrid();
 
             cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
+        }
+
+        private void AltaDeProducto_Activated(object sender, EventArgs e)
+        {
+            ActualizarDataGrid();
         }
 
         private void ActualizarDataGrid()
@@ -71,5 +76,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             var productos = Program.GestorDeProductos.BuscarProductos();
             dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productos));
         }
+
+       
     }
 }
