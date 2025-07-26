@@ -22,5 +22,10 @@ namespace SistemasDeGestionDeProductos.Repositorios
 
         public IReadOnlyCollection<MovimientoStock> BuscarTodos()
           => _movimientos.AsReadOnly();
+
+        public IReadOnlyCollection<MovimientoStock> BuscarPorTipo(TipoMovimiento tipo) => 
+            _movimientos
+            .Where(m => m.Tipo == tipo)
+            .ToList();
     }
 }

@@ -31,7 +31,7 @@
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             dgvControl1 = new DGVControl();
             label6 = new Label();
-            btnAgregarMovimiento = new Button();
+            btnAgregarIngreso = new Button();
             label1 = new Label();
             cbControl1 = new Controles.CBControl();
             label2 = new Label();
@@ -57,23 +57,23 @@
             label6.Font = new Font("Segoe UI", 16F);
             label6.Location = new Point(363, 28);
             label6.Name = "label6";
-            label6.Size = new Size(228, 30);
+            label6.Size = new Size(184, 30);
             label6.TabIndex = 28;
-            label6.Text = "Movimientos de Stock";
+            label6.Text = "Ingresos de Stock";
             // 
-            // btnAgregarMovimiento
+            // btnAgregarIngreso
             // 
-            btnAgregarMovimiento.BackColor = Color.RoyalBlue;
-            btnAgregarMovimiento.FlatAppearance.BorderSize = 0;
-            btnAgregarMovimiento.FlatStyle = FlatStyle.Flat;
-            btnAgregarMovimiento.ForeColor = SystemColors.ButtonFace;
-            btnAgregarMovimiento.Location = new Point(42, 420);
-            btnAgregarMovimiento.Name = "btnAgregarMovimiento";
-            btnAgregarMovimiento.Size = new Size(265, 49);
-            btnAgregarMovimiento.TabIndex = 27;
-            btnAgregarMovimiento.Text = "Agregar Movimiento";
-            btnAgregarMovimiento.UseVisualStyleBackColor = false;
-            btnAgregarMovimiento.Click += btnAgregarMovimiento_Click;
+            btnAgregarIngreso.BackColor = Color.RoyalBlue;
+            btnAgregarIngreso.FlatAppearance.BorderSize = 0;
+            btnAgregarIngreso.FlatStyle = FlatStyle.Flat;
+            btnAgregarIngreso.ForeColor = SystemColors.ButtonFace;
+            btnAgregarIngreso.Location = new Point(42, 420);
+            btnAgregarIngreso.Name = "btnAgregarIngreso";
+            btnAgregarIngreso.Size = new Size(265, 49);
+            btnAgregarIngreso.TabIndex = 27;
+            btnAgregarIngreso.Text = "Agregar Movimiento";
+            btnAgregarIngreso.UseVisualStyleBackColor = false;
+            btnAgregarIngreso.Click += btnAgregarMovimiento_Click;
             // 
             // label1
             // 
@@ -81,9 +81,9 @@
             label1.Font = new Font("Segoe UI", 16F);
             label1.Location = new Point(62, 120);
             label1.Name = "label1";
-            label1.Size = new Size(215, 30);
+            label1.Size = new Size(171, 30);
             label1.TabIndex = 26;
-            label1.Text = "Agregar Movimiento";
+            label1.Text = "Agregar Ingreso";
             // 
             // cbControl1
             // 
@@ -168,7 +168,7 @@
             Controls.Add(label2);
             Controls.Add(cbControl1);
             Controls.Add(label6);
-            Controls.Add(btnAgregarMovimiento);
+            Controls.Add(btnAgregarIngreso);
             Controls.Add(label1);
             Controls.Add(dgvControl1);
             FormBorderStyle = FormBorderStyle.None;
@@ -185,7 +185,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private DGVControl dgvControl1;
         private Label label6;
-        private Button btnAgregarMovimiento;
+        private Button btnAgregarIngreso;
         private Label label1;
         private Controles.CBControl cbControl1;
         private Label label2;

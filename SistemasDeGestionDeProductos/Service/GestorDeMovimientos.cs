@@ -108,6 +108,11 @@ namespace SistemasDeGestionDeProductos.Service
                 .AsReadOnly();
         }
 
+        public IReadOnlyCollection<MovimientoStock> ListarIngresos() => _repositorioMovimientos.BuscarPorTipo(TipoMovimiento.Ingreso);
+
+        public IReadOnlyCollection<MovimientoStock> ListarEgresos() => _repositorioMovimientos.BuscarPorTipo(TipoMovimiento.Egreso);
+
+
         public IEnumerable<(Producto? producto, int stock)> StockActual() => 
                 _repositorioMovimientos
                 .BuscarTodos()
