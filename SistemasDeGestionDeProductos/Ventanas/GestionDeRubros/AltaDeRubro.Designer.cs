@@ -44,7 +44,7 @@
             btnCrearRubro.FlatAppearance.BorderSize = 0;
             btnCrearRubro.FlatStyle = FlatStyle.Flat;
             btnCrearRubro.ForeColor = SystemColors.ButtonFace;
-            btnCrearRubro.Location = new Point(19, 370);
+            btnCrearRubro.Location = new Point(120, 439);
             btnCrearRubro.Name = "btnCrearRubro";
             btnCrearRubro.Size = new Size(265, 49);
             btnCrearRubro.TabIndex = 21;
@@ -54,7 +54,7 @@
             // 
             // rtxtDescripcion
             // 
-            rtxtDescripcion.Location = new Point(19, 160);
+            rtxtDescripcion.Location = new Point(120, 229);
             rtxtDescripcion.Name = "rtxtDescripcion";
             rtxtDescripcion.Size = new Size(265, 72);
             rtxtDescripcion.TabIndex = 20;
@@ -63,7 +63,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(19, 142);
+            label4.Location = new Point(120, 211);
             label4.Name = "label4";
             label4.Size = new Size(69, 15);
             label4.TabIndex = 19;
@@ -71,7 +71,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(19, 102);
+            txtNombre.Location = new Point(120, 171);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 18;
@@ -79,7 +79,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(19, 84);
+            label3.Location = new Point(120, 153);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 17;
@@ -89,7 +89,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(328, 31);
+            label2.Location = new Point(487, 71);
             label2.Name = "label2";
             label2.Size = new Size(81, 30);
             label2.TabIndex = 16;
@@ -99,7 +99,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(38, 31);
+            label1.Location = new Point(139, 100);
             label1.Name = "label1";
             label1.Size = new Size(131, 30);
             label1.TabIndex = 14;
@@ -108,7 +108,7 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(328, 74);
+            dgvControl1.Location = new Point(487, 114);
             dgvControl1.Name = "dgvControl1";
             dgvControl1.Size = new Size(554, 417);
             dgvControl1.TabIndex = 22;
@@ -117,7 +117,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 550);
+            ClientSize = new Size(1100, 600);
             Controls.Add(dgvControl1);
             Controls.Add(btnCrearRubro);
             Controls.Add(rtxtDescripcion);

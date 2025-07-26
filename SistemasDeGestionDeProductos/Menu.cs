@@ -16,6 +16,7 @@ namespace SistemasDeGestionDeProductos
         // GESTION DE RUBROS
         AltaDeRubro altaDeRubro = new();
         ModificacionDeRubro modificacionDeRubro = new();
+        ConsultaDeRubros consultaDeRubros = new();
 
         // GESTION DE PROVEEDORES
         AltaDeProveedor altaDeProveedor = new();
@@ -31,6 +32,7 @@ namespace SistemasDeGestionDeProductos
         {
             InitializeComponent();
 
+            // PRODUCTOS
             altaDeProducto.MdiParent = this;
             altaDeProducto.Dock = DockStyle.Fill;
 
@@ -40,18 +42,24 @@ namespace SistemasDeGestionDeProductos
             consultaDeProductos.MdiParent = this;
             consultaDeProductos.Dock = DockStyle.Fill;
 
+            // RUBROS
             altaDeRubro.MdiParent = this;
             altaDeRubro.Dock = DockStyle.Fill;
 
             modificacionDeRubro.MdiParent = this;
             modificacionDeRubro.Dock = DockStyle.Fill;
 
+            consultaDeRubros.MdiParent = this;
+            consultaDeRubros.Dock = DockStyle.Fill;
+
+            // PROVEEDORES
             altaDeProveedor.MdiParent = this;
             altaDeProveedor.Dock = DockStyle.Fill;
 
             modificacionDeProveedor.MdiParent = this;
             modificacionDeProveedor.Dock = DockStyle.Fill;
 
+            // MOVIMIENTOS STOCK
             ingresoDeStock.MdiParent = this;
             ingresoDeStock.Dock = DockStyle.Fill;
 
@@ -85,6 +93,11 @@ namespace SistemasDeGestionDeProductos
         private void modificaciónDeRubroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirForm(modificacionDeRubro);
+        }
+
+        private void consultaDeRubrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(consultaDeRubros);
         }
 
         // PROVEEDORES
@@ -122,6 +135,6 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm.Show();
         }
 
-        
+      
     }
 }
