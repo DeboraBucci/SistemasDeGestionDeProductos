@@ -42,10 +42,10 @@
             btnCrearProducto = new Button();
             cbControl1 = new Controles.CBControl();
             label8 = new Label();
-            proveedorcbControl1 = new Controles.ProveedorCBControl();
             dgvControl1 = new DGVControl();
             dtpFechaVencimiento = new DateTimePicker();
             label9 = new Label();
+            cbControl2 = new Controles.CBControl();
             SuspendLayout();
             // 
             // label1
@@ -174,15 +174,6 @@
             label8.TabIndex = 15;
             label8.Text = "Proveedor";
             // 
-            // proveedorcbControl1
-            // 
-            proveedorcbControl1.AutoSize = true;
-            proveedorcbControl1.CbProveedorTxt = null;
-            proveedorcbControl1.Location = new Point(43, 397);
-            proveedorcbControl1.Name = "proveedorcbControl1";
-            proveedorcbControl1.Size = new Size(268, 26);
-            proveedorcbControl1.TabIndex = 16;
-            // 
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
@@ -207,15 +198,24 @@
             label9.TabIndex = 19;
             label9.Text = "Fecha de Vencimiento";
             // 
+            // cbControl2
+            // 
+            cbControl2.AutoSize = true;
+            cbControl2.CbTxt = null;
+            cbControl2.Location = new Point(43, 397);
+            cbControl2.Name = "cbControl2";
+            cbControl2.Size = new Size(268, 26);
+            cbControl2.TabIndex = 20;
+            // 
             // AltaDeProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 600);
+            Controls.Add(cbControl2);
             Controls.Add(label9);
             Controls.Add(dtpFechaVencimiento);
             Controls.Add(dgvControl1);
-            Controls.Add(proveedorcbControl1);
             Controls.Add(label8);
             Controls.Add(cbControl1);
             Controls.Add(btnCrearProducto);
@@ -255,9 +255,9 @@
         private Button btnCrearProducto;
         private Controles.CBControl cbControl1;
         private Label label8;
-        private Controles.ProveedorCBControl proveedorcbControl1;
         private DGVControl dgvControl1;
         private DateTimePicker dtpFechaVencimiento;
         private Label label9;
+        private Controles.CBControl cbControl2;
     }
 }

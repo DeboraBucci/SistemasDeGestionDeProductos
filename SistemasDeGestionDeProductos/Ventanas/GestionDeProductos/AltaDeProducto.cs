@@ -34,7 +34,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
                 // INFO PRIMER MOVIMIENTO
                 string stockStr = txtStock.Text;
-                string proveedorNombre = proveedorcbControl1.CbProveedorTxt + "";
+                string proveedorNombre = cbControl2.CbTxt + "";
                 DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
 
 
@@ -62,19 +62,25 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
             ActualizarDataGrid();
-
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
+            ActualizarComboBoxes();
         }
 
         private void AltaDeProducto_Activated(object sender, EventArgs e)
         {
             ActualizarDataGrid();
+            ActualizarComboBoxes();
         }
 
         private void ActualizarDataGrid()
         {
             var productos = Program.GestorDeProductos.BuscarProductos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
+        }
+
+        private void ActualizarComboBoxes()
+        {
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
+            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
         }
     }
 }
