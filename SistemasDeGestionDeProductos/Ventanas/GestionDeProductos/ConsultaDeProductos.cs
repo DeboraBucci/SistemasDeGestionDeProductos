@@ -36,7 +36,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         private void ActualizarDataGrid()
         {
             var productos = Program.GestorDeProductos.BuscarProductos();
-            dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productos));
+            dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
 
         private void cbControl1_SelectionChangedExternal(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 ActualizarDataGrid();
 
             else
-                dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productosDelRubro));
+                dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productosDelRubro));
         }
 
         private void txtIdONombre_TextChanged(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             else
             {
                 var productosFiltrados = Program.GestorDeProductos.BuscarPorFiltro(texto);
-                dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productosFiltrados));
+                dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productosFiltrados));
             }
         }
     }

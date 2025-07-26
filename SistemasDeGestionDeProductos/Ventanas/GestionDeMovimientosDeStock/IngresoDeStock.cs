@@ -46,7 +46,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
         private void ActualizarDataGrid()
         {
             var movimientos = Program.GestorDeMovimientos.ListarIngresos();
-            dgvControl1.Refrescar(movimientos);
+            dgvControl1.Refrescar(MovimientosMapper.ListaMovimientoAMovimientoDTO(movimientos));
         }
 
         private void btnAgregarMovimiento_Click(object sender, EventArgs e)

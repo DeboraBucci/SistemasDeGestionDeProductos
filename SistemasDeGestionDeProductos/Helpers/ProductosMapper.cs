@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Helpers
 {
-    internal class ProductoMapper
+    public static class ProductosMapper
     {
-        public static IReadOnlyCollection<ProductoDTO> ListaProductoAProductoDTO(IReadOnlyCollection<Producto> productos)
-        {
-            return productos.Select(p => new ProductoDTO(
+        public static IReadOnlyCollection<ProductoDTO> 
+            ListaProductoAProductoDTO(IReadOnlyCollection<Producto> productos) => 
+            productos.Select(p => new ProductoDTO(
                 p.Id,
                 p.Nombre ?? string.Empty,
                 p.Descripcion ?? string.Empty,
@@ -19,6 +19,5 @@ namespace SistemasDeGestionDeProductos.Helpers
                 p.PrecioUnitarioVenta,
                 Program.GestorDeRubros.BuscarRubroPorId(p.IdRubro)?.Nombre ?? string.Empty
                 )).ToList();
-        }
     }
 }

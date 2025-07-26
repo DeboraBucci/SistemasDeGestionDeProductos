@@ -45,12 +45,12 @@ namespace SistemasDeGestionDeProductos.Helpers
             ];
 
         public static NombreColumna[] nombresColumnasMovimientos = [
-            new("IdMovimiento", "Id"),
             new("Producto", "Producto"),
             new("Tipo", "Tipo"),
             new("Stock", "Stock"),
             new("FechaMovimiento", "Fecha de Movimiento"),
             new("FechaVencimiento", "Fecha de Vencimiento"),
+            new("Id", "Id"),
             ];
 
     }

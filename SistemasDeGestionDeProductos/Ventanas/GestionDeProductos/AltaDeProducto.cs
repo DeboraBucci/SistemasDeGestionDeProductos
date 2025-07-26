@@ -74,7 +74,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         private void ActualizarDataGrid()
         {
             var productos = Program.GestorDeProductos.BuscarProductos();
-            dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productos));
+            dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
     }
 }
