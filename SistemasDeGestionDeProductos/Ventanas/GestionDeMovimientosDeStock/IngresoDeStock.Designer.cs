@@ -73,6 +73,7 @@
             btnAgregarMovimiento.TabIndex = 27;
             btnAgregarMovimiento.Text = "Agregar Movimiento";
             btnAgregarMovimiento.UseVisualStyleBackColor = false;
+            btnAgregarMovimiento.Click += btnAgregarMovimiento_Click;
             // 
             // label1
             // 

@@ -34,6 +34,7 @@ namespace SistemasDeGestionDeProductos.Controles
         // HANDLERS
         public void LlenarComboBox(IReadOnlyCollection<INombre> items, bool addFirstElement = false)
         {
+            cbGenerico.DataSource = null;
             nombres.Clear();
 
             if (addFirstElement)

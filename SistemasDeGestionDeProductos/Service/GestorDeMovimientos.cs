@@ -162,31 +162,21 @@ namespace SistemasDeGestionDeProductos.Service
                         );
         }
 
-        public IReadOnlyCollection<Proveedor?> ObtenerProveedoresPorProducto(Guid productoId)
+        public IReadOnlyCollection<Proveedor> ObtenerProveedoresPorProducto(Guid productoId)
         {
-
-            var movimientos = 
-                _repositorioMovimientos
-                .BuscarTodos();
-
-            var mov = movimientos.FirstOrDefault();
 
             var ingresos = _repositorioMovimientos
                 .BuscarTodos()
                 .Where(m => m.ProductoId == productoId && m.Tipo == TipoMovimiento.Ingreso);
 
-            var ingreso = ingresos.FirstOrDefault();
-
-
             var proveedoresIds = ingresos
                 .Select(m => m.ProveedorId)                    
                 .Distinct();
 
-            var id = proveedoresIds.FirstOrDefault();
-
             var proveedores = proveedoresIds
                 .Select(id => Program.GestorDeProveedores.BuscarProveedorPorId(id ?? Guid.Empty))
                 .Where(p => p != null)!
+                .Select(p => p!)
                 .ToList();
 
             return proveedores.AsReadOnly();

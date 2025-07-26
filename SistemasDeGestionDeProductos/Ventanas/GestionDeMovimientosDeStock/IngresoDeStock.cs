@@ -49,6 +49,37 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             dgvControl1.Refrescar(movimientos);
         }
 
-      
+        private void btnAgregarMovimiento_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var producto = cbControl1?.CbTxt ?? string.Empty;
+                var proveedor = cbControl2?.CbTxt ?? string.Empty;
+
+                string stockTxt = txtStock.Text.Trim();
+
+                if (!int.TryParse(stockTxt, out var stock) || stock <= 0)
+                    throw new Exception("Stock invalido.");
+
+                var fechaVencimiento = dtpFechaVencimiento.Value;
+
+                var productoId = Program.GestorDeProductos.BuscarProductoPorNombre(producto)?.Id;
+                var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedor)?.Id;
+
+                if (productoId != null && proveedorId != null)
+                {
+                    Program.GestorDeMovimientos.IngresarStock(productoId.Value, stock, fechaVencimiento, proveedorId.Value);
+                    ActualizarDataGrid();
+                }
+
+                else
+                    throw new Exception("Algo salio mal, verifica los datos.");
+            }
+
+            catch (Exception ex)
+            {
+                ErrorMessage.ShowErrorMessage(ex.Message);
+            }
+        }
     }
 }
