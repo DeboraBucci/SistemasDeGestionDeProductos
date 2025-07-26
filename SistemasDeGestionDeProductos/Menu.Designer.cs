@@ -246,6 +246,7 @@
             integrantesDelDesarrolloToolStripMenuItem.Name = "integrantesDelDesarrolloToolStripMenuItem";
             integrantesDelDesarrolloToolStripMenuItem.Size = new Size(153, 20);
             integrantesDelDesarrolloToolStripMenuItem.Text = "Integrantes del Desarrollo";
+            integrantesDelDesarrolloToolStripMenuItem.Click += integrantesDelDesarrolloToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 

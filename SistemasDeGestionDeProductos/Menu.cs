@@ -1,4 +1,5 @@
 using SistemasDeGestionDeProductos.Service;
+using SistemasDeGestionDeProductos.Ventanas;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeProductos;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores;
@@ -27,6 +28,8 @@ namespace SistemasDeGestionDeProductos
         IngresoDeStock ingresoDeStock = new();
         EgresoDeStock egresoDeStock = new();
 
+        // OTROS
+        IntegrantesDelDesarrollo integrantesDelDesarrollo = new();
 
         private Form? currOpenedForm = null;
 
@@ -70,6 +73,10 @@ namespace SistemasDeGestionDeProductos
 
             egresoDeStock.MdiParent = this;
             egresoDeStock.Dock = DockStyle.Fill;
+
+            // OTROS
+            integrantesDelDesarrollo.MdiParent = this;
+            integrantesDelDesarrollo.Dock = DockStyle.Fill;
 
             AbrirForm(altaDeProducto);
         }
@@ -136,6 +143,11 @@ namespace SistemasDeGestionDeProductos
         }
 
         // OTROS
+        private void integrantesDelDesarrolloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(integrantesDelDesarrollo);
+        }
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -152,5 +164,7 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
+
+       
     }
 }
