@@ -21,6 +21,7 @@ namespace SistemasDeGestionDeProductos
         // GESTION DE PROVEEDORES
         AltaDeProveedor altaDeProveedor = new();
         ModificacionDeProveedor modificacionDeProveedor = new();
+        ConsultaDeProveedores consultaDeProveedores = new();
 
         // GESTION DE MOVIMIENTOS DE STOCK
         IngresoDeStock ingresoDeStock = new();
@@ -58,6 +59,9 @@ namespace SistemasDeGestionDeProductos
 
             modificacionDeProveedor.MdiParent = this;
             modificacionDeProveedor.Dock = DockStyle.Fill;
+
+            consultaDeProveedores.MdiParent = this;
+            consultaDeProveedores.Dock = DockStyle.Fill;
 
             // MOVIMIENTOS STOCK
             ingresoDeStock.MdiParent = this;
@@ -111,6 +115,11 @@ namespace SistemasDeGestionDeProductos
             AbrirForm(modificacionDeProveedor);
         }
 
+        private void consultaDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(consultaDeProveedores);
+        }
+
         // MOVIMIENTOS DE STOCK
         private void ingresoDeStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -134,7 +143,5 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
-
-      
     }
 }

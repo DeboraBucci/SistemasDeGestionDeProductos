@@ -62,12 +62,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             else
             {
                 var productosFiltrados = Program.GestorDeProductos.BuscarPorFiltro(texto);
-
-                if (productosFiltrados == null) // SI ES NULL, TRAE TODOS LOS PRODUCTOS
-                    ActualizarDataGrid();
-
-                else
-                    dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productosFiltrados));
+                dgvControl1.Refrescar(ProductoMapper.ListaProductoAProductoDTO(productosFiltrados));
             }
         }
     }

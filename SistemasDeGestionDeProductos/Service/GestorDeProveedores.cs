@@ -46,5 +46,7 @@ namespace SistemasDeGestionDeProductos.Service
             if (proveedorId != null)
                 repositorioProveedores.Modificar(proveedorId.Value, nombre, contacto, telefono, direccion);
         }
+
+        public IReadOnlyCollection<Proveedor> BuscarPorFiltro(string txt) => repositorioProveedores.BuscarPorNombreContiene(txt.Trim());
     }
 }

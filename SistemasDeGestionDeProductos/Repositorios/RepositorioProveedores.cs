@@ -37,6 +37,11 @@ namespace SistemasDeGestionDeProductos.Repositorios
 
         public IReadOnlyCollection<Proveedor> BuscarTodos() => proveedores.AsReadOnly();
 
+        public IReadOnlyCollection<Proveedor> BuscarPorNombreContiene(string txt) =>
+            proveedores.Where(p => !string.IsNullOrEmpty(p.Nombre) && p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
+                     .ToList()
+                     .AsReadOnly();
+
         public Proveedor? BuscarPorNombre(string nombre) => proveedores.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
         
         public Proveedor? BuscarPorId(Guid id) => proveedores.FirstOrDefault(p => p.Id == id);

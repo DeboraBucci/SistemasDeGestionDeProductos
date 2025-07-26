@@ -175,6 +175,7 @@
             consultaDeProveedoresToolStripMenuItem.Name = "consultaDeProveedoresToolStripMenuItem";
             consultaDeProveedoresToolStripMenuItem.Size = new Size(217, 22);
             consultaDeProveedoresToolStripMenuItem.Text = "Consulta de Proveedores";
+            consultaDeProveedoresToolStripMenuItem.Click += consultaDeProveedoresToolStripMenuItem_Click;
             // 
             // gestiónDeMovimientosDeStockToolStripMenuItem
             // 

@@ -58,10 +58,10 @@ namespace SistemasDeGestionDeProductos.Service
         // BUSQUEDAS
         public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos();
 
-        public IReadOnlyCollection<Producto>? BuscarPorFiltro(string txt)
+        public IReadOnlyCollection<Producto> BuscarPorFiltro(string txt)
         {
             var texto = txt.Trim();
-            IReadOnlyCollection<Producto> productosFiltrados = null;
+            IReadOnlyCollection<Producto> productosFiltrados = new List<Producto>();
 
             if (Guid.TryParse(texto, out var id))
             {
