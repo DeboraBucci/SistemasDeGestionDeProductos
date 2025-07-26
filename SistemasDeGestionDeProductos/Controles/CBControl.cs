@@ -13,6 +13,8 @@ namespace SistemasDeGestionDeProductos.Controles
 {
     public partial class CBControl : UserControl
     {
+        public event EventHandler? SelectionChangedExternal;
+
         public string? CbTxt { get; set; }
 
         private List<string> nombres = new();
@@ -25,6 +27,8 @@ namespace SistemasDeGestionDeProductos.Controles
         // EVENTOS
         private void cbGenerico_SelectedValueChanged(object sender, EventArgs e)
         {
+            SelectionChangedExternal?.Invoke(this, e);
+
             CbTxt = cbGenerico.Text;
         }
 
@@ -37,6 +41,7 @@ namespace SistemasDeGestionDeProductos.Controles
                 nombres.Add(item.Nombre + "");
 
             cbGenerico.DataSource = nombres;
+
         }
 
         public void CambiarSeleccionado(string seleccionado)

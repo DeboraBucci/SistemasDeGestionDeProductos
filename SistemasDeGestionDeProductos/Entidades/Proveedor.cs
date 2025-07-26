@@ -11,10 +11,10 @@ namespace SistemasDeGestionDeProductos.Entidades
     public class Proveedor : INombre
     {
         public Guid Id { get; private set;  }
-        public string? Nombre { get; set; } = null;
-        public string? Contacto { get; set; } = null;
-        public string? Telefono { get; set; } = null;
-        public string? Direccion {  get; set; } = null;
+        public string Nombre { get; set; } = string.Empty;
+        public string Contacto { get; set; } = string.Empty;
+        public string Telefono { get; set; } = string.Empty;
+        public string Direccion {  get; set; } = string.Empty;
 
         public Proveedor()
         {
@@ -22,7 +22,7 @@ namespace SistemasDeGestionDeProductos.Entidades
         }
 
         [JsonConstructor]
-        public Proveedor(Guid id, string? nombre, string? contacto, string? telefono, string? direccion)
+        public Proveedor(Guid id, string nombre, string contacto, string telefono, string direccion)
         {
             Id = id;
             Nombre = nombre;

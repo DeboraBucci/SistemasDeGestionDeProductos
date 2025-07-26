@@ -10,14 +10,13 @@ namespace SistemasDeGestionDeProductos.Repositorios
 {
     public class RepositorioMovimientos
     {
-        private const string Archivo = "movimientos.json";
         private readonly List<MovimientoStock> _movimientos
-          = JsonHelper.LeerDesdeArchivo<MovimientoStock>(Archivo);
+          = MovimientoParser.LeerMovimientos();
 
         public void Agregar(MovimientoStock m)
         {
             _movimientos.Add(m);
-            JsonHelper.GuardarEnArchivo(_movimientos, Archivo);
+            MovimientoParser.GuardarMovimientos(_movimientos);
         }
 
         public IReadOnlyCollection<MovimientoStock> BuscarTodos()

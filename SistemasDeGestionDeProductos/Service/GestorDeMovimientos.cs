@@ -161,5 +161,24 @@ namespace SistemasDeGestionDeProductos.Service
                                 )
                         );
         }
+
+        public IReadOnlyCollection<Proveedor?> ObtenerProveedoresPorProducto(Guid productoId)
+        {
+            var ingresos = _repositorioMovimientos
+                .BuscarTodos()
+                .OfType<IngresoStock>()                         
+                .Where(m => m.ProductoId == productoId);
+
+            var proveedoresIds = ingresos
+                .Select(m => m.ProveedorId)                    
+                .Distinct();
+
+            var proveedores = proveedoresIds
+                .Select(id => Program.GestorDeProveedores.BuscarProveedorPorId(id))
+                .Where(p => p != null)!
+                .ToList();
+
+            return proveedores.AsReadOnly();
+        }
     }
 }

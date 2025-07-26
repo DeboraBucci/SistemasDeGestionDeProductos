@@ -49,6 +49,8 @@ namespace SistemasDeGestionDeProductos.Service
 
         public Producto? BuscarProductoPorId(Guid id) => repositorioProductos.BuscarPorId(id);
 
+        public Producto? BuscarProductoPorNombre(string nombre) => repositorioProductos.BuscarPorNombre(nombre);
+
 
         private Guid BuscarIdRubro(string nombre)
         {
@@ -59,5 +61,6 @@ namespace SistemasDeGestionDeProductos.Service
 
             return rubro.Id;
         }
+
     }
 }

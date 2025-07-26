@@ -14,7 +14,6 @@ namespace SistemasDeGestionDeProductos.Entidades
         Egreso
     }
 
-    [JsonConverter(typeof(MovimientoStockConverter))]
     public class MovimientoStock
     {
         public Guid Id { get; private set; } = Guid.NewGuid();
