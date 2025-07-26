@@ -31,11 +31,15 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             ActualizarDataGrid();
         }
 
+        private void cbControl1_SelectionChangedExternal(object sender, EventArgs e)
+        {
+
+        }
+
         private void ActualizarDataGrid()
         {
             var movimientos = Program.GestorDeMovimientos.ListarMovimientos();
             dgvControl1.Refrescar(MovimientosMapper.ListaMovimientoAMovimientoDTO(movimientos));
         }
-
     }
 }
