@@ -129,6 +129,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltaDeRubro";
             Text = "AltaDeRubro";
+            Activated += AltaDeRubro_Activated;
             Load += AltaDeRubro_Load;
             ResumeLayout(false);
             PerformLayout();

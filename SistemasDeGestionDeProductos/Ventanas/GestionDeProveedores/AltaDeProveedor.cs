@@ -58,6 +58,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
             ActualizarDataGrid();
         }
 
+        private void AltaDeProveedor_Activated(object sender, EventArgs e)
+        {
+            ActualizarDataGrid();
+        }
+
         private void ActualizarDataGrid()
         {
             dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());

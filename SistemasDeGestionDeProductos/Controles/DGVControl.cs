@@ -56,7 +56,6 @@ namespace SistemasDeGestionDeProductos
 
             dgvGenerica.AutoGenerateColumns = false;
             ConstruirColumnas();
-
         }
 
 
@@ -79,12 +78,8 @@ namespace SistemasDeGestionDeProductos
                     Name = $"col{columna.Nombre}",
                     HeaderText = columna.HeaderTxt,
                     DataPropertyName = columna.Nombre,
-                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 });
             }
-
-            if (dgvGenerica.Columns.Contains("colId"))
-                dgvGenerica.Columns["colId"].Visible = false;
 
             dgvGenerica.SelectionChanged += dgvProductos_SelectionChanged;
         }

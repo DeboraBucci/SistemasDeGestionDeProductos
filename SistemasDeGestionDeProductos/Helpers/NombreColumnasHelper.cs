@@ -51,7 +51,6 @@ namespace SistemasDeGestionDeProductos.Helpers
             new("Stock", "Stock"),
             new("FechaMovimiento", "Fecha de Movimiento"),
             new("FechaVencimiento", "Fecha de Vencimiento"),
-
             ];
 
     }

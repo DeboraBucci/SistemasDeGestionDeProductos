@@ -175,6 +175,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AltaDeProveedor";
             Text = "AltaDeProveedor";
+            Activated += AltaDeProveedor_Activated;
             Load += AltaDeProveedor_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -203,6 +203,7 @@
             consultaDeMovimientosToolStripMenuItem.Name = "consultaDeMovimientosToolStripMenuItem";
             consultaDeMovimientosToolStripMenuItem.Size = new Size(210, 22);
             consultaDeMovimientosToolStripMenuItem.Text = "Consulta de Movimientos";
+            consultaDeMovimientosToolStripMenuItem.Click += consultaDeMovimientosToolStripMenuItem_Click;
             // 
             // reportesToolStripMenuItem
             // 

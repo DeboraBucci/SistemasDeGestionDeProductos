@@ -36,7 +36,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
                 Program.GestorDeRubros.CrearRubro(rubro.Nombre, rubro.Descripcion);
                 ActualizarDataGrid();
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 ErrorMessage.ShowErrorMessage(ex.ToString());
             }
@@ -45,6 +46,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
         private void AltaDeRubro_Load(object sender, EventArgs e)
         {
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasRubro;
+            ActualizarDataGrid();
+        }
+
+        private void AltaDeRubro_Activated(object sender, EventArgs e)
+        {
             ActualizarDataGrid();
         }
 
