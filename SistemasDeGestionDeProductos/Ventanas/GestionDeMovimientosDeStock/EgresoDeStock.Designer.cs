@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtStock = new TextBox();
+            txtCantidad = new TextBox();
             label4 = new Label();
             label2 = new Label();
             cbControl1 = new Controles.CBControl();
@@ -36,16 +36,16 @@
             btnAgregarEgreso = new Button();
             label1 = new Label();
             dgvControl1 = new DGVControl();
-            textBox1 = new TextBox();
+            txtMotivo = new TextBox();
             label3 = new Label();
             SuspendLayout();
             // 
-            // txtStock
+            // txtCantidad
             // 
-            txtStock.Location = new Point(38, 258);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(265, 23);
-            txtStock.TabIndex = 42;
+            txtCantidad.Location = new Point(38, 258);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(265, 23);
+            txtCantidad.TabIndex = 42;
             // 
             // label4
             // 
@@ -116,13 +116,13 @@
             dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 35;
             // 
-            // textBox1
+            // txtMotivo
             // 
-            textBox1.Location = new Point(38, 319);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(265, 23);
-            textBox1.TabIndex = 44;
-            textBox1.Text = "Varios";
+            txtMotivo.Location = new Point(38, 319);
+            txtMotivo.Name = "txtMotivo";
+            txtMotivo.Size = new Size(265, 23);
+            txtMotivo.TabIndex = 44;
+            txtMotivo.Text = "Varios";
             // 
             // label3
             // 
@@ -138,9 +138,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 600);
-            Controls.Add(textBox1);
+            Controls.Add(txtMotivo);
             Controls.Add(label3);
-            Controls.Add(txtStock);
+            Controls.Add(txtCantidad);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(cbControl1);
@@ -159,7 +159,7 @@
 
         #endregion
 
-        private TextBox txtStock;
+        private TextBox txtCantidad;
         private Label label4;
         private Label label2;
         private Controles.CBControl cbControl1;
@@ -167,7 +167,7 @@
         private Button btnAgregarEgreso;
         private Label label1;
         private DGVControl dgvControl1;
-        private TextBox textBox1;
+        private TextBox txtMotivo;
         private Label label3;
     }
 }

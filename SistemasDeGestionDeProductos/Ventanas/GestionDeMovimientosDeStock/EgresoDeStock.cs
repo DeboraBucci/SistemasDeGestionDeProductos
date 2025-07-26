@@ -33,7 +33,39 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
 
         private void btnAgregarEgreso_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var productoNombre = cbControl1.CbTxt ?? string.Empty;
 
+                var productoElegido = Program.GestorDeProductos.BuscarProductoPorNombre(productoNombre);
+
+                if (productoNombre == null)
+                    throw new ArgumentException("El producto elegido es invalido.");
+
+                var cantidadStr = txtCantidad.Text.Trim();
+
+                if (!int.TryParse(cantidadStr, out var cantidad) || cantidad <= 0)
+                    throw new ArgumentException("Stock invalido.");
+
+                var motivo = txtMotivo.Text.Trim();
+
+                if (motivo == null)
+                    throw new ArgumentException("El motivo no puede estar vacio.");
+
+
+                var prodId = productoElegido?.Id;
+
+                if (prodId != null)
+                {
+                    Program.GestorDeMovimientos.EgresarStock(prodId.Value, cantidad, motivo);
+                    ActualizarDataGrid();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ErrorMessage.ShowErrorMessage(ex.Message);
+            }
         }
 
 
