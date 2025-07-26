@@ -36,6 +36,7 @@
             // 
             dgvGenerica.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvGenerica.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvGenerica.Dock = DockStyle.Fill;
             dgvGenerica.Location = new Point(0, 0);
             dgvGenerica.Name = "dgvGenerica";
             dgvGenerica.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -47,10 +48,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
             Controls.Add(dgvGenerica);
             Name = "DGVControl";
-            Size = new Size(703, 503);
+            Size = new Size(700, 500);
             ((System.ComponentModel.ISupportInitialize)dgvGenerica).EndInit();
             ResumeLayout(false);
         }

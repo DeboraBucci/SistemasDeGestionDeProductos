@@ -11,6 +11,7 @@ namespace SistemasDeGestionDeProductos
         // GESTION DE PRODUCTOS
         AltaDeProducto altaDeProducto = new();
         ModificacionDeProducto modificacionDeProducto = new();
+        ConsultaDeProductos consultaDeProductos = new();
 
         // GESTION DE RUBROS
         AltaDeRubro altaDeRubro = new();
@@ -35,6 +36,9 @@ namespace SistemasDeGestionDeProductos
 
             modificacionDeProducto.MdiParent = this;
             modificacionDeProducto.Dock = DockStyle.Fill;
+
+            consultaDeProductos.MdiParent = this;
+            consultaDeProductos.Dock = DockStyle.Fill;
 
             altaDeRubro.MdiParent = this;
             altaDeRubro.Dock = DockStyle.Fill;
@@ -65,6 +69,11 @@ namespace SistemasDeGestionDeProductos
         {
             AbrirForm(modificacionDeProducto);
 
+        }
+
+        private void consultaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(consultaDeProductos);
         }
 
         // RUBROS
@@ -112,5 +121,7 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
+
+        
     }
 }

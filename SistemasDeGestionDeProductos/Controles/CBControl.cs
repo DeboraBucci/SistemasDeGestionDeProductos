@@ -32,9 +32,12 @@ namespace SistemasDeGestionDeProductos.Controles
         }
 
         // HANDLERS
-        public void LlenarComboBox(IReadOnlyCollection<INombre> items)
+        public void LlenarComboBox(IReadOnlyCollection<INombre> items, bool addFirstElement = false)
         {
             nombres.Clear();
+
+            if (addFirstElement)
+                nombres.Add("Seleccione una opcion...");
 
             foreach (var item in items)
                 nombres.Add(item.Nombre + "");

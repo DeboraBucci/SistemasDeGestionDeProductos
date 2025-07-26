@@ -16,6 +16,7 @@ namespace SistemasDeGestionDeProductos
     {
         public event EventHandler? SelectionChangedExternal;
 
+
         private NombreColumna[] _defColumnas = Array.Empty<NombreColumna>();
 
         public IEnumerable<NombreColumna> DefinicionesColumnas
@@ -54,7 +55,6 @@ namespace SistemasDeGestionDeProductos
             InitializeComponent();
 
             dgvGenerica.AutoGenerateColumns = false;
-
             ConstruirColumnas();
 
         }

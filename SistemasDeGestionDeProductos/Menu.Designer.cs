@@ -107,6 +107,7 @@
             consultaDeProductosToolStripMenuItem.Name = "consultaDeProductosToolStripMenuItem";
             consultaDeProductosToolStripMenuItem.Size = new Size(212, 22);
             consultaDeProductosToolStripMenuItem.Text = "Consulta de Productos";
+            consultaDeProductosToolStripMenuItem.Click += consultaDeProductosToolStripMenuItem_Click;
             // 
             // gestiónDeRubrosToolStripMenuItem
             // 
