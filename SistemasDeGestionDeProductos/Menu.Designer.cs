@@ -217,6 +217,7 @@
             stockActualPorProductoToolStripMenuItem.Name = "stockActualPorProductoToolStripMenuItem";
             stockActualPorProductoToolStripMenuItem.Size = new Size(292, 22);
             stockActualPorProductoToolStripMenuItem.Text = "Stock Actual por Producto";
+            stockActualPorProductoToolStripMenuItem.Click += stockActualPorProductoToolStripMenuItem_Click;
             // 
             // stockPorRubroToolStripMenuItem
             // 

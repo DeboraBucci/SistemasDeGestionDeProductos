@@ -1,3 +1,4 @@
+using SistemasDeGestionDeProductos.Formularios.Reportes;
 using SistemasDeGestionDeProductos.Service;
 using SistemasDeGestionDeProductos.Ventanas;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock;
@@ -28,6 +29,9 @@ namespace SistemasDeGestionDeProductos
         IngresoDeStock ingresoDeStock = new();
         EgresoDeStock egresoDeStock = new();
         ConsultaDeMovimientos consultaDeMovimientos = new();
+
+        // REPORTES
+        StockActualPorProducto stockActualPorProducto = new();
 
         // OTROS
         IntegrantesDelDesarrollo integrantesDelDesarrollo = new();
@@ -77,6 +81,10 @@ namespace SistemasDeGestionDeProductos
 
             consultaDeMovimientos.MdiParent = this;
             consultaDeMovimientos.Dock = DockStyle.Fill;
+
+            // REPORTES
+            stockActualPorProducto.MdiParent = this;
+            stockActualPorProducto.Dock = DockStyle.Fill;
 
             // OTROS
             integrantesDelDesarrollo.MdiParent = this;
@@ -149,6 +157,12 @@ namespace SistemasDeGestionDeProductos
         private void consultaDeMovimientosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirForm(consultaDeMovimientos);
+        }
+
+        // REPORTES
+        private void stockActualPorProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(stockActualPorProducto);
         }
 
         // OTROS
