@@ -34,6 +34,8 @@ namespace SistemasDeGestionDeProductos
         StockActualPorProducto stockActualPorProducto = new();
         StockPorRubro stockPorRubro = new();
         MovimientosPorProveedor movimientosPorProveedor = new();
+        ProductosConBajoStock productosConBajoStock = new();
+        HistorialDeMovimientosDeUnProducto historialDeMovimientosDeUnProducto = new();
 
         // OTROS
         IntegrantesDelDesarrollo integrantesDelDesarrollo = new();
@@ -93,6 +95,12 @@ namespace SistemasDeGestionDeProductos
 
             movimientosPorProveedor.MdiParent = this;
             movimientosPorProveedor.Dock = DockStyle.Fill;
+
+            productosConBajoStock.MdiParent = this;
+            productosConBajoStock.Dock = DockStyle.Fill;
+
+            historialDeMovimientosDeUnProducto.MdiParent = this;
+            historialDeMovimientosDeUnProducto.Dock = DockStyle.Fill;
 
             // OTROS
             integrantesDelDesarrollo.MdiParent = this;
@@ -185,12 +193,12 @@ namespace SistemasDeGestionDeProductos
 
         private void productosConBajoStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AbrirForm(productosConBajoStock);
         }
 
         private void historialDeMovimientosDeUnProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AbrirForm(productosConBajoStock);
         }
 
         // OTROS
