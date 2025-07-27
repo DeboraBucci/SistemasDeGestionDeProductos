@@ -27,5 +27,10 @@ namespace SistemasDeGestionDeProductos.Repositorios
             _movimientos
             .Where(m => m.Tipo == tipo)
             .ToList();
+
+        public IReadOnlyCollection<MovimientoStock> BuscarPorProveedor(Guid proveedorId) =>
+            _movimientos
+            .Where(m => m.Tipo == TipoMovimiento.Ingreso && m.ProveedorId == proveedorId)
+            .ToList();
     }
 }

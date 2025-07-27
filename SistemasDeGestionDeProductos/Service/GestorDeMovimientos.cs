@@ -122,6 +122,7 @@ namespace SistemasDeGestionDeProductos.Service
 
         public IReadOnlyCollection<MovimientoStock> ListarEgresos() => _repositorioMovimientos.BuscarPorTipo(TipoMovimiento.Egreso);
 
+        public IReadOnlyCollection<MovimientoStock> BuscarPorProveedor(Guid proveedorId) => _repositorioMovimientos.BuscarPorProveedor(proveedorId);
 
         public IEnumerable<(Producto? producto, int stock)> StockActual() => 
                 _repositorioMovimientos

@@ -231,18 +231,21 @@
             movimientosPorProveedoorToolStripMenuItem.Name = "movimientosPorProveedoorToolStripMenuItem";
             movimientosPorProveedoorToolStripMenuItem.Size = new Size(292, 22);
             movimientosPorProveedoorToolStripMenuItem.Text = "Movimientos por Proveedoor";
+            movimientosPorProveedoorToolStripMenuItem.Click += movimientosPorProveedoorToolStripMenuItem_Click;
             // 
             // productosConBajoStockToolStripMenuItem
             // 
             productosConBajoStockToolStripMenuItem.Name = "productosConBajoStockToolStripMenuItem";
             productosConBajoStockToolStripMenuItem.Size = new Size(292, 22);
             productosConBajoStockToolStripMenuItem.Text = "Productos con Bajo Stock";
+            productosConBajoStockToolStripMenuItem.Click += productosConBajoStockToolStripMenuItem_Click;
             // 
             // historialDeMovimientosDeUnProductoToolStripMenuItem
             // 
             historialDeMovimientosDeUnProductoToolStripMenuItem.Name = "historialDeMovimientosDeUnProductoToolStripMenuItem";
             historialDeMovimientosDeUnProductoToolStripMenuItem.Size = new Size(292, 22);
             historialDeMovimientosDeUnProductoToolStripMenuItem.Text = "Historial de Movimientos de un Producto";
+            historialDeMovimientosDeUnProductoToolStripMenuItem.Click += historialDeMovimientosDeUnProductoToolStripMenuItem_Click;
             // 
             // integrantesDelDesarrolloToolStripMenuItem
             // 

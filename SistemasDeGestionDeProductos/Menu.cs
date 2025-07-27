@@ -33,6 +33,7 @@ namespace SistemasDeGestionDeProductos
         // REPORTES
         StockActualPorProducto stockActualPorProducto = new();
         StockPorRubro stockPorRubro = new();
+        MovimientosPorProveedor movimientosPorProveedor = new();
 
         // OTROS
         IntegrantesDelDesarrollo integrantesDelDesarrollo = new();
@@ -89,6 +90,9 @@ namespace SistemasDeGestionDeProductos
 
             stockPorRubro.MdiParent = this;
             stockPorRubro.Dock = DockStyle.Fill;
+
+            movimientosPorProveedor.MdiParent = this;
+            movimientosPorProveedor.Dock = DockStyle.Fill;
 
             // OTROS
             integrantesDelDesarrollo.MdiParent = this;
@@ -174,6 +178,21 @@ namespace SistemasDeGestionDeProductos
             AbrirForm(stockPorRubro);
         }
 
+        private void movimientosPorProveedoorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(movimientosPorProveedor);
+        }
+
+        private void productosConBajoStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historialDeMovimientosDeUnProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // OTROS
         private void integrantesDelDesarrolloToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -196,7 +215,5 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
-
-       
     }
 }
