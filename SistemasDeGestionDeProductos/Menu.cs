@@ -198,7 +198,7 @@ namespace SistemasDeGestionDeProductos
 
         private void historialDeMovimientosDeUnProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirForm(productosConBajoStock);
+            AbrirForm(historialDeMovimientosDeUnProducto);
         }
 
         // OTROS
