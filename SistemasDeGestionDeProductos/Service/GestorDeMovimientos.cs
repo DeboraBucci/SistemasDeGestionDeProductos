@@ -55,11 +55,21 @@ namespace SistemasDeGestionDeProductos.Service
                             .Where(m => m.ProductoId == productoId && m.Tipo == TipoMovimiento.Egreso)
                             .ToList();
 
+            // Junta ingresos con igual fecha de vencimiento
+            var ingresosPorFecha =
+                ingresos
+                .GroupBy(i => i.FechaVencimiento)
+                .Select(g => new
+                {
+                    FechaVencimiento = g.Key,
+                    StockTotal = g.Sum(i => i.Stock),
+                });
+
             // Resta los egresos a los ingresos del producto, por fecha de vencimiento, convirtiendo todo en lotes disponibles
-            var lotes = ingresos
+            var lotes = ingresosPorFecha
                 .Select(i => new {
                     Movimiento = i,
-                    Restante = i.Stock - 
+                    Restante = i.StockTotal - 
                             egresos 
                             .Where(e => e.FechaVencimiento == i.FechaVencimiento)
                             .Sum(e => e.Stock) // Suma todos los egresos con misma fecha de vencimiento que ingreso.
