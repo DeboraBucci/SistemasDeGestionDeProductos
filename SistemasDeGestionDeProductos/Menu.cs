@@ -1,3 +1,4 @@
+using SistemasDeGestionDeProductos.Formularios.GestionDeRubros;
 using SistemasDeGestionDeProductos.Formularios.Reportes;
 using SistemasDeGestionDeProductos.Service;
 using SistemasDeGestionDeProductos.Ventanas;
@@ -18,6 +19,7 @@ namespace SistemasDeGestionDeProductos
         // GESTION DE RUBROS
         AltaDeRubro altaDeRubro = new();
         ModificacionDeRubro modificacionDeRubro = new();
+        BajaDeRubro bajaDeRubro = new();
         ConsultaDeRubros consultaDeRubros = new();
 
         // GESTION DE PROVEEDORES
@@ -62,6 +64,9 @@ namespace SistemasDeGestionDeProductos
 
             modificacionDeRubro.MdiParent = this;
             modificacionDeRubro.Dock = DockStyle.Fill;
+
+            bajaDeRubro.MdiParent = this;
+            bajaDeRubro.Dock = DockStyle.Fill;
 
             consultaDeRubros.MdiParent = this;
             consultaDeRubros.Dock = DockStyle.Fill;
@@ -136,6 +141,11 @@ namespace SistemasDeGestionDeProductos
         private void modificaciónDeRubroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirForm(modificacionDeRubro);
+        }
+
+        private void bajaDeRubroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(bajaDeRubro);
         }
 
         private void consultaDeRubrosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -223,5 +233,7 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
+
+        
     }
 }

@@ -42,6 +42,15 @@ namespace SistemasDeGestionDeProductos.Service
 
         }
 
+
+        public bool EliminarRubro(Rubro rubro)
+        {
+            if (rubro.Nombre != null)
+             return repositorioRubros.Eliminar(rubro);
+
+            return false;
+        }
+
         public void ModificarRubro(Guid? rubroId, string nombre, string descripcion)
         {
             if (rubroId != null)

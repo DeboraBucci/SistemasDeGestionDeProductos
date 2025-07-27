@@ -40,6 +40,12 @@ namespace SistemasDeGestionDeProductos.Repositorios
         public Rubro? BuscarPorNombre(string nombre) => rubros.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
         public Rubro? BuscarPorId(Guid id) => rubros.FirstOrDefault(r => r.Id == id);
 
+        public bool Eliminar(Rubro rubro)
+        {
+            var eliminado =  rubros.Remove(rubro);
+            JsonHelper.GuardarEnArchivo(rubros, archivoRubros);
 
+            return eliminado;
+        }
     }
 }

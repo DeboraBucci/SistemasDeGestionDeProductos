@@ -135,6 +135,7 @@
             bajaDeRubroToolStripMenuItem.Name = "bajaDeRubroToolStripMenuItem";
             bajaDeRubroToolStripMenuItem.Size = new Size(195, 22);
             bajaDeRubroToolStripMenuItem.Text = "Baja de Rubro";
+            bajaDeRubroToolStripMenuItem.Click += bajaDeRubroToolStripMenuItem_Click;
             // 
             // consultaDeRubrosToolStripMenuItem
             // 
