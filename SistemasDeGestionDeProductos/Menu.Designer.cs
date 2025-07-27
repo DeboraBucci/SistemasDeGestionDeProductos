@@ -224,6 +224,7 @@
             stockPorRubroToolStripMenuItem.Name = "stockPorRubroToolStripMenuItem";
             stockPorRubroToolStripMenuItem.Size = new Size(292, 22);
             stockPorRubroToolStripMenuItem.Text = "Stock por Rubro";
+            stockPorRubroToolStripMenuItem.Click += stockPorRubroToolStripMenuItem_Click;
             // 
             // movimientosPorProveedoorToolStripMenuItem
             // 

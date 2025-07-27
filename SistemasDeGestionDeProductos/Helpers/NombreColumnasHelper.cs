@@ -46,6 +46,13 @@ namespace SistemasDeGestionDeProductos.Helpers
             new("Id", "Id"),
             ];
 
+        public static NombreColumna[] nombresColumnasRubroStock = [
+            new("Nombre", "Nombre"),
+            new("Stock", "Stock"),
+            new("Descripcion", "Descripción"),
+            new("Id", "Id"),
+            ];
+
         public static NombreColumna[] nombresColumnasProveedor = [
             new("Nombre", "Nombre"),
             new("Contacto", "Contacto"),

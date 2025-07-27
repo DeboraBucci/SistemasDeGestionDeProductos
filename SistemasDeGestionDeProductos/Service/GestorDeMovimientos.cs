@@ -138,6 +138,15 @@ namespace SistemasDeGestionDeProductos.Service
                             .Where(m => m.ProductoId == prodId)
                             .Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock);
 
+        public int ObtenerStockActualPorRubro(Guid rubroId) =>
+            _repositorioMovimientos
+                            .BuscarTodos()
+                            .Where(m => {
+                                var producto = Program.GestorDeProductos.BuscarProductoPorId(m.ProductoId);
+                                return producto?.IdRubro == rubroId;
+                            })
+                            .Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock);
+
 
         public IEnumerable<(Producto? producto, DateTime vencimiento, int stock)>
             ProductosPorVencer(TimeSpan anticipacion = default)

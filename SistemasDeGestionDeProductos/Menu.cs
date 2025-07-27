@@ -32,6 +32,7 @@ namespace SistemasDeGestionDeProductos
 
         // REPORTES
         StockActualPorProducto stockActualPorProducto = new();
+        StockPorRubro stockPorRubro = new();
 
         // OTROS
         IntegrantesDelDesarrollo integrantesDelDesarrollo = new();
@@ -85,6 +86,9 @@ namespace SistemasDeGestionDeProductos
             // REPORTES
             stockActualPorProducto.MdiParent = this;
             stockActualPorProducto.Dock = DockStyle.Fill;
+
+            stockPorRubro.MdiParent = this;
+            stockPorRubro.Dock = DockStyle.Fill;
 
             // OTROS
             integrantesDelDesarrollo.MdiParent = this;
@@ -163,6 +167,11 @@ namespace SistemasDeGestionDeProductos
         private void stockActualPorProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirForm(stockActualPorProducto);
+        }
+
+        private void stockPorRubroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(stockPorRubro);
         }
 
         // OTROS
