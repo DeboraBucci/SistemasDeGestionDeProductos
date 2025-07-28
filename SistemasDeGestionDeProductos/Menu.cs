@@ -1,4 +1,5 @@
 using SistemasDeGestionDeProductos.Formularios.GestionDeProductos;
+using SistemasDeGestionDeProductos.Formularios.GestionDeProveedores;
 using SistemasDeGestionDeProductos.Formularios.GestionDeRubros;
 using SistemasDeGestionDeProductos.Formularios.Reportes;
 using SistemasDeGestionDeProductos.Service;
@@ -27,6 +28,7 @@ namespace SistemasDeGestionDeProductos
         // GESTION DE PROVEEDORES
         AltaDeProveedor altaDeProveedor = new();
         ModificacionDeProveedor modificacionDeProveedor = new();
+        BajaDeProveedor bajaDeProveedor = new();
         ConsultaDeProveedores consultaDeProveedores = new();
 
         // GESTION DE MOVIMIENTOS DE STOCK
@@ -82,6 +84,9 @@ namespace SistemasDeGestionDeProductos
 
             modificacionDeProveedor.MdiParent = this;
             modificacionDeProveedor.Dock = DockStyle.Fill;
+
+            bajaDeProveedor.MdiParent = this;
+            bajaDeProveedor.Dock = DockStyle.Fill;
 
             consultaDeProveedores.MdiParent = this;
             consultaDeProveedores.Dock = DockStyle.Fill;
@@ -174,6 +179,11 @@ namespace SistemasDeGestionDeProductos
             AbrirForm(modificacionDeProveedor);
         }
 
+        private void bajaDeProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(bajaDeProveedor);
+        }
+
         private void consultaDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirForm(consultaDeProveedores);
@@ -243,5 +253,7 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
+
+  
     }
 }

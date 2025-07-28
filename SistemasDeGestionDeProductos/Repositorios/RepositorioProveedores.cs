@@ -36,5 +36,12 @@ namespace SistemasDeGestionDeProductos.Repositorios
             .AsReadOnly();
 
         public Proveedor? BuscarPorNombre(string nombre) => _items.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
+
+
+        public void Eliminar(Proveedor proveedor)
+        {
+            proveedor.Eliminar();
+            ActualizarArchivo();
+        }
     }
 }

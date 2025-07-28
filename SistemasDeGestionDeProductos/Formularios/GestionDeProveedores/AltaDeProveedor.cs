@@ -15,8 +15,6 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 {
     public partial class AltaDeProveedor : Form
     {
-
-
         public AltaDeProveedor()
         {
             InitializeComponent();

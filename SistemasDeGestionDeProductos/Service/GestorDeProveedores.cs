@@ -35,7 +35,19 @@ namespace SistemasDeGestionDeProductos.Service
             repositorioProveedores.Agregar(proveedor);
         }
 
-        public IReadOnlyCollection<Proveedor> BuscarProveedores() => repositorioProveedores.BuscarTodos();
+        public bool EliminarProveedor(Proveedor proveedor)
+        {
+            if (proveedor.Nombre != null)
+            {
+                repositorioProveedores.Eliminar(proveedor);
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public IReadOnlyCollection<Proveedor> BuscarProveedores() => repositorioProveedores.BuscarTodos().Where(p => !p.Eliminado).ToList();
 
         public Proveedor? BuscarProveedorPorId(Guid id) => repositorioProveedores.BuscarPorId(id);
 

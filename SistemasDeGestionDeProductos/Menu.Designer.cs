@@ -171,6 +171,7 @@
             bajaDeProveedorToolStripMenuItem.Name = "bajaDeProveedorToolStripMenuItem";
             bajaDeProveedorToolStripMenuItem.Size = new Size(217, 22);
             bajaDeProveedorToolStripMenuItem.Text = "Baja de Proveedor";
+            bajaDeProveedorToolStripMenuItem.Click += bajaDeProveedorToolStripMenuItem_Click;
             // 
             // consultaDeProveedoresToolStripMenuItem
             // 
