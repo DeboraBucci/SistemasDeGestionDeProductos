@@ -37,7 +37,7 @@ namespace SistemasDeGestionDeProductos.Service
             }
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.Message);
+                MessageHelper.ShowErrorMessage(ex.Message);
             }
 
         }

@@ -1,7 +1,6 @@
 ﻿using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
 using SistemasDeGestionDeProductos.Service;
-using SistemasDeGestionDeProductos.Validadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,8 +26,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             try
             {
                 // INFO PRODUCTO
-                string nombre = txtNombre.Text;
-                string descripcion = rtxtDescripcion.Text;
+                string nombre = txtNombre.Text.Trim();
+                string descripcion = rtxtDescripcion.Text.Trim();
                 string precioUnitarioStr = txtPrecioUnitario.Text;
                 string rubroNombre = cbControl1.CbTxt + "";
 
@@ -37,23 +36,30 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 string proveedorNombre = cbControl2.CbTxt + "";
                 DateTime fechaVencimiento = dtpFechaVencimiento.Value.Date;
 
+                // VALIDACIONES
+                if (nombre == "")
+                    throw new Exception("El nombre del producto no puede estar vacio.");
+
+                if (!decimal.TryParse(precioUnitarioStr, out decimal precioUnit) || precioUnit < 0)
+                    throw new Exception("El precio unitario debe ser un número mayor o igual que 0.");
 
                 if (!int.TryParse(stockStr, out int stock))
                     throw new Exception("Numero de stock invalido.");
 
-                var infoProd = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr);
-
                 var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre)?.Id ?? Guid.Empty;
-                var producto = Program.GestorDeProductos.CrearProducto(infoProd.Nombre, infoProd.Descripcion, infoProd.PrecioUnitarioCompra, rubroNombre);
+                var producto = Program.GestorDeProductos.CrearProducto(nombre, descripcion, precioUnit, rubroNombre);
 
                 Program.GestorDeMovimientos.IngresarStock(producto.Id, stock, fechaVencimiento, proveedorId);
 
+                VaciarTxt();
                 ActualizarDataGrid();
+
+                MessageHelper.ShowSuccessfulMessage("Se ha agregado el producto correctamente!");
             }
 
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.Message);
+                MessageHelper.ShowErrorMessage(ex.Message);
             }
         }
 
@@ -81,6 +87,16 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         {
             cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
             cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
+        }
+
+        private void VaciarTxt()
+        {
+            txtNombre.Text = string.Empty;
+            rtxtDescripcion.Text = string.Empty;
+            txtPrecioUnitario.Text = string.Empty;
+            txtStock.Text = string.Empty;
+
+            dtpFechaVencimiento.Value = DateTime.Today;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using SistemasDeGestionDeProductos.Controles;
 using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
-using SistemasDeGestionDeProductos.Validadores;
+using SistemasDeGestionDeProductos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 {
     public partial class ModificacionDeRubro : Form
     {
-        private Guid? RubroId = null;
+        private Guid? _rubroId = null;
 
 
         public ModificacionDeRubro()
@@ -34,11 +34,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
         private void dgvControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
             var rubroId = dgvControl1.SelectedItemId;
-            RubroId = rubroId;
+            _rubroId = rubroId;
             Rubro? rubro = null;
 
-            if (RubroId != null)
-                rubro = Program.GestorDeRubros.BuscarRubroPorId(RubroId.Value);
+            if (_rubroId != null)
+                rubro = Program.GestorDeRubros.BuscarRubroPorId(_rubroId.Value);
 
 
             if (rubro != null)
@@ -52,18 +52,19 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
         {
             try
             {
-                string nombre = txtNombre.Text;
-                string descripcion = rtxtDescripcion.Text;
+                string nombre = txtNombre.Text.Trim();
+                string descripcion = rtxtDescripcion.Text.Trim();
 
-                var rubro = ValidadorInputRubro.ValidarInformacion(nombre, descripcion);
+                if (nombre == "")
+                    throw new Exception("El nombre del rubro no puede estar vacio.");
 
-                Program.GestorDeRubros.ModificarRubro(RubroId, rubro.Nombre, rubro.Descripcion);
+                Program.GestorDeRubros.ModificarRubro(_rubroId, nombre, descripcion);
                 ActualizarDataGrid();
 
             }
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.ToString());
+                MessageHelper.ShowErrorMessage(ex.ToString());
             }
         }
 

@@ -78,7 +78,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeRubros
 
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.Message);
+                MessageHelper.ShowErrorMessage(ex.Message);
             }
         }
 

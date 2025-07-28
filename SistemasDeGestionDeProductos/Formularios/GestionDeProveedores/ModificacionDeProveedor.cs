@@ -15,7 +15,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 {
     public partial class ModificacionDeProveedor : Form
     {
-        private Guid? ProveedorId = null;
+        private Guid? _proveedorId = null;
 
         public ModificacionDeProveedor()
         {
@@ -26,7 +26,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
         private void dgvControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
             var proveedorId = dgvControl1.SelectedItemId;
-            ProveedorId = proveedorId;
+            _proveedorId = proveedorId;
             Proveedor? proveedor = null;
 
             if (proveedorId != null)
@@ -64,13 +64,13 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
                     throw new Exception("La direccion del proveedor no puede estar vacia.");
 
 
-                Program.GestorDeProveedores.ModificarProveedor(ProveedorId, nombre, contacto, telefono, direccion);
+                Program.GestorDeProveedores.ModificarProveedor(_proveedorId, nombre, contacto, telefono, direccion);
                 ActualizarDataGrid();
             }
 
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.Message);
+                MessageHelper.ShowErrorMessage(ex.Message);
             }
         }
 

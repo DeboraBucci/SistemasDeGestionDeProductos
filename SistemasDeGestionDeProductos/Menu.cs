@@ -233,7 +233,5 @@ namespace SistemasDeGestionDeProductos
             currOpenedForm = form;
             currOpenedForm.Show();
         }
-
-        
     }
 }

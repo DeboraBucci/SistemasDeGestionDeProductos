@@ -1,7 +1,6 @@
 ﻿using SistemasDeGestionDeProductos.Controles;
 using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
-using SistemasDeGestionDeProductos.Validadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +15,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 {
     public partial class ModificacionDeProducto : Form
     {
-        private Guid? ProductoId = null;
+        private Guid? _productoId = null;
 
         public ModificacionDeProducto()
         {
@@ -26,7 +25,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         private void dgvControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
             var productoId = dgvControl1.SelectedItemId;
-            ProductoId = productoId;
+            _productoId = productoId;
             Producto? producto = null;
 
             if (productoId != null)
@@ -49,20 +48,25 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         {
             try
             {
-                string nombre = txtNombre.Text;
-                string descripcion = rtxtDescripcion.Text;
+                string nombre = txtNombre.Text.Trim();
+                string descripcion = rtxtDescripcion.Text.Trim();
                 string precioUnitarioStr = txtPrecioUnitario.Text;
                 string rubroNombre = cbControl1.CbTxt + "";
 
-                var prod = ValidadorInputProducto.ValidarInformacion(nombre, descripcion, precioUnitarioStr);
+                // VALIDACIONES
+                if (nombre == "")
+                    throw new Exception("El nombre del producto no puede estar vacio.");
 
-                Program.GestorDeProductos.ModificarProducto(ProductoId, prod.Nombre, prod.Descripcion, prod.PrecioUnitarioCompra, rubroNombre);
+                if (!decimal.TryParse(precioUnitarioStr, out decimal precioUnit) || precioUnit < 0)
+                    throw new Exception("El precio unitario debe ser un número mayor o igual que 0.");
+
+                Program.GestorDeProductos.ModificarProducto(_productoId, nombre, descripcion, precioUnit, rubroNombre);
                 ActualizarDataGrid();
             }
 
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.Message);
+                MessageHelper.ShowErrorMessage(ex.Message);
             }
         }
 

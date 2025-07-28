@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 {
     public partial class AltaDeProveedor : Form
     {
+
+
         public AltaDeProveedor()
         {
             InitializeComponent();
@@ -29,6 +32,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
                 string telefono = txtTelefono.Text.Trim();
                 string direccion = txtDireccion.Text.Trim();
 
+                // VALIDACIONES
                 if (nombre == "")
                     throw new Exception("El nombre del proveedor no puede estar vacio.");
 
@@ -41,6 +45,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
                 if (direccion == "")
                     throw new Exception("La direccion del proveedor no puede estar vacia.");
 
+                if (!RegexHelper.FormatoEmailValido(contacto))
+                    throw new Exception("El formato del email es incorrecto.");
+
+                if (!RegexHelper.FormatoTelefonoValido(telefono))
+                    throw new Exception("El formato del telefono es incorrecto.");
 
                 Program.GestorDeProveedores.CrearProveedor(nombre, contacto, telefono, direccion);
                 ActualizarDataGrid();
@@ -48,7 +57,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.Message);
+                MessageHelper.ShowErrorMessage(ex.Message);
             }
         }
 
@@ -66,6 +75,14 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
         private void ActualizarDataGrid()
         {
             dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());
+        }
+
+        private void VaciarTextos()
+        {
+            txtNombre.Text = string.Empty;
+            txtContacto.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
         }
     }
 }

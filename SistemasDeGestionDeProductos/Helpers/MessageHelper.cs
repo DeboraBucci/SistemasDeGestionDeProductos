@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Helpers
 {
-    public static class ErrorMessage 
+    public static class MessageHelper 
     {
         public static void ShowErrorMessage(string msg)
         {
@@ -15,6 +15,16 @@ namespace SistemasDeGestionDeProductos.Helpers
                     caption: "Error",
                     buttons: MessageBoxButtons.OK,
                     icon: MessageBoxIcon.Error
+            );
+        }
+
+        public static void ShowSuccessfulMessage(string msg)
+        {
+            MessageBox.Show(
+                    text: msg,
+                    caption: "Exito!",
+                    buttons: MessageBoxButtons.OK,
+                    icon: MessageBoxIcon.Information
             );
         }
     }

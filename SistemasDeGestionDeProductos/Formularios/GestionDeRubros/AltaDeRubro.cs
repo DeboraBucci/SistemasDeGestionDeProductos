@@ -12,7 +12,6 @@ using SistemasDeGestionDeProductos.Controles;
 using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
 using SistemasDeGestionDeProductos.Service;
-using SistemasDeGestionDeProductos.Validadores;
 
 namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 {
@@ -28,18 +27,22 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
         {
             try
             {
-                string nombre = txtNombre.Text;
-                string descripcion = rtxtDescripcion.Text;
+                string nombre = txtNombre.Text.Trim();
+                string descripcion = rtxtDescripcion.Text.Trim();
 
-                var rubro = ValidadorInputRubro.ValidarInformacion(nombre, descripcion);
 
-                Program.GestorDeRubros.CrearRubro(rubro.Nombre, rubro.Descripcion);
+                if (nombre == "")
+                    throw new Exception("El nombre del rubro no puede estar vacio.");
+
+                Program.GestorDeRubros.CrearRubro(nombre, descripcion);
                 ActualizarDataGrid();
+                VaciarTextos();
 
+                MessageHelper.ShowSuccessfulMessage("Se ha creado el rubro de manera exitosa!");
             }
             catch (Exception ex)
             {
-                ErrorMessage.ShowErrorMessage(ex.ToString());
+                MessageHelper.ShowErrorMessage(ex.Message);
             }
         }
 
@@ -57,6 +60,12 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
         private void ActualizarDataGrid()
         {
             dgvControl1.Refrescar(Program.GestorDeRubros.BuscarRubros());
+        }
+
+        private void VaciarTextos()
+        {
+            txtNombre.Text = string.Empty;
+            rtxtDescripcion.Text = string.Empty;
         }
     }
 }
