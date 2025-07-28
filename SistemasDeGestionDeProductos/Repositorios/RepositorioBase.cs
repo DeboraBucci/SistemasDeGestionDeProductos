@@ -29,8 +29,8 @@ namespace SistemasDeGestionDeProductos.Repositorios
             ActualizarArchivo();
         }
 
-        public void ActualizarArchivo() => JsonHelper.GuardarEnArchivo(_items, _path);
-
         public T? BuscarPorId(Guid id) => _items.FirstOrDefault(p => p.Id == id);
+        
+        public void ActualizarArchivo() => JsonHelper.GuardarEnArchivo(_items, _path); 
     }
 }

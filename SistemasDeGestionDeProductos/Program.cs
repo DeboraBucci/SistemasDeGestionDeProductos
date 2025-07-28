@@ -1,3 +1,4 @@
+using SistemasDeGestionDeProductos.Repositorios;
 using SistemasDeGestionDeProductos.Service;
 
 namespace SistemasDeGestionDeProductos

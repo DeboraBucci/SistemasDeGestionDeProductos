@@ -11,7 +11,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    internal class RepositorioProductos : RepositorioBase<Producto>
+    public class RepositorioProductos : RepositorioBase<Producto>
     {
         public RepositorioProductos(string path): base(path) { }
 

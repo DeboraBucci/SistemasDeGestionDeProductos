@@ -22,25 +22,13 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
         {
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasMovimientos;
             ActualizarDataGrid();
-
-            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarProductos());
-        }
-
-        private void cbControl1_SelectionChangedExternal(object sender, EventArgs e)
-        {
-            var nombreProducto = cbControl1.CbTxt ?? string.Empty;
-
-            var productoId = Program.GestorDeProductos.BuscarProductoPorNombre(nombreProducto)?.Id ?? Guid.Empty;
-
-            var proovedores = Program.GestorDeMovimientos.ObtenerProveedoresPorProducto(productoId);
-
-            if (proovedores != null)
-                cbControl2.LlenarComboBox(proovedores);
+            ActualizarComboBoxes();
         }
 
         private void IngresoDeStock_Activated(object sender, EventArgs e)
         {
             ActualizarDataGrid();
+            ActualizarComboBoxes();
         }
 
         private void ActualizarDataGrid()
@@ -80,6 +68,12 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             {
                 ErrorMessage.ShowErrorMessage(ex.Message);
             }
+        }
+
+        private void ActualizarComboBoxes()
+        {
+            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarProductos());
+            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
         }
     }
 }

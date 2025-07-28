@@ -93,7 +93,6 @@
             cbControl1.Name = "cbControl1";
             cbControl1.Size = new Size(268, 26);
             cbControl1.TabIndex = 29;
-            cbControl1.SelectionChangedExternal += cbControl1_SelectionChangedExternal;
             // 
             // label2
             // 
