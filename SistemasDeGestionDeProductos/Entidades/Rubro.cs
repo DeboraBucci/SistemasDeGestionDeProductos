@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public class Rubro : INombre
+    public class Rubro : INombre, IConId
     {
         public Guid Id { get; private set; }
         public string? Nombre { get; set; }

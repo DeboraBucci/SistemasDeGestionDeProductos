@@ -11,16 +11,9 @@ using SistemasDeGestionDeProductos.Interfaces;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    internal class RepositorioRubros : IRepositorio<Rubro>
+    public class RepositorioRubros : RepositorioBase<Rubro>
     {
-        private static readonly string archivoRubros = "rubros.json";
-        private readonly List<Rubro> rubros = JsonHelper.LeerDesdeArchivo<Rubro>(archivoRubros);
-
-        public void Agregar(Rubro rubro)
-        {
-            rubros.Add(rubro);
-            JsonHelper.GuardarEnArchivo(rubros, archivoRubros);
-        }
+        public RepositorioRubros(string path) : base(path) { }
 
         public void Modificar(Guid id, string nombre, string descripcion)
         {
@@ -32,18 +25,15 @@ namespace SistemasDeGestionDeProductos.Repositorios
                 rubro.Descripcion = descripcion;
             }
 
-            JsonHelper.GuardarEnArchivo(rubros, archivoRubros);
+            ActualizarArchivo();
         }
 
-        public IReadOnlyCollection<Rubro> BuscarTodos() => rubros.AsReadOnly();
-
-        public Rubro? BuscarPorNombre(string nombre) => rubros.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
-        public Rubro? BuscarPorId(Guid id) => rubros.FirstOrDefault(r => r.Id == id);
+        public Rubro? BuscarPorNombre(string nombre) => _items.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
 
         public bool Eliminar(Rubro rubro)
         {
-            var eliminado =  rubros.Remove(rubro);
-            JsonHelper.GuardarEnArchivo(rubros, archivoRubros);
+            var eliminado =  _items.Remove(rubro);
+            ActualizarArchivo();
 
             return eliminado;
         }

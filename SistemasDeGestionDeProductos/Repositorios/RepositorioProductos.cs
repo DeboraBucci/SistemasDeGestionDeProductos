@@ -11,17 +11,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    internal class RepositorioProductos : IRepositorio<Producto>
+    internal class RepositorioProductos : RepositorioBase<Producto>
     {
-        private static readonly string archivoProductos = "productos.json";
-        private readonly List<Producto> productos = JsonHelper.LeerDesdeArchivo<Producto>(archivoProductos);
+        public RepositorioProductos(string path): base(path) { }
 
-
-        // MODIFICADORES
-        public void Agregar(Producto producto) {
-            productos.Add(producto);
-            JsonHelper.GuardarEnArchivo(productos, archivoProductos);
-        }
 
         public void Modificar(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, Guid idRubro)
         {
@@ -35,22 +28,18 @@ namespace SistemasDeGestionDeProductos.Repositorios
                 producto.IdRubro = idRubro;
             }
 
-            JsonHelper.GuardarEnArchivo(productos, archivoProductos);
+            ActualizarArchivo();
         }
 
 
-        // BUSCADORES
-        public IReadOnlyCollection<Producto> BuscarTodos() => productos.AsReadOnly();
-       
-        public IReadOnlyCollection<Producto> BuscarPorRubro(Guid idRubro) => productos.Where(p => p.IdRubro == idRubro).ToList();
+        public IReadOnlyCollection<Producto> BuscarPorRubro(Guid idRubro) => _items.Where(p => p.IdRubro == idRubro).ToList();
         
         public IReadOnlyCollection<Producto> BuscarPorNombreContiene(string txt) => 
-            productos.Where(p => !string.IsNullOrEmpty(p.Nombre) && p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
-                     .ToList()
-                     .AsReadOnly();
+            _items
+            .Where(p => !string.IsNullOrEmpty(p.Nombre) && p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
+            .ToList()
+            .AsReadOnly();
 
-        public Producto? BuscarPorNombre(string nombre) => productos.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
-       
-        public Producto? BuscarPorId(Guid id) => productos.FirstOrDefault(r => r.Id == id);
+        public Producto? BuscarPorNombre(string nombre) => _items.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
     }
 }

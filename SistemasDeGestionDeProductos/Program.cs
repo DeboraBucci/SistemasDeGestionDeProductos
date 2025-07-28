@@ -4,10 +4,10 @@ namespace SistemasDeGestionDeProductos
 {
     internal static class Program
     {
-        public static GestorDeRubros GestorDeRubros = new();
-        public static GestorDeProductos GestorDeProductos = new();
-        public static GestorDeProveedores GestorDeProveedores = new();
-        public static GestorDeMovimientos GestorDeMovimientos = new();
+        public static GestorDeRubros GestorDeRubros = new("rubros.json");
+        public static GestorDeProductos GestorDeProductos = new("productos.json");
+        public static GestorDeProveedores GestorDeProveedores = new("proveedores.json");
+        public static GestorDeMovimientos GestorDeMovimientos = new("movimientos.json");
 
         /// <summary>
         ///  The main entry point for the application.

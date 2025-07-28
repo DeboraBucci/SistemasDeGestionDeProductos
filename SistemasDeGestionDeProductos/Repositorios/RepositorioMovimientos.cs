@@ -1,5 +1,6 @@
 ﻿using SistemasDeGestionDeProductos.Entidades;
 using SistemasDeGestionDeProductos.Helpers;
+using SistemasDeGestionDeProductos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +9,18 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    public class RepositorioMovimientos
+    public class RepositorioMovimientos : RepositorioBase<MovimientoStock>
     {
-        private static readonly string archivoMovimientos = "movimientos.json";
-        private readonly List<MovimientoStock> _movimientos
-          = JsonHelper.LeerDesdeArchivo<MovimientoStock>(archivoMovimientos);
-
-        public void Agregar(MovimientoStock m)
-        {
-            _movimientos.Add(m);
-            JsonHelper.GuardarEnArchivo(_movimientos, archivoMovimientos);
-        }
-
-        public IReadOnlyCollection<MovimientoStock> BuscarTodos()
-          => _movimientos.AsReadOnly();
-
-        public IReadOnlyCollection<MovimientoStock> BuscarPorTipo(TipoMovimiento tipo) => 
-            _movimientos
-            .Where(m => m.Tipo == tipo)
-            .ToList();
+        public RepositorioMovimientos(string path) : base(path) { }
 
         public IReadOnlyCollection<MovimientoStock> BuscarPorProveedor(Guid proveedorId) =>
-            _movimientos
+            _items
             .Where(m => m.Tipo == TipoMovimiento.Ingreso && m.ProveedorId == proveedorId)
+            .ToList();
+
+        public IReadOnlyCollection<MovimientoStock> BuscarPorTipo(TipoMovimiento tipo) =>
+            _items
+            .Where(m => m.Tipo == tipo)
             .ToList();
     }
 }

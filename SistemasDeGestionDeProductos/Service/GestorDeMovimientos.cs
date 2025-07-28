@@ -10,7 +10,13 @@ namespace SistemasDeGestionDeProductos.Service
 {
     public class GestorDeMovimientos
     {
-        private readonly RepositorioMovimientos _repositorioMovimientos = new();
+        private readonly RepositorioMovimientos _repositorioMovimientos;
+
+        public GestorDeMovimientos(string path)
+        {
+            _repositorioMovimientos = new(path);
+        }
+
 
         public void IngresarStock(Guid productoId, int cantidad, DateTime vencimiento, Guid proveedorId)
         {

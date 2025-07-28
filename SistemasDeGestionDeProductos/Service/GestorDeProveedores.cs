@@ -12,9 +12,9 @@ namespace SistemasDeGestionDeProductos.Service
     {
         private readonly RepositorioProveedores repositorioProveedores;
 
-        public GestorDeProveedores()
+        public GestorDeProveedores(string path)
         {
-            repositorioProveedores = new();
+            repositorioProveedores = new(path);
         }
 
         public void CrearProveedor(string nombre, string contacto, string telefono, string direccion)

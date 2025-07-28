@@ -13,9 +13,9 @@ namespace SistemasDeGestionDeProductos.Service
     {
         private readonly RepositorioProductos repositorioProductos;
 
-        public GestorDeProductos()
+        public GestorDeProductos(string path)
         {
-            repositorioProductos = new RepositorioProductos();
+            repositorioProductos = new RepositorioProductos(path);
         }
 
         // MODIFICACIONES

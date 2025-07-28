@@ -80,7 +80,5 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             dgvControl1.Refrescar(MovimientosMapper.ListaMovimientoAMovimientoDTO(movimientosFiltrados));
 
         }
-
-      
     }
 }

@@ -9,16 +9,9 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    internal class RepositorioProveedores : IRepositorio<Proveedor>
+    internal class RepositorioProveedores : RepositorioBase<Proveedor>
     {
-        private static readonly string archivoProveedores = "proveedores.json";
-        private readonly List<Proveedor> proveedores = JsonHelper.LeerDesdeArchivo<Proveedor>(archivoProveedores);
-
-        public void Agregar(Proveedor proveedor)
-        {
-            proveedores.Add(proveedor);
-            JsonHelper.GuardarEnArchivo(proveedores, archivoProveedores);
-        }
+        public RepositorioProveedores(string path) : base(path) { }
 
         public void Modificar(Guid id, string nombre, string contacto, string telefono, string direccion)
         {
@@ -32,18 +25,16 @@ namespace SistemasDeGestionDeProductos.Repositorios
                 proveedor.Direccion = direccion;
             }
 
-            JsonHelper.GuardarEnArchivo(proveedores, archivoProveedores);
+            ActualizarArchivo();
         }
 
-        public IReadOnlyCollection<Proveedor> BuscarTodos() => proveedores.AsReadOnly();
 
         public IReadOnlyCollection<Proveedor> BuscarPorNombreContiene(string txt) =>
-            proveedores.Where(p => !string.IsNullOrEmpty(p.Nombre) && p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
-                     .ToList()
-                     .AsReadOnly();
+            _items
+            .Where(p => !string.IsNullOrEmpty(p.Nombre) && p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
+            .ToList()
+            .AsReadOnly();
 
-        public Proveedor? BuscarPorNombre(string nombre) => proveedores.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
-        
-        public Proveedor? BuscarPorId(Guid id) => proveedores.FirstOrDefault(p => p.Id == id);
+        public Proveedor? BuscarPorNombre(string nombre) => _items.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
     }
 }

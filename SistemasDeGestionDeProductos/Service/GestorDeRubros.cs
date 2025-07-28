@@ -14,9 +14,9 @@ namespace SistemasDeGestionDeProductos.Service
     {
         private readonly RepositorioRubros repositorioRubros;
 
-        public GestorDeRubros()
+        public GestorDeRubros(string path)
         {
-            repositorioRubros = new();
+            repositorioRubros = new(path);
         }
 
         public void CrearRubro(string nombre, string descripcion)

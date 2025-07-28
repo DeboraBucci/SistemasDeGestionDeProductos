@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public class Proveedor : INombre
+    public class Proveedor : INombre, IConId
     {
         public Guid Id { get; private set;  }
         public string Nombre { get; set; } = string.Empty;

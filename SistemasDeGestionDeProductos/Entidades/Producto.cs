@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public class Producto : INombre
+    public class Producto : INombre, IConId
     {
         private static readonly decimal _porcentajeIncrementoPrecio = 0.5m; // 50%
         public Guid Id { get; private set; }

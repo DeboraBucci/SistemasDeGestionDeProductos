@@ -1,4 +1,5 @@
 ﻿using SistemasDeGestionDeProductos.Helpers;
+using SistemasDeGestionDeProductos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,23 +9,28 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public enum TipoMovimiento
+    public enum TipoMovimiento 
     {
         Ingreso,
         Egreso
     }
 
-    public class MovimientoStock
+    public class MovimientoStock : IConId
     {
-        public Guid Id { get; private set; }
+        public Guid Id { get; }
         public Guid ProductoId { get; set; }
         public TipoMovimiento Tipo {  get; set; }
         public int Stock {  get; set; }
-        public DateTime FechaMovimiento {  get; set; }
+        public DateTime FechaMovimiento {  get; set; } = DateTime.Now;
         public DateTime FechaVencimiento { get; set; }
 
         public Guid? ProveedorId { get; set; } = null; // SOLO INGRESOS
         public string Motivo { get; set; } = string.Empty; // SOLO EGRESOS
+
+        public MovimientoStock()
+        {
+            Id = Guid.NewGuid();
+        }
 
         [JsonConstructor]
         public MovimientoStock(
@@ -42,12 +48,5 @@ namespace SistemasDeGestionDeProductos.Entidades
             FechaMovimiento = fechaMovimiento;
             FechaVencimiento = fechaVencimiento;
         }
-
-        public MovimientoStock()
-        {
-            Id = Guid.NewGuid();
-            FechaMovimiento = DateTime.Now;
-        }
-
     }
 }
