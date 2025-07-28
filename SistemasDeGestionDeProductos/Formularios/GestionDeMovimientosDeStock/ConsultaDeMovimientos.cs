@@ -70,15 +70,42 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
 
             var productoId = Program.GestorDeProductos.BuscarProductoPorNombre(nombreProducto)?.Id;
 
+            DateTime? fechaDesde = null;
+            DateTime? fechaHasta = null;
+
+            if (cboxFiltrarFechas.Checked)
+            {
+                fechaDesde = dtpDesde.Value.Date;
+                fechaHasta = dtpHasta.Value.Date;
+            }
+
             TipoMovimiento? tipo = null;
 
             if (Enum.TryParse(tipoStr, out TipoMovimiento tipOut))
                 tipo = tipOut;
 
 
-            var movimientosFiltrados = Program.GestorDeMovimientos.ListarMovimientos(productoId, tipo);
+            var movimientosFiltrados = Program.GestorDeMovimientos.ListarMovimientos(productoId, tipo, fechaDesde, fechaHasta);
             dgvControl1.Refrescar(MovimientosMapper.ListaMovimientoAMovimientoDTO(movimientosFiltrados));
 
+        }
+
+        private void cboxFiltrarFechas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cboxFiltrarFechas.Checked)
+                ControlarActivacionFechas(true);
+
+            else
+                ControlarActivacionFechas(false);
+        }
+
+        private void ControlarActivacionFechas(bool activas)
+        {
+            lblDesde.Enabled = activas;
+            dtpHasta.Enabled = activas;
+
+            lblHasta.Enabled = activas;
+            dtpDesde.Enabled = activas;
         }
     }
 }

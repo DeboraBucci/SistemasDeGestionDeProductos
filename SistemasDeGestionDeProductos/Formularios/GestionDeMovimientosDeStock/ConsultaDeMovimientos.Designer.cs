@@ -34,17 +34,18 @@
             label1 = new Label();
             cbFiltrarTipo = new ComboBox();
             label2 = new Label();
-            dtpHasta = new DateTimePicker();
             dtpDesde = new DateTimePicker();
-            label3 = new Label();
-            label4 = new Label();
+            dtpHasta = new DateTimePicker();
+            lblDesde = new Label();
+            lblHasta = new Label();
+            cboxFiltrarFechas = new CheckBox();
             SuspendLayout();
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F);
-            label6.Location = new Point(28, 38);
+            label6.Location = new Point(28, 27);
             label6.Name = "label6";
             label6.Size = new Size(228, 30);
             label6.TabIndex = 40;
@@ -53,7 +54,7 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(28, 85);
+            dgvControl1.Location = new Point(28, 99);
             dgvControl1.Name = "dgvControl1";
             dgvControl1.Size = new Size(1046, 489);
             dgvControl1.TabIndex = 39;
@@ -62,7 +63,7 @@
             // 
             cbControl1.AutoSize = true;
             cbControl1.CbTxt = null;
-            cbControl1.Location = new Point(806, 53);
+            cbControl1.Location = new Point(806, 67);
             cbControl1.Name = "cbControl1";
             cbControl1.Size = new Size(268, 26);
             cbControl1.TabIndex = 41;
@@ -71,7 +72,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(806, 30);
+            label1.Location = new Point(806, 44);
             label1.Name = "label1";
             label1.Size = new Size(113, 15);
             label1.TabIndex = 42;
@@ -81,7 +82,7 @@
             // 
             cbFiltrarTipo.FormattingEnabled = true;
             cbFiltrarTipo.Items.AddRange(new object[] { "Ambos", "Ingreso", "Egreso" });
-            cbFiltrarTipo.Location = new Point(629, 53);
+            cbFiltrarTipo.Location = new Point(629, 67);
             cbFiltrarTipo.Name = "cbFiltrarTipo";
             cbFiltrarTipo.Size = new Size(158, 23);
             cbFiltrarTipo.TabIndex = 43;
@@ -90,55 +91,71 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(629, 30);
+            label2.Location = new Point(629, 44);
             label2.Name = "label2";
             label2.Size = new Size(85, 15);
             label2.TabIndex = 44;
             label2.Text = "Filtrar por tipo:";
             // 
-            // dtpHasta
-            // 
-            dtpHasta.Location = new Point(402, 50);
-            dtpHasta.Name = "dtpHasta";
-            dtpHasta.Size = new Size(178, 23);
-            dtpHasta.TabIndex = 45;
-            dtpHasta.ValueChanged += dtpHasta_ValueChanged;
-            // 
             // dtpDesde
             // 
-            dtpDesde.Location = new Point(402, 24);
+            dtpDesde.Enabled = false;
+            dtpDesde.Location = new Point(308, 67);
             dtpDesde.Name = "dtpDesde";
-            dtpDesde.Size = new Size(178, 23);
-            dtpDesde.TabIndex = 46;
-            dtpDesde.ValueChanged += dtpDesde_ValueChanged;
+            dtpDesde.Size = new Size(153, 23);
+            dtpDesde.TabIndex = 45;
+            dtpDesde.ValueChanged += dtpHasta_ValueChanged;
             // 
-            // label3
+            // dtpHasta
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(357, 30);
-            label3.Name = "label3";
-            label3.Size = new Size(39, 15);
-            label3.TabIndex = 47;
-            label3.Text = "Desde";
+            dtpHasta.Enabled = false;
+            dtpHasta.Location = new Point(470, 67);
+            dtpHasta.Name = "dtpHasta";
+            dtpHasta.Size = new Size(153, 23);
+            dtpHasta.TabIndex = 46;
+            dtpHasta.ValueChanged += dtpDesde_ValueChanged;
             // 
-            // label4
+            // lblDesde
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(359, 53);
-            label4.Name = "label4";
-            label4.Size = new Size(37, 15);
-            label4.TabIndex = 48;
-            label4.Text = "Hasta";
+            lblDesde.AutoSize = true;
+            lblDesde.Enabled = false;
+            lblDesde.Location = new Point(308, 49);
+            lblDesde.Name = "lblDesde";
+            lblDesde.Size = new Size(39, 15);
+            lblDesde.TabIndex = 47;
+            lblDesde.Text = "Desde";
+            // 
+            // lblHasta
+            // 
+            lblHasta.AutoSize = true;
+            lblHasta.Enabled = false;
+            lblHasta.Location = new Point(470, 49);
+            lblHasta.Name = "lblHasta";
+            lblHasta.Size = new Size(37, 15);
+            lblHasta.TabIndex = 48;
+            lblHasta.Text = "Hasta";
+            // 
+            // cboxFiltrarFechas
+            // 
+            cboxFiltrarFechas.AutoSize = true;
+            cboxFiltrarFechas.Location = new Point(308, 27);
+            cboxFiltrarFechas.Name = "cboxFiltrarFechas";
+            cboxFiltrarFechas.Size = new Size(198, 19);
+            cboxFiltrarFechas.TabIndex = 49;
+            cboxFiltrarFechas.Text = "Filtrar por fechas de movimiento";
+            cboxFiltrarFechas.UseVisualStyleBackColor = true;
+            cboxFiltrarFechas.CheckedChanged += cboxFiltrarFechas_CheckedChanged;
             // 
             // ConsultaDeMovimientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 600);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(dtpDesde);
+            Controls.Add(cboxFiltrarFechas);
+            Controls.Add(lblHasta);
+            Controls.Add(lblDesde);
             Controls.Add(dtpHasta);
+            Controls.Add(dtpDesde);
             Controls.Add(label2);
             Controls.Add(cbFiltrarTipo);
             Controls.Add(label1);
@@ -162,9 +179,10 @@
         private Label label1;
         private ComboBox cbFiltrarTipo;
         private Label label2;
-        private DateTimePicker dtpHasta;
         private DateTimePicker dtpDesde;
-        private Label label3;
-        private Label label4;
+        private DateTimePicker dtpHasta;
+        private Label lblDesde;
+        private Label lblHasta;
+        private CheckBox cboxFiltrarFechas;
     }
 }
