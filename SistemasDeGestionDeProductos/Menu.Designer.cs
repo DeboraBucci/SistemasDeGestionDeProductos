@@ -101,6 +101,7 @@
             bajaDeProductoToolStripMenuItem.Name = "bajaDeProductoToolStripMenuItem";
             bajaDeProductoToolStripMenuItem.Size = new Size(212, 22);
             bajaDeProductoToolStripMenuItem.Text = "Baja de Producto";
+            bajaDeProductoToolStripMenuItem.Click += bajaDeProductoToolStripMenuItem_Click;
             // 
             // consultaDeProductosToolStripMenuItem
             // 

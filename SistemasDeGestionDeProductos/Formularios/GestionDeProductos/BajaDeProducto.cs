@@ -1,0 +1,84 @@
+﻿using SistemasDeGestionDeProductos.Helpers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SistemasDeGestionDeProductos.Formularios.GestionDeProductos
+{
+    public partial class BajaDeProducto : Form
+    {
+        public BajaDeProducto()
+        {
+            InitializeComponent();
+        }
+
+        private void BajaDeProducto_Load(object sender, EventArgs e)
+        {
+            dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
+            ActualizarDataGrid();
+        }
+
+        private void BajaDeProducto_Activated(object sender, EventArgs e)
+        {
+            ActualizarDataGrid();
+        }
+
+        private void ActualizarDataGrid()
+        {
+            var productos = Program.GestorDeProductos.BuscarProductos();
+            dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var productoSeleccionadoId = dgvControl1.SelectedItemId;
+
+                if (productoSeleccionadoId != null)
+                {
+                    var productoSeleccionado = Program.GestorDeProductos.BuscarProductoPorId(productoSeleccionadoId.Value);
+
+                    if (productoSeleccionado == null)
+                        throw new ArgumentException("El producto seleccionado no existe.");
+
+                    var dr = MessageBox.Show(
+                        $"Esta seguro de querer eliminar el producto?\n\n\tNombre: {productoSeleccionado.Nombre}\n\tId: {productoSeleccionado.Id}",
+                        "Confirmar borrado",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        bool success = Program.GestorDeProductos.EliminarProducto(productoSeleccionado);
+
+                        if (success)
+                        {
+                            MessageBox.Show(
+                                "El producto se ha eliminado correctamente!",
+                                "Eliminado!", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            ActualizarDataGrid();
+                        }
+
+                        else
+                        {
+                            throw new Exception("El producto no pudo eliminarse, prueba nuevamente mas tarde.");
+                        }
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageHelper.ShowErrorMessage(ex.Message);
+            }
+        }
+    }
+}

@@ -1,3 +1,4 @@
+using SistemasDeGestionDeProductos.Formularios.GestionDeProductos;
 using SistemasDeGestionDeProductos.Formularios.GestionDeRubros;
 using SistemasDeGestionDeProductos.Formularios.Reportes;
 using SistemasDeGestionDeProductos.Service;
@@ -14,6 +15,7 @@ namespace SistemasDeGestionDeProductos
         // GESTION DE PRODUCTOS
         AltaDeProducto altaDeProducto = new();
         ModificacionDeProducto modificacionDeProducto = new();
+        BajaDeProducto bajaDeProducto = new();
         ConsultaDeProductos consultaDeProductos = new();
 
         // GESTION DE RUBROS
@@ -54,6 +56,9 @@ namespace SistemasDeGestionDeProductos
 
             modificacionDeProducto.MdiParent = this;
             modificacionDeProducto.Dock = DockStyle.Fill;
+
+            bajaDeProducto.MdiParent = this;
+            bajaDeProducto.Dock = DockStyle.Fill;
 
             consultaDeProductos.MdiParent = this;
             consultaDeProductos.Dock = DockStyle.Fill;
@@ -126,6 +131,11 @@ namespace SistemasDeGestionDeProductos
             AbrirForm(modificacionDeProducto);
 
         }
+        private void bajaDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirForm(bajaDeProducto);
+        }
+
 
         private void consultaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {

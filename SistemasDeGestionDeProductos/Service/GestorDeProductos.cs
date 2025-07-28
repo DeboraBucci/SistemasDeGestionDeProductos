@@ -54,9 +54,19 @@ namespace SistemasDeGestionDeProductos.Service
                 repositorioProductos.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, rubroId.Value);
         }
 
+        public bool EliminarProducto(Producto producto)
+        {
+            if (producto.Nombre != null)
+            {
+                repositorioProductos.Eliminar(producto);
+                return true;
+            }
 
+            return false;
+        }
+   
         // BUSQUEDAS
-        public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos();
+        public IReadOnlyCollection<Producto> BuscarProductos() => repositorioProductos.BuscarTodos().Where(p => !p.Eliminado).ToList();
 
         public IReadOnlyCollection<Producto> BuscarPorFiltro(string txt)
         {

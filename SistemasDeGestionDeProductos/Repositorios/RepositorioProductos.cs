@@ -40,6 +40,12 @@ namespace SistemasDeGestionDeProductos.Repositorios
             .ToList()
             .AsReadOnly();
 
+        public void Eliminar(Producto producto)
+        {
+            producto.Eliminar();
+            ActualizarArchivo();
+        }
+
         public Producto? BuscarPorNombre(string nombre) => _items.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
     }
 }
