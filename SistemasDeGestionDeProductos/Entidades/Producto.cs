@@ -12,8 +12,8 @@ namespace SistemasDeGestionDeProductos.Entidades
     {
         private static readonly decimal _porcentajeIncrementoPrecio = 0.5m; // 50%
         public Guid Id { get; private set; }
-        public string? Nombre { get; set; }
-        public string? Descripcion { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public string Descripcion { get; set; } = string.Empty;
         public decimal PrecioUnitarioCompra { get; set; }
         public decimal PrecioUnitarioVenta { get
             {
@@ -22,19 +22,25 @@ namespace SistemasDeGestionDeProductos.Entidades
         }
         public Guid IdRubro { get; set; }
 
+        public bool Eliminado { get; private set; } = false;
+
         public Producto()
         {
             Id = Guid.NewGuid();
         }
 
         [JsonConstructor]
-        public Producto(Guid id, string? nombre, string? descripcion, decimal precioUnitarioCompra, Guid idRubro)
+        public Producto(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, Guid idRubro, bool eliminado)
         {
             Id = id;
             Nombre = nombre;
             Descripcion = descripcion;
             PrecioUnitarioCompra = precioUnitarioCompra;
             IdRubro = idRubro;
+            Eliminado = eliminado;
         }
+
+
+        public void Eliminar() => Eliminado = true;
     }
 }
