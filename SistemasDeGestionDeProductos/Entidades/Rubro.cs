@@ -8,19 +8,13 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public class Rubro : INombre, IConId
+    public class Rubro : Entidad
     {
-        public Guid Id { get; private set; }
-        public string? Nombre { get; set; }
-        public string? Descripcion { get; set; }
+        public string Descripcion { get; set; } = string.Empty;
 
-        public Rubro()
-        {
-            Id = Guid.NewGuid();
-        }
 
         [JsonConstructor]
-        public Rubro(Guid id, string? nombre, string? descripcion)
+        public Rubro(Guid id, string nombre, string descripcion)
         {
             Id = id;
             Nombre = nombre;

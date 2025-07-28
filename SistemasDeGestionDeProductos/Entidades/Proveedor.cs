@@ -8,20 +8,13 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Entidades
 {
-    public class Proveedor : INombre, IConId
+    public class Proveedor : Entidad
     {
-        public Guid Id { get; private set;  }
-        public string Nombre { get; set; } = string.Empty;
         public string Contacto { get; set; } = string.Empty;
         public string Telefono { get; set; } = string.Empty;
         public string Direccion {  get; set; } = string.Empty;
         public bool Eliminado { get; private set; } = false;
 
-
-        public Proveedor()
-        {
-            Id = Guid.NewGuid();
-        }
 
         [JsonConstructor]
         public Proveedor(Guid id, string nombre, string contacto, string telefono, string direccion, bool eliminado)
