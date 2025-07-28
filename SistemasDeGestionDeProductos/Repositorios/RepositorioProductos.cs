@@ -11,10 +11,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    public class RepositorioProductos : RepositorioBase<Producto>
+    public class RepositorioProductos : RepositorioEntidad<Producto>
     {
         public RepositorioProductos(string path): base(path) { }
-
 
         public void Modificar(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, Guid idRubro)
         {
@@ -33,19 +32,5 @@ namespace SistemasDeGestionDeProductos.Repositorios
 
 
         public IReadOnlyCollection<Producto> BuscarPorRubro(Guid idRubro) => _items.Where(p => p.IdRubro == idRubro).ToList();
-        
-        public IReadOnlyCollection<Producto> BuscarPorNombreContiene(string txt) => 
-            _items
-            .Where(p => !string.IsNullOrEmpty(p.Nombre) && p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
-            .ToList()
-            .AsReadOnly();
-
-        public void Eliminar(Producto producto)
-        {
-            producto.Eliminar();
-            ActualizarArchivo();
-        }
-
-        public Producto? BuscarPorNombre(string nombre) => _items.FirstOrDefault(p => TextHelper.SonIgualesSinTildes(p.Nombre + "", nombre));
     }
 }

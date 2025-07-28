@@ -13,8 +13,8 @@ namespace SistemasDeGestionDeProductos.Entidades
         public string Contacto { get; set; } = string.Empty;
         public string Telefono { get; set; } = string.Empty;
         public string Direccion {  get; set; } = string.Empty;
-        public bool Eliminado { get; private set; } = false;
 
+        public Proveedor() { }
 
         [JsonConstructor]
         public Proveedor(Guid id, string nombre, string contacto, string telefono, string direccion, bool eliminado)
@@ -24,9 +24,7 @@ namespace SistemasDeGestionDeProductos.Entidades
             Contacto = contacto;
             Telefono = telefono;
             Direccion = direccion;
-            Eliminado = eliminado;
+           Eliminado = eliminado;
         }
-
-        public void Eliminar() => Eliminado = true;
     }
 }

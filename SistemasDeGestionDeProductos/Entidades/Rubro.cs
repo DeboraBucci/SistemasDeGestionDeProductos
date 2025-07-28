@@ -12,6 +12,7 @@ namespace SistemasDeGestionDeProductos.Entidades
     {
         public string Descripcion { get; set; } = string.Empty;
 
+        public Rubro() { }
 
         [JsonConstructor]
         public Rubro(Guid id, string nombre, string descripcion)

@@ -21,20 +21,17 @@ namespace SistemasDeGestionDeProductos.Entidades
         }
         public Guid IdRubro { get; set; }
 
-        public bool Eliminado { get; private set; } = false;
-
+        public Producto() { }
 
         [JsonConstructor]
         public Producto(Guid id, string nombre, string descripcion, decimal precioUnitarioCompra, Guid idRubro, bool eliminado)
         {
-            base.Id = id;
+            Id = id;
             Nombre = nombre;
             Descripcion = descripcion;
             PrecioUnitarioCompra = precioUnitarioCompra;
             IdRubro = idRubro;
             Eliminado = eliminado;
         }
-
-        public void Eliminar() => Eliminado = true;
     }
 }
