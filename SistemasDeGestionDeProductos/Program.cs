@@ -5,9 +5,9 @@ namespace SistemasDeGestionDeProductos
 {
     internal static class Program
     {
-        private static RepositorioProductos _repositorioProductos = new("productos.json");
-        private static RepositorioRubros _repositorioRubros = new("rubros.json");
-        private static RepositorioProveedores _repositorioProveedores = new("proveedores.json");
+        private readonly static RepositorioProductos _repositorioProductos = new("productos.json");
+        private readonly static RepositorioRubros _repositorioRubros = new("rubros.json");
+        private readonly static RepositorioProveedores _repositorioProveedores = new("proveedores.json");
 
 
         public static GestorDeProductos GestorDeProductos = new(_repositorioProductos);

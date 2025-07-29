@@ -82,11 +82,14 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
             ActualizarDataGrid();
         }
 
+        private void ModificacionDeProveedor_Activated(object sender, EventArgs e)
+        {
+            ActualizarDataGrid();
+        }
+
         private void ActualizarDataGrid()
         {
             dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarActivos());
         }
-
-      
     }
 }

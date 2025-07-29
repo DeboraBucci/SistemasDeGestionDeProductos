@@ -11,7 +11,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             InitializeComponent();
         }
 
-            private void btnCrearProducto_Click(object sender, EventArgs e)
+        private void btnCrearProducto_Click(object sender, EventArgs e)
         {
             try
             {
@@ -36,10 +36,14 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 if (!int.TryParse(stockStr, out int stock) || stock <= 0)
                     throw new Exception("Numero de stock invalido.");
 
-                var proveedorId = Program.GestorDeProveedores.BuscarPorNombre(proveedorNombre)?.Id ?? Guid.Empty;
+                var proveedorId = Program.GestorDeProveedores.BuscarPorNombre(proveedorNombre)?.Id;
+
+                if (proveedorId == null)
+                    throw new Exception("El proveedor es invalido.");
+
                 var producto = Program.GestorDeProductos.Crear(nombre, descripcion, precioUnit, rubroNombre);
 
-                Program.GestorDeMovimientos.IngresarStock(producto.Id, stock, fechaVencimiento, proveedorId);
+                Program.GestorDeMovimientos.IngresarStock(producto.Id, stock, fechaVencimiento, proveedorId.Value);
 
                 VaciarTxt();
                 ActualizarDataGrid();

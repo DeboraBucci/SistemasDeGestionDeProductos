@@ -169,6 +169,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "ModificacionDeProveedor";
             Text = "ModificionDeProveedor";
+            Activated += ModificacionDeProveedor_Activated;
             Load += ModificacionDeProveedor_Load;
             ResumeLayout(false);
             PerformLayout();

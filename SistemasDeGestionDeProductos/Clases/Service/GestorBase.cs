@@ -40,6 +40,6 @@ namespace SistemasDeGestionDeProductos.Clases.Service
 
         public TEntidad? BuscarPorNombre(string nombre) => _repositorio.BuscarPorNombre(nombre);
 
-        public virtual IReadOnlyCollection<Entidad> BuscarPorFiltro(string txt) => _repositorio.BuscarPorNombreContiene(txt.Trim());
+        public IReadOnlyCollection<Entidad> BuscarPorFiltro(string txt) => _repositorio.BuscarPorNombreContiene(txt.Trim());
     }
 }
