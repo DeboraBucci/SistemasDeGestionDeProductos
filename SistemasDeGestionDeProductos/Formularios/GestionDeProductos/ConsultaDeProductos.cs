@@ -23,13 +23,14 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         {
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
             ActualizarDataGrid();
-
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros(), true);
+            ActualizarComboBox();
+           
         }
 
         private void ConsultaDeProductos_Activated(object sender, EventArgs e)
         {
             ActualizarDataGrid();
+            ActualizarComboBox();
         }
 
 
@@ -37,6 +38,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         {
             var productos = Program.GestorDeProductos.BuscarProductos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
+        }
+
+        private void ActualizarComboBox()
+        {
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros(), true);
         }
 
         private void cbControl1_SelectionChangedExternal(object sender, EventArgs e)

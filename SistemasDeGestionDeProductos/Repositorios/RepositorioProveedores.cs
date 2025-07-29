@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    internal class RepositorioProveedores : RepositorioEntidad<Proveedor>
+    public class RepositorioProveedores : RepositorioEntidad<Proveedor>
     {
         public RepositorioProveedores(string path) : base(path) { }
 
