@@ -39,16 +39,16 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(26, 82);
+            dgvControl1.Location = new Point(28, 99);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(1042, 506);
+            dgvControl1.Size = new Size(1046, 469);
             dgvControl1.TabIndex = 19;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(36, 25);
+            label2.Location = new Point(28, 58);
             label2.Name = "label2";
             label2.Size = new Size(110, 30);
             label2.TabIndex = 18;
@@ -58,7 +58,7 @@
             // 
             cbControl1.AutoSize = true;
             cbControl1.CbTxt = null;
-            cbControl1.Location = new Point(800, 50);
+            cbControl1.Location = new Point(805, 67);
             cbControl1.Name = "cbControl1";
             cbControl1.Size = new Size(268, 26);
             cbControl1.TabIndex = 20;
@@ -67,7 +67,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(800, 25);
+            label1.Location = new Point(805, 44);
             label1.Name = "label1";
             label1.Size = new Size(96, 15);
             label1.TabIndex = 21;
@@ -75,7 +75,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(414, 50);
+            txtFiltro.Location = new Point(419, 67);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(362, 23);
             txtFiltro.TabIndex = 22;
@@ -84,7 +84,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(414, 25);
+            label3.Location = new Point(419, 44);
             label3.Name = "label3";
             label3.Size = new Size(136, 15);
             label3.TabIndex = 23;
