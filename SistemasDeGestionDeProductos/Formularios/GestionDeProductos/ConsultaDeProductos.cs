@@ -25,42 +25,30 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
         }
 
 
-        private void ActualizarDataGrid()
-        {
-            var productos = Program.GestorDeProductos.BuscarTodos();
-            dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
-        }
-
-        private void ActualizarComboBox()
-        {
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarTodos(), true);
-        }
-
         private void cbControl1_SelectionChangedExternal(object sender, EventArgs e)
         {
-            var nombreRubro = cbControl1.CbTxt ?? string.Empty;
-
-            var productosDelRubro = Program.GestorDeProductos.BuscarPorRubro(nombreRubro);
-
-            if (productosDelRubro == null) // SI ES NULL, CARGA TODOS LOS PRODUCTOS
-                ActualizarDataGrid();
-
-            else
-                dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productosDelRubro));
+            ActualizarDataGrid();
         }
 
         private void txtIdONombre_TextChanged(object sender, EventArgs e)
         {
+            ActualizarDataGrid();
+        }
+
+        private void ActualizarDataGrid()
+        {
             var texto = txtFiltro.Text.Trim();
+            string nombreRubro = cbControl1.CbTxt ?? string.Empty;
+      
+             var idRubro = Program.GestorDeRubros.BuscarPorNombre(nombreRubro)?.Id;
 
-            if (texto == string.Empty) // SI ES "", CARGA TODOS LOS PRODUCTOS
-                ActualizarDataGrid();
+             var productos = Program.GestorDeProductos.BuscarPorFiltro(idRubro, texto);
+             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
+        }
 
-            else
-            {
-                var productosFiltrados = Program.GestorDeProductos.BuscarPorFiltro(texto);
-                dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productosFiltrados));
-            }
+        private void ActualizarComboBox()
+        {
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarActivos(), true);
         }
     }
 }

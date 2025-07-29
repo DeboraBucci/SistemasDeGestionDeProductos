@@ -22,6 +22,6 @@ namespace SistemasDeGestionDeProductos.Clases.Repositorios
         }
 
 
-        public IReadOnlyCollection<Producto> BuscarPorRubro(Guid idRubro) => BuscarTodos().Where(p => p.IdRubro == idRubro).ToList();
+        public IReadOnlyCollection<Producto> BuscarPorRubro(Guid idRubro) => BuscarActivos().Where(p => p.IdRubro == idRubro).ToList();
     }
 }

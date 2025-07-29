@@ -32,8 +32,9 @@ namespace SistemasDeGestionDeProductos.Clases.Service
         }
 
 
-        public IReadOnlyCollection<TEntidad> BuscarTodos() => _repositorio.BuscarTodos().Where(i => !i.Eliminado).ToList();
+        public IReadOnlyCollection<TEntidad> BuscarTodos() => _repositorio.BuscarTodos();
 
+        public IReadOnlyCollection<TEntidad> BuscarActivos() => _repositorio.BuscarActivos();
 
         public TEntidad? BuscarPorId(Guid id) => _repositorio.BuscarPorId(id);
 

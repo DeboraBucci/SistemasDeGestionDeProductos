@@ -34,7 +34,6 @@ namespace SistemasDeGestionDeProductos.Clases.Service
             {
                 MessageHelper.ShowErrorMessage(ex.Message);
             }
-
         }
 
 
@@ -42,6 +41,16 @@ namespace SistemasDeGestionDeProductos.Clases.Service
         {
             if (rubroId != null)
                 _repositorio.Modificar(rubroId.Value, nombre, descripcion);
+        }
+
+        public override bool Eliminar(Rubro rubro)
+        {
+            var productosDelRubro = Program.GestorDeProductos.BuscarPorRubro(rubro.Nombre ?? string.Empty);
+
+            if (productosDelRubro?.Count > 0)
+                throw new Exception("El rubro seleccionado no puede eliminarse ya que tiene productos asociados.");
+
+            return base.Eliminar(rubro);
         }
     }
 }

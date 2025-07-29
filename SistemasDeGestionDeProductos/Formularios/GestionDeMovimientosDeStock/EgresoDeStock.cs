@@ -24,7 +24,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasEgresos;
             ActualizarDataGrid();
 
-            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarTodos());
+            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarActivos());
         }
 
         private void EgresoDeStock_Activated(object sender, EventArgs e)

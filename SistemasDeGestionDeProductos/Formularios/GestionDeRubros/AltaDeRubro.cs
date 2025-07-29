@@ -46,7 +46,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarTodos());
+            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarActivos());
         }
 
         private void VaciarTextos()

@@ -75,8 +75,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
 
         private void ActualizarComboBoxes()
         {
-            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarTodos());
-            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarTodos());
+            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarActivos());
+            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarActivos());
         }
 
         private void VaciarTextos()

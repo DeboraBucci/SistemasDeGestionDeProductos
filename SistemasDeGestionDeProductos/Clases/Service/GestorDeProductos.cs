@@ -1,5 +1,7 @@
 ﻿using SistemasDeGestionDeProductos.Clases.Entidades;
+using SistemasDeGestionDeProductos.Clases.Helpers;
 using SistemasDeGestionDeProductos.Clases.Repositorios;
+using System.Security.Policy;
 
 namespace SistemasDeGestionDeProductos.Clases.Service
 {
@@ -44,28 +46,16 @@ namespace SistemasDeGestionDeProductos.Clases.Service
                 _repositorio.Modificar(productoId.Value, nombre, descripcion, precioUnitarioCompra, rubroId.Value);
         }
 
-
-        public override IReadOnlyCollection<Producto> BuscarPorFiltro(string txt)
-        {
-            var texto = txt.Trim();
-            IReadOnlyCollection<Producto> productosFiltrados = new List<Producto>();
-
-            if (Guid.TryParse(texto, out var id))
-            {
-                var producto = _repositorio.BuscarPorId(id);
-
-                if (producto != null)
-                    productosFiltrados = Array.AsReadOnly(new[] { producto });
-            }
-
-            else
-            {
-                productosFiltrados = _repositorio.BuscarPorNombreContiene(texto);
-            }
-
-            return productosFiltrados;
-        }
-
+        public IReadOnlyCollection<Producto> BuscarPorFiltro(Guid? idRubro = null, string? txt = null) =>
+            _repositorio
+            .BuscarActivos()
+            .Where(p => idRubro == null || p.IdRubro == idRubro)
+            .Where(p => 
+                    txt == null || 
+                    p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase) ||
+                    p.Id.ToString().Contains(txt))
+            .ToList()
+            .AsReadOnly();
 
         public IReadOnlyCollection<Producto>? BuscarPorRubro(string nombreRubro)
         {

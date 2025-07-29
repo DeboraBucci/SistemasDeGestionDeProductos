@@ -16,10 +16,12 @@ namespace SistemasDeGestionDeProductos.Clases.Repositorios
 
 
         public IReadOnlyCollection<T> BuscarPorNombreContiene(string txt) =>
-            _items
+            BuscarActivos()
             .Where(i => !string.IsNullOrEmpty(i.Nombre) && i.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
             .ToList()
             .AsReadOnly();
+
+        public IReadOnlyCollection<T> BuscarActivos() => _items.Where(i => !i.Eliminado).ToList();
 
         public void Eliminar(T item)
         {

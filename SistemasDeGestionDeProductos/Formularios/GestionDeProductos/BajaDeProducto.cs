@@ -32,7 +32,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProductos
 
         private void ActualizarDataGrid()
         {
-            var productos = Program.GestorDeProductos.BuscarTodos();
+            var productos = Program.GestorDeProductos.BuscarActivos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
 

@@ -11,7 +11,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             InitializeComponent();
         }
 
-        private void btnCrearProducto_Click(object sender, EventArgs e)
+            private void btnCrearProducto_Click(object sender, EventArgs e)
         {
             try
             {
@@ -69,14 +69,14 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void ActualizarDataGrid()
         {
-            var productos = Program.GestorDeProductos.BuscarTodos();
+            var productos = Program.GestorDeProductos.BuscarActivos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
 
         private void ActualizarComboBoxes()
         {
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarTodos());
-            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarTodos());
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarActivos());
+            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarActivos());
         }
 
         private void VaciarTxt()

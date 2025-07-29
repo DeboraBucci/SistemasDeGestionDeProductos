@@ -16,8 +16,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProductos
     {
         public ProductosPorVencer()
         {
-            InitializeComponent();
-           
+            InitializeComponent();  
         }
 
         private void ProductosPorVencer_Load(object sender, EventArgs e)

@@ -78,7 +78,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
             ActualizarDataGrid();
 
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarTodos());
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarActivos());
         }
 
         private void ModificacionDeProducto_Activated(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void ActualizarDataGrid()
         {
-            var productos = Program.GestorDeProductos.BuscarTodos();
+            var productos = Program.GestorDeProductos.BuscarActivos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
     }

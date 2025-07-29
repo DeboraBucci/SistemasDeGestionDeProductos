@@ -33,11 +33,6 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeRubros
                     if (rubroSeleccionado == null)
                         throw new ArgumentException("El rubro seleccionado no existe.");
 
-                    var productosDelRubro = Program.GestorDeProductos.BuscarPorRubro(rubroSeleccionado.Nombre ?? string.Empty);
-
-                    if (productosDelRubro?.Count > 0)
-                        throw new Exception("El rubro seleccionado no puede eliminarse ya que tiene productos asociados.");
-
                     var dr = MessageBox.Show(
                         $"Esta seguro de querer eliminar el rubro?\n\n\tNombre: {rubroSeleccionado.Nombre}\n\tId: {rubroSeleccionado.Id}",
                         "Confirmar borrado",
@@ -73,7 +68,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeRubros
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarTodos());
+            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarActivos());
         }
     }
 }

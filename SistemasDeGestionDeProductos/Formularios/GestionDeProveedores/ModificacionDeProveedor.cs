@@ -84,7 +84,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarTodos());
+            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarActivos());
         }
 
       
