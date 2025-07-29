@@ -29,7 +29,7 @@ namespace SistemasDeGestionDeProductos.Service
                 ProductoId = productoId,
                 Tipo = TipoMovimiento.Ingreso,
                 Stock = cantidad,
-                FechaMovimiento = DateTime.Now,
+                FechaMovimiento = DateTime.Now.Date,
                 FechaVencimiento = vencimiento,
                 ProveedorId = proveedorId,
             });
@@ -102,7 +102,7 @@ namespace SistemasDeGestionDeProductos.Service
                         ProductoId = productoId,
                         Tipo = TipoMovimiento.Egreso,
                         Stock = valorTomado,
-                        FechaMovimiento = DateTime.Now,
+                        FechaMovimiento = DateTime.Now.Date,
                         FechaVencimiento = lote.Movimiento.FechaVencimiento,
                         Motivo = motivo
                     });
@@ -255,7 +255,7 @@ namespace SistemasDeGestionDeProductos.Service
                         ProductoId = ingreso.ProductoId,
                         Tipo = TipoMovimiento.Egreso,
                         Stock = restante,
-                        FechaMovimiento = DateTime.Now,
+                        FechaMovimiento = DateTime.Now.Date,
                         FechaVencimiento = ingreso.FechaVencimiento,
                         Motivo = "Vencimiento"
                     });

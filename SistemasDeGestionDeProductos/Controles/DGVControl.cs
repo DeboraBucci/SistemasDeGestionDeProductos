@@ -81,7 +81,15 @@ namespace SistemasDeGestionDeProductos
                 });
             }
 
-            dgvGenerica.SelectionChanged += dgvProductos_SelectionChanged;
+            if (dgvGenerica.Columns.Contains("colFechaVencimiento"))
+            {
+                dgvGenerica.Columns["colFechaVencimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
+
+            if (dgvGenerica.Columns.Contains("colFechaMovimiento"))
+            {
+                dgvGenerica.Columns["colFechaMovimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
         }
 
         public void Refrescar<T>(T items)

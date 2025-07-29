@@ -76,7 +76,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             if (cboxFiltrarFechas.Checked)
             {
                 fechaDesde = dtpDesde.Value.Date;
-                fechaHasta = dtpHasta.Value.Date;
+                fechaHasta = dtpHasta.Value.Date.AddDays(1);
             }
 
             TipoMovimiento? tipo = null;

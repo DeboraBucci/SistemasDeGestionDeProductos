@@ -49,7 +49,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
                 if (!int.TryParse(stockTxt, out var stock) || stock <= 0)
                     throw new Exception("Stock invalido.");
 
-                var fechaVencimiento = dtpFechaVencimiento.Value;
+                var fechaVencimiento = dtpFechaVencimiento.Value.Date;
 
                 var productoId = Program.GestorDeProductos.BuscarPorNombre(producto)?.Id;
                 var proveedorId = Program.GestorDeProveedores.BuscarPorNombre(proveedor)?.Id;
