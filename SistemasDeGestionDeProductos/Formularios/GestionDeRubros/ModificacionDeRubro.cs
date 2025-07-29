@@ -38,7 +38,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
             Rubro? rubro = null;
 
             if (_rubroId != null)
-                rubro = Program.GestorDeRubros.BuscarRubroPorId(_rubroId.Value);
+                rubro = Program.GestorDeRubros.BuscarPorId(_rubroId.Value);
 
 
             if (rubro != null)
@@ -58,7 +58,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
                 if (nombre == "")
                     throw new Exception("El nombre del rubro no puede estar vacio.");
 
-                Program.GestorDeRubros.ModificarRubro(_rubroId, nombre, descripcion);
+                Program.GestorDeRubros.Modificar(_rubroId, nombre, descripcion);
                 ActualizarDataGrid();
 
             }
@@ -70,7 +70,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarRubros());
+            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarTodos());
         }
     }
 }

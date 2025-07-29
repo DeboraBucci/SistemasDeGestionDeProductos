@@ -31,7 +31,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
 
         private void ActualizarDataGrid()
         {
-            var rubros = Program.GestorDeRubros.BuscarRubros();
+            var rubros = Program.GestorDeRubros.BuscarTodos();
 
             var productosConStock = rubros.Select(r => new
             {

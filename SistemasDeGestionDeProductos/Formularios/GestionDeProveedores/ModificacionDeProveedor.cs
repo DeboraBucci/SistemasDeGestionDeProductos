@@ -30,7 +30,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
             Proveedor? proveedor = null;
 
             if (proveedorId != null)
-                proveedor = Program.GestorDeProveedores.BuscarProveedorPorId(proveedorId.Value);
+                proveedor = Program.GestorDeProveedores.BuscarPorId(proveedorId.Value);
 
 
             if (proveedor != null)
@@ -64,7 +64,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
                     throw new Exception("La direccion del proveedor no puede estar vacia.");
 
 
-                Program.GestorDeProveedores.ModificarProveedor(_proveedorId, nombre, contacto, telefono, direccion);
+                Program.GestorDeProveedores.Modificar(_proveedorId, nombre, contacto, telefono, direccion);
                 ActualizarDataGrid();
             }
 
@@ -82,7 +82,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());
+            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarTodos());
         }
 
       

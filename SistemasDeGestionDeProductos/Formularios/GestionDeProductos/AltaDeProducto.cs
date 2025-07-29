@@ -46,8 +46,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 if (!int.TryParse(stockStr, out int stock) || stock <= 0)
                     throw new Exception("Numero de stock invalido.");
 
-                var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre)?.Id ?? Guid.Empty;
-                var producto = Program.GestorDeProductos.CrearProducto(nombre, descripcion, precioUnit, rubroNombre);
+                var proveedorId = Program.GestorDeProveedores.BuscarPorNombre(proveedorNombre)?.Id ?? Guid.Empty;
+                var producto = Program.GestorDeProductos.Crear(nombre, descripcion, precioUnit, rubroNombre);
 
                 Program.GestorDeMovimientos.IngresarStock(producto.Id, stock, fechaVencimiento, proveedorId);
 
@@ -79,14 +79,14 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void ActualizarDataGrid()
         {
-            var productos = Program.GestorDeProductos.BuscarProductos();
+            var productos = Program.GestorDeProductos.BuscarTodos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
 
         private void ActualizarComboBoxes()
         {
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
-            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarTodos());
+            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarTodos());
         }
 
         private void VaciarTxt()

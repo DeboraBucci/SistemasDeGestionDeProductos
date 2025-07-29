@@ -5,9 +5,15 @@ namespace SistemasDeGestionDeProductos
 {
     internal static class Program
     {
-        public static GestorDeRubros GestorDeRubros = new("rubros.json");
-        public static GestorDeProductos GestorDeProductos = new("productos.json");
-        public static GestorDeProveedores GestorDeProveedores = new("proveedores.json");
+        private static RepositorioProductos _repositorioProductos = new("productos.json");
+        private static RepositorioRubros _repositorioRubros = new("rubros.json");
+        private static RepositorioProveedores _repositorioProveedores = new("proveedores.json");
+
+
+        public static GestorDeProductos GestorDeProductos = new(_repositorioProductos);
+        public static GestorDeRubros GestorDeRubros = new(_repositorioRubros);
+        public static GestorDeProveedores GestorDeProveedores = new(_repositorioProveedores);
+
         public static GestorDeMovimientos GestorDeMovimientos = new("movimientos.json");
 
         /// <summary>

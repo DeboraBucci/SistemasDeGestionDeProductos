@@ -8,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Service
 {
-    public class GestorDeProveedores
+    public class GestorDeProveedores : GestorBase<Proveedor, RepositorioProveedores>
     {
-        private readonly RepositorioProveedores repositorioProveedores;
+        public GestorDeProveedores(RepositorioProveedores repositorio) : base(repositorio) { }
 
-        public GestorDeProveedores(string path)
+        public void Crear(string nombre, string contacto, string telefono, string direccion)
         {
-            repositorioProveedores = new(path);
-        }
-
-        public void CrearProveedor(string nombre, string contacto, string telefono, string direccion)
-        {
-            var proveedorYaExistente = repositorioProveedores.BuscarPorNombre(nombre);
+            var proveedorYaExistente = _repositorio.BuscarPorNombre(nombre);
 
             if (proveedorYaExistente != null)
                 throw new Exception("Ya existe un proveedor con el mismo nombre.");
@@ -32,33 +27,14 @@ namespace SistemasDeGestionDeProductos.Service
                 Direccion = direccion
             };
 
-            repositorioProveedores.Agregar(proveedor);
-        }
-
-        public bool EliminarProveedor(Proveedor proveedor)
-        {
-            if (proveedor.Nombre != null)
-            {
-                repositorioProveedores.Eliminar(proveedor);
-                return true;
-            }
-
-            return false;
+            _repositorio.Agregar(proveedor);
         }
 
 
-        public IReadOnlyCollection<Proveedor> BuscarProveedores() => repositorioProveedores.BuscarTodos().Where(p => !p.Eliminado).ToList();
-
-        public Proveedor? BuscarProveedorPorId(Guid id) => repositorioProveedores.BuscarPorId(id);
-
-        public Proveedor? BuscarProveedorPorNombre(string nombre) => repositorioProveedores.BuscarPorNombre(nombre);
-
-        public void ModificarProveedor(Guid? proveedorId, string nombre, string contacto, string telefono, string direccion)
+        public void Modificar(Guid? proveedorId, string nombre, string contacto, string telefono, string direccion)
         {
             if (proveedorId != null)
-                repositorioProveedores.Modificar(proveedorId.Value, nombre, contacto, telefono, direccion);
+                _repositorio.Modificar(proveedorId.Value, nombre, contacto, telefono, direccion);
         }
-
-        public IReadOnlyCollection<Proveedor> BuscarPorFiltro(string txt) => repositorioProveedores.BuscarPorNombreContiene(txt.Trim());
     }
 }

@@ -31,7 +31,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProductos
 
         private void ActualizarDataGrid()
         {
-            var productos = Program.GestorDeProductos.BuscarProductos();
+            var productos = Program.GestorDeProductos.BuscarTodos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
 
@@ -43,7 +43,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProductos
 
                 if (productoSeleccionadoId != null)
                 {
-                    var productoSeleccionado = Program.GestorDeProductos.BuscarProductoPorId(productoSeleccionadoId.Value);
+                    var productoSeleccionado = Program.GestorDeProductos.BuscarPorId(productoSeleccionadoId.Value);
 
                     if (productoSeleccionado == null)
                         throw new ArgumentException("El producto seleccionado no existe.");
@@ -56,7 +56,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProductos
 
                     if (dr == DialogResult.Yes)
                     {
-                        bool success = Program.GestorDeProductos.EliminarProducto(productoSeleccionado);
+                        bool success = Program.GestorDeProductos.Eliminar(productoSeleccionado);
 
                         if (success)
                         {

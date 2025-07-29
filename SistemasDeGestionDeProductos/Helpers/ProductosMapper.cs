@@ -17,7 +17,7 @@ namespace SistemasDeGestionDeProductos.Helpers
                 p.Descripcion ?? string.Empty,
                 p.PrecioUnitarioCompra,
                 p.PrecioUnitarioVenta,
-                Program.GestorDeRubros.BuscarRubroPorId(p.IdRubro)?.Nombre ?? string.Empty
+                Program.GestorDeRubros.BuscarPorId(p.IdRubro)?.Nombre ?? string.Empty
                 )).ToList();
 
         public static ProductoVencerDTO
@@ -28,7 +28,7 @@ namespace SistemasDeGestionDeProductos.Helpers
                     producto.Descripcion ?? string.Empty,
                     producto.PrecioUnitarioCompra,
                     producto.PrecioUnitarioVenta,
-                    Program.GestorDeRubros.BuscarRubroPorId(producto.IdRubro)?.Nombre ?? string.Empty,
+                    Program.GestorDeRubros.BuscarPorId(producto.IdRubro)?.Nombre ?? string.Empty,
                     stock,
                     fechaVencimiento);
     }

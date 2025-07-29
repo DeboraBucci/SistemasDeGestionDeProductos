@@ -37,7 +37,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProveedores
 
                 if (proveedorSeleccionadoId != null)
                 {
-                    var proveedorSeleccionado = Program.GestorDeProveedores.BuscarProveedorPorId(proveedorSeleccionadoId.Value);
+                    var proveedorSeleccionado = Program.GestorDeProveedores.BuscarPorId(proveedorSeleccionadoId.Value);
 
                     if (proveedorSeleccionado == null)
                         throw new ArgumentException("El proveedor seleccionado no existe.");
@@ -50,7 +50,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProveedores
 
                     if (dr == DialogResult.Yes)
                     {
-                        bool success = Program.GestorDeProveedores.EliminarProveedor(proveedorSeleccionado);
+                        bool success = Program.GestorDeProveedores.Eliminar(proveedorSeleccionado);
 
                         if (success)
                         {
@@ -79,7 +79,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeProveedores
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());
+            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarTodos());
         }
 
     }

@@ -138,7 +138,7 @@ namespace SistemasDeGestionDeProductos.Service
                 .BuscarTodos()
                 .GroupBy(m => m.ProductoId) // agrupa x mismo id
                 .Select(g => (
-                    prod: Program.GestorDeProductos.BuscarProductoPorId(g.Key),
+                    prod: Program.GestorDeProductos.BuscarPorId(g.Key),
                     stock: g.Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock)
                 ));
 
@@ -152,7 +152,7 @@ namespace SistemasDeGestionDeProductos.Service
             _repositorioMovimientos
                             .BuscarTodos()
                             .Where(m => {
-                                var producto = Program.GestorDeProductos.BuscarProductoPorId(m.ProductoId);
+                                var producto = Program.GestorDeProductos.BuscarPorId(m.ProductoId);
                                 return producto?.IdRubro == rubroId;
                             })
                             .Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock);
@@ -191,7 +191,7 @@ namespace SistemasDeGestionDeProductos.Service
 
                 if (stockDisponible > 0)
                 {
-                    var producto = Program.GestorDeProductos.BuscarProductoPorId(grupo.Key.ProductoId);
+                    var producto = Program.GestorDeProductos.BuscarPorId(grupo.Key.ProductoId);
                     tuplasInfo.Add((producto, grupo.Key.FechaVencimiento, stockDisponible));
                 }
             }
@@ -215,7 +215,7 @@ namespace SistemasDeGestionDeProductos.Service
                 .Distinct();
 
             var proveedores = proveedoresIds
-                .Select(id => Program.GestorDeProveedores.BuscarProveedorPorId(id ?? Guid.Empty))
+                .Select(id => Program.GestorDeProveedores.BuscarPorId(id ?? Guid.Empty))
                 .Where(p => p != null)!
                 .Select(p => p!)
                 .ToList();

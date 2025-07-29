@@ -29,7 +29,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             Producto? producto = null;
 
             if (productoId != null)
-                producto = Program.GestorDeProductos.BuscarProductoPorId(productoId.Value);
+                producto = Program.GestorDeProductos.BuscarPorId(productoId.Value);
 
 
             if (producto != null)
@@ -38,7 +38,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 rtxtDescripcion.Text = producto.Descripcion;
                 txtPrecioUnitario.Text = producto.PrecioUnitarioCompra.ToString();
 
-                string rubroSeleccionado = Program.GestorDeRubros.BuscarRubroPorId(producto.IdRubro)?.Nombre + "";
+                string rubroSeleccionado = Program.GestorDeRubros.BuscarPorId(producto.IdRubro)?.Nombre + "";
                 cbControl1.CambiarSeleccionado(rubroSeleccionado);
             }
         }
@@ -60,7 +60,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 if (!decimal.TryParse(precioUnitarioStr, out decimal precioUnit) || precioUnit < 0)
                     throw new Exception("El precio unitario debe ser un número mayor o igual que 0.");
 
-                Program.GestorDeProductos.ModificarProducto(_productoId, nombre, descripcion, precioUnit, rubroNombre);
+                Program.GestorDeProductos.Modificar(_productoId, nombre, descripcion, precioUnit, rubroNombre);
                 ActualizarDataGrid();
             }
 
@@ -75,7 +75,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasProductos;
             ActualizarDataGrid();
 
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros());
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarTodos());
         }
 
         private void ModificacionDeProducto_Activated(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void ActualizarDataGrid()
         {
-            var productos = Program.GestorDeProductos.BuscarProductos();
+            var productos = Program.GestorDeProductos.BuscarTodos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
     }

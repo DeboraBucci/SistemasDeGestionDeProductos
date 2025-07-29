@@ -49,7 +49,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
                 if (!RegexHelper.FormatoTelefonoValido(telefono))
                     throw new Exception("El formato del telefono es incorrecto.");
 
-                Program.GestorDeProveedores.CrearProveedor(nombre, contacto, telefono, direccion);
+                Program.GestorDeProveedores.Crear(nombre, contacto, telefono, direccion);
                 ActualizarDataGrid();
             }
 
@@ -72,7 +72,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarProveedores());
+            dgvControl1.Refrescar(Program.GestorDeProveedores.BuscarTodos());
         }
 
         private void VaciarTextos()

@@ -51,8 +51,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
 
                 var fechaVencimiento = dtpFechaVencimiento.Value;
 
-                var productoId = Program.GestorDeProductos.BuscarProductoPorNombre(producto)?.Id;
-                var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedor)?.Id;
+                var productoId = Program.GestorDeProductos.BuscarPorNombre(producto)?.Id;
+                var proveedorId = Program.GestorDeProveedores.BuscarPorNombre(proveedor)?.Id;
 
                 if (productoId != null && proveedorId != null)
                 {
@@ -72,8 +72,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
 
         private void ActualizarComboBoxes()
         {
-            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarProductos());
-            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
+            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarTodos());
+            cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarTodos());
         }
     }
 }

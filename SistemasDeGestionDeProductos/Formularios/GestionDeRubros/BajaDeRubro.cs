@@ -39,7 +39,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeRubros
 
                 if (rubroSeleccionadoId != null)
                 {
-                    var rubroSeleccionado = Program.GestorDeRubros.BuscarRubroPorId(rubroSeleccionadoId.Value);
+                    var rubroSeleccionado = Program.GestorDeRubros.BuscarPorId(rubroSeleccionadoId.Value);
 
                     if (rubroSeleccionado == null)
                         throw new ArgumentException("El rubro seleccionado no existe.");
@@ -57,7 +57,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeRubros
 
                     if (dr == DialogResult.Yes)
                     {
-                        bool success = Program.GestorDeRubros.EliminarRubro(rubroSeleccionado);
+                        bool success = Program.GestorDeRubros.Eliminar(rubroSeleccionado);
 
                         if (success)
                         {
@@ -84,7 +84,7 @@ namespace SistemasDeGestionDeProductos.Formularios.GestionDeRubros
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarRubros());
+            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarTodos());
         }
     }
 }

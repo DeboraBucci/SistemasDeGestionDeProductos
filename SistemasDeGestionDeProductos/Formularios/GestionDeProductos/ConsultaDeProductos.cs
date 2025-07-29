@@ -36,13 +36,13 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
         private void ActualizarDataGrid()
         {
-            var productos = Program.GestorDeProductos.BuscarProductos();
+            var productos = Program.GestorDeProductos.BuscarTodos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
 
         private void ActualizarComboBox()
         {
-            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarRubros(), true);
+            cbControl1.LlenarComboBox(Program.GestorDeRubros.BuscarTodos(), true);
         }
 
         private void cbControl1_SelectionChangedExternal(object sender, EventArgs e)

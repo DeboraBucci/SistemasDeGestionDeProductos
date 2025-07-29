@@ -34,7 +34,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
                 if (nombre == "")
                     throw new Exception("El nombre del rubro no puede estar vacio.");
 
-                Program.GestorDeRubros.CrearRubro(nombre, descripcion);
+                Program.GestorDeRubros.Crear(nombre, descripcion);
                 ActualizarDataGrid();
                 VaciarTextos();
 
@@ -59,7 +59,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 
         private void ActualizarDataGrid()
         {
-            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarRubros());
+            dgvControl1.Refrescar(Program.GestorDeRubros.BuscarTodos());
         }
 
         private void VaciarTextos()

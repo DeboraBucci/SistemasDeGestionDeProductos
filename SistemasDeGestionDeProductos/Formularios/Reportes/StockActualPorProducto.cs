@@ -30,7 +30,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
         }
 
         private void ActualizarDataGrid() { 
-            var productos = ProductosMapper.ListaProductoAProductoDTO(Program.GestorDeProductos.BuscarProductos());
+            var productos = ProductosMapper.ListaProductoAProductoDTO(Program.GestorDeProductos.BuscarTodos());
 
             var productosConStock = productos.Select(p => new
             {

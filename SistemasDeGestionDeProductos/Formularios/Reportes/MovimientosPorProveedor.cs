@@ -42,7 +42,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
         {
             var proveedorNombre = cbControl1.CbTxt ?? string.Empty;
             
-            var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre)?.Id;
+            var proveedorId = Program.GestorDeProveedores.BuscarPorNombre(proveedorNombre)?.Id;
 
             if (proveedorId != null)
             {
@@ -53,7 +53,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
 
         private void ActualizarComboBox()
         {
-            cbControl1.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
+            cbControl1.LlenarComboBox(Program.GestorDeProveedores.BuscarTodos());
         }
     }
 }

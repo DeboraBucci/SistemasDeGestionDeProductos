@@ -60,7 +60,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
 
         private void ActualizarComboBox()
         {
-            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarProductos(), true);
+            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarTodos(), true);
         }
 
         private void ActualizarFiltros()
@@ -68,7 +68,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             var nombreProducto = cbControl1.CbTxt ?? string.Empty;
             var tipoStr = cbFiltrarTipo.Text;
 
-            var productoId = Program.GestorDeProductos.BuscarProductoPorNombre(nombreProducto)?.Id;
+            var productoId = Program.GestorDeProductos.BuscarPorNombre(nombreProducto)?.Id;
 
             DateTime? fechaDesde = null;
             DateTime? fechaHasta = null;

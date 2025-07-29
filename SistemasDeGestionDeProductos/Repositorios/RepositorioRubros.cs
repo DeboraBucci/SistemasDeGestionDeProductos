@@ -11,7 +11,7 @@ using SistemasDeGestionDeProductos.Interfaces;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    public class RepositorioRubros : RepositorioBase<Rubro>
+    public class RepositorioRubros : RepositorioEntidad<Rubro>
     {
         public RepositorioRubros(string path) : base(path) { }
 
@@ -26,16 +26,6 @@ namespace SistemasDeGestionDeProductos.Repositorios
             }
 
             ActualizarArchivo();
-        }
-
-        public Rubro? BuscarPorNombre(string nombre) => _items.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
-
-        public bool Eliminar(Rubro rubro)
-        {
-            var eliminado =  _items.Remove(rubro);
-            ActualizarArchivo();
-
-            return eliminado;
         }
     }
 }

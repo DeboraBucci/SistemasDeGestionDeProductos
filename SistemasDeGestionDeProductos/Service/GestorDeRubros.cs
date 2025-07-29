@@ -10,20 +10,15 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Service
 {
-    public class GestorDeRubros
+    public class GestorDeRubros : GestorBase<Rubro, RepositorioRubros>
     {
-        private readonly RepositorioRubros repositorioRubros;
+        public GestorDeRubros(RepositorioRubros repositorio) : base(repositorio)  {  }
 
-        public GestorDeRubros(string path)
-        {
-            repositorioRubros = new(path);
-        }
-
-        public void CrearRubro(string nombre, string descripcion)
+        public void Crear(string nombre, string descripcion)
         {
             try
             {
-                if (repositorioRubros.BuscarPorNombre(nombre) != null)
+                if (_repositorio.BuscarPorNombre(nombre) != null)
                     throw new Exception("Ya existe un rubro con ese nombre, intenta con otro.");
 
                 Rubro rubro = new()
@@ -32,7 +27,7 @@ namespace SistemasDeGestionDeProductos.Service
                     Descripcion = descripcion
                 };
 
-                repositorioRubros.Agregar(rubro);
+                _repositorio.Agregar(rubro);
 
             }
             catch (Exception ex)
@@ -43,27 +38,10 @@ namespace SistemasDeGestionDeProductos.Service
         }
 
 
-        public bool EliminarRubro(Rubro rubro)
-        {
-            if (rubro.Nombre != null)
-             return repositorioRubros.Eliminar(rubro);
-
-            return false;
-        }
-
-        public void ModificarRubro(Guid? rubroId, string nombre, string descripcion)
+        public void Modificar(Guid? rubroId, string nombre, string descripcion)
         {
             if (rubroId != null)
-                repositorioRubros.Modificar(rubroId.Value, nombre, descripcion);
-        }
-
-        public IReadOnlyCollection<Rubro> BuscarRubros() => repositorioRubros.BuscarTodos();
-
-        public Rubro? BuscarRubroPorNombre(string nombre) => repositorioRubros.BuscarPorNombre(nombre);
-        public Rubro? BuscarRubroPorId(Guid id)
-        {
-            var rubro = repositorioRubros.BuscarPorId(id);
-            return rubro;
+                _repositorio.Modificar(rubroId.Value, nombre, descripcion);
         }
     }
 }

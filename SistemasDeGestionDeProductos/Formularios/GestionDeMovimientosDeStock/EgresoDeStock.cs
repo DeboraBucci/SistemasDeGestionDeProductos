@@ -23,7 +23,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasEgresos;
             ActualizarDataGrid();
 
-            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarProductos());
+            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarTodos());
         }
 
         private void EgresoDeStock_Activated(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
             {
                 var productoNombre = cbControl1.CbTxt ?? string.Empty;
 
-                var productoElegido = Program.GestorDeProductos.BuscarProductoPorNombre(productoNombre);
+                var productoElegido = Program.GestorDeProductos.BuscarPorNombre(productoNombre);
 
                 if (productoNombre == null)
                     throw new ArgumentException("El producto elegido es invalido.");

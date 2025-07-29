@@ -23,7 +23,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasMovimientos;
             ActualizarDataGrid();
 
-            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarProductos());
+            cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarTodos());
         }
 
         private void HistorialDeMovimientosDeUnProducto_Activated(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
         {
             var productoNombre = cbControl1.CbTxt ?? string.Empty;
 
-            var productoId = Program.GestorDeProductos.BuscarProductoPorNombre(productoNombre)?.Id;
+            var productoId = Program.GestorDeProductos.BuscarPorNombre(productoNombre)?.Id;
 
             if (productoId != null)
             {
