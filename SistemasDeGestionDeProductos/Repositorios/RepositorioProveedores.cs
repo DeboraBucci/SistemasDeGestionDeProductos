@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Repositorios
 {
-    internal class RepositorioProveedores : RepositorioBase<Proveedor>
+    internal class RepositorioProveedores : RepositorioEntidad<Proveedor>
     {
         public RepositorioProveedores(string path) : base(path) { }
 
@@ -25,22 +25,6 @@ namespace SistemasDeGestionDeProductos.Repositorios
                 proveedor.Direccion = direccion;
             }
 
-            ActualizarArchivo();
-        }
-
-
-        public IReadOnlyCollection<Proveedor> BuscarPorNombreContiene(string txt) =>
-            _items
-            .Where(p => !string.IsNullOrEmpty(p.Nombre) && p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase))
-            .ToList()
-            .AsReadOnly();
-
-        public Proveedor? BuscarPorNombre(string nombre) => _items.FirstOrDefault(r => TextHelper.SonIgualesSinTildes(r.Nombre + "", nombre));
-
-
-        public void Eliminar(Proveedor proveedor)
-        {
-            proveedor.Eliminar();
             ActualizarArchivo();
         }
     }

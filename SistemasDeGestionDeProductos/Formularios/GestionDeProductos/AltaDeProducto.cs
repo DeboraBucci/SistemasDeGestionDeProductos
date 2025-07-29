@@ -43,7 +43,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
                 if (!decimal.TryParse(precioUnitarioStr, out decimal precioUnit) || precioUnit < 0)
                     throw new Exception("El precio unitario debe ser un número mayor o igual que 0.");
 
-                if (!int.TryParse(stockStr, out int stock))
+                if (!int.TryParse(stockStr, out int stock) || stock <= 0)
                     throw new Exception("Numero de stock invalido.");
 
                 var proveedorId = Program.GestorDeProveedores.BuscarProveedorPorNombre(proveedorNombre)?.Id ?? Guid.Empty;
