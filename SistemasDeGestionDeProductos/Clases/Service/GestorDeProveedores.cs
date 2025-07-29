@@ -1,10 +1,5 @@
 ﻿using SistemasDeGestionDeProductos.Clases.Entidades;
 using SistemasDeGestionDeProductos.Clases.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Clases.Service
 {

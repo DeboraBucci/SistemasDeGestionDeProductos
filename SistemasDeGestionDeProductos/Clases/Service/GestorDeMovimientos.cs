@@ -2,11 +2,6 @@
 using SistemasDeGestionDeProductos.Clases.Entidades;
 using SistemasDeGestionDeProductos.Clases.Mappers;
 using SistemasDeGestionDeProductos.Clases.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemasDeGestionDeProductos.Clases.Service
 {
@@ -135,15 +130,6 @@ namespace SistemasDeGestionDeProductos.Clases.Service
 
         public IReadOnlyCollection<MovimientoStock> BuscarPorProveedor(Guid proveedorId) => _repositorioMovimientos.BuscarPorProveedor(proveedorId);
 
-        public IEnumerable<(Producto? producto, int stock)> StockActual() =>
-                _repositorioMovimientos
-                .BuscarTodos()
-                .GroupBy(m => m.ProductoId) // agrupa x mismo id
-                .Select(g => (
-                    prod: Program.GestorDeProductos.BuscarPorId(g.Key),
-                    stock: g.Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock)
-                ));
-
         public int ObtenerStockActual(Guid prodId) =>
             _repositorioMovimientos
                             .BuscarTodos()
@@ -204,26 +190,6 @@ namespace SistemasDeGestionDeProductos.Clases.Service
                     .Select(t => ProductosMapper.ProductoAProductoVencerDTO(t.producto!, t.vencimiento, t.stock))
                     .ToList()
                     .AsReadOnly();
-        }
-
-        public IReadOnlyCollection<Proveedor> ObtenerProveedoresPorProducto(Guid productoId)
-        {
-
-            var ingresos = _repositorioMovimientos
-                .BuscarTodos()
-                .Where(m => m.ProductoId == productoId && m.Tipo == TipoMovimiento.Ingreso);
-
-            var proveedoresIds = ingresos
-                .Select(m => m.ProveedorId)
-                .Distinct();
-
-            var proveedores = proveedoresIds
-                .Select(id => Program.GestorDeProveedores.BuscarPorId(id ?? Guid.Empty))
-                .Where(p => p != null)!
-                .Select(p => p!)
-                .ToList();
-
-            return proveedores.AsReadOnly();
         }
 
         private void VerificarYRegistrarVencimientos()
