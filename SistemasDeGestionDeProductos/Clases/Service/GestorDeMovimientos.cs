@@ -34,6 +34,7 @@ namespace SistemasDeGestionDeProductos.Clases.Service
         public void EgresarStock(Guid productoId, int cantidad, string motivo)
         {
             // VALIDACION
+            VerificarYRegistrarVencimientos();
 
             if (cantidad <= 0)
                 throw new ArgumentException("Cantidad debe ser > 0");
