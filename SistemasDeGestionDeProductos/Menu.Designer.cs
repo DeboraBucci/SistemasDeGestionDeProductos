@@ -36,6 +36,7 @@
             modificaciónDeProductoToolStripMenuItem = new ToolStripMenuItem();
             bajaDeProductoToolStripMenuItem = new ToolStripMenuItem();
             consultaDeProductosToolStripMenuItem = new ToolStripMenuItem();
+            productosPorVencerToolStripMenuItem = new ToolStripMenuItem();
             gestiónDeRubrosToolStripMenuItem = new ToolStripMenuItem();
             altaDeRubroToolStripMenuItem = new ToolStripMenuItem();
             modificaciónDeRubroToolStripMenuItem = new ToolStripMenuItem();
@@ -58,7 +59,6 @@
             historialDeMovimientosDeUnProductoToolStripMenuItem = new ToolStripMenuItem();
             integrantesDelDesarrolloToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
-            productosPorVencerToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,6 +110,13 @@
             consultaDeProductosToolStripMenuItem.Size = new Size(212, 22);
             consultaDeProductosToolStripMenuItem.Text = "Consulta de Productos";
             consultaDeProductosToolStripMenuItem.Click += consultaDeProductosToolStripMenuItem_Click;
+            // 
+            // productosPorVencerToolStripMenuItem
+            // 
+            productosPorVencerToolStripMenuItem.Name = "productosPorVencerToolStripMenuItem";
+            productosPorVencerToolStripMenuItem.Size = new Size(212, 22);
+            productosPorVencerToolStripMenuItem.Text = "Productos por Vencer";
+            productosPorVencerToolStripMenuItem.Click += productosPorVencerToolStripMenuItem_Click;
             // 
             // gestiónDeRubrosToolStripMenuItem
             // 
@@ -265,13 +272,6 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
-            // productosPorVencerToolStripMenuItem
-            // 
-            productosPorVencerToolStripMenuItem.Name = "productosPorVencerToolStripMenuItem";
-            productosPorVencerToolStripMenuItem.Size = new Size(212, 22);
-            productosPorVencerToolStripMenuItem.Text = "Productos por Vencer";
-            productosPorVencerToolStripMenuItem.Click += productosPorVencerToolStripMenuItem_Click;
-            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -280,7 +280,7 @@
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             Name = "Menu";
-            Text = "Form1";
+            Text = "Gestión de Stock";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
