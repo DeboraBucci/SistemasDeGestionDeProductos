@@ -90,9 +90,9 @@
             label5.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             label5.Location = new Point(525, 187);
             label5.Name = "label5";
-            label5.Size = new Size(375, 30);
+            label5.Size = new Size(370, 30);
             label5.TabIndex = 4;
-            label5.Text = "Santiago.Vigo@alumnos.uai.edu.ar";
+            label5.Text = "santiago.vigo@alumnos.uai.edu.ar";
             // 
             // label6
             // 
@@ -100,9 +100,9 @@
             label6.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             label6.Location = new Point(525, 274);
             label6.Name = "label6";
-            label6.Size = new Size(519, 30);
+            label6.Size = new Size(517, 30);
             label6.TabIndex = 3;
-            label6.Text = "MarcosSantiago.Passafiume@alumnos.uai.edu.ar";
+            label6.Text = "marcossantiago.passafiume@alumnos.uai.edu.ar";
             // 
             // label7
             // 

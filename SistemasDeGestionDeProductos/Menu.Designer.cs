@@ -58,6 +58,7 @@
             historialDeMovimientosDeUnProductoToolStripMenuItem = new ToolStripMenuItem();
             integrantesDelDesarrolloToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            productosPorVencerToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             // 
             // gestiónDeProductosToolStripMenuItem
             // 
-            gestiónDeProductosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { altaDeProductoToolStripMenuItem, modificaciónDeProductoToolStripMenuItem, bajaDeProductoToolStripMenuItem, consultaDeProductosToolStripMenuItem });
+            gestiónDeProductosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { altaDeProductoToolStripMenuItem, modificaciónDeProductoToolStripMenuItem, bajaDeProductoToolStripMenuItem, consultaDeProductosToolStripMenuItem, productosPorVencerToolStripMenuItem });
             gestiónDeProductosToolStripMenuItem.Name = "gestiónDeProductosToolStripMenuItem";
             gestiónDeProductosToolStripMenuItem.Size = new Size(132, 20);
             gestiónDeProductosToolStripMenuItem.Text = "Gestión de Productos";
@@ -264,6 +265,13 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
+            // productosPorVencerToolStripMenuItem
+            // 
+            productosPorVencerToolStripMenuItem.Name = "productosPorVencerToolStripMenuItem";
+            productosPorVencerToolStripMenuItem.Size = new Size(212, 22);
+            productosPorVencerToolStripMenuItem.Text = "Productos por Vencer";
+            productosPorVencerToolStripMenuItem.Click += productosPorVencerToolStripMenuItem_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -310,5 +318,6 @@
         private ToolStripMenuItem historialDeMovimientosDeUnProductoToolStripMenuItem;
         private ToolStripMenuItem integrantesDelDesarrolloToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
+        private ToolStripMenuItem productosPorVencerToolStripMenuItem;
     }
 }

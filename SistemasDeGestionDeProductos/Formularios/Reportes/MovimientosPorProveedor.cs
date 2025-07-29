@@ -24,13 +24,13 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
         {
             dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasMovimientos;
             ActualizarDataGrid();
-
-            cbControl1.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
+            ActualizarComboBox();
         }
 
         private void MovimientosPorProveedor_Activated(object sender, EventArgs e)
         {
             ActualizarDataGrid();
+            ActualizarComboBox();
         }
 
         private void cbControl1_SelectionChangedExternal(object sender, EventArgs e)
@@ -49,6 +49,11 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
                 var ingresosDelProveedor = Program.GestorDeMovimientos.BuscarPorProveedor(proveedorId.Value);
                 dgvControl1.Refrescar(MovimientosMapper.ListaMovimientoAMovimientoDTO(ingresosDelProveedor));
             }
+        }
+
+        private void ActualizarComboBox()
+        {
+            cbControl1.LlenarComboBox(Program.GestorDeProveedores.BuscarProveedores());
         }
     }
 }
