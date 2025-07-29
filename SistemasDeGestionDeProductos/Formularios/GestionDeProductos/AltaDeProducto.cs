@@ -1,15 +1,5 @@
-﻿using SistemasDeGestionDeProductos.Entidades;
-using SistemasDeGestionDeProductos.Helpers;
-using SistemasDeGestionDeProductos.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SistemasDeGestionDeProductos.Clases.Helpers;
+using SistemasDeGestionDeProductos.Clases.Mappers;
 
 namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 {

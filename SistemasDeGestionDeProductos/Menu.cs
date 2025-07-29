@@ -2,7 +2,6 @@ using SistemasDeGestionDeProductos.Formularios.GestionDeProductos;
 using SistemasDeGestionDeProductos.Formularios.GestionDeProveedores;
 using SistemasDeGestionDeProductos.Formularios.GestionDeRubros;
 using SistemasDeGestionDeProductos.Formularios.Reportes;
-using SistemasDeGestionDeProductos.Service;
 using SistemasDeGestionDeProductos.Ventanas;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock;
 using SistemasDeGestionDeProductos.Ventanas.GestionDeProductos;

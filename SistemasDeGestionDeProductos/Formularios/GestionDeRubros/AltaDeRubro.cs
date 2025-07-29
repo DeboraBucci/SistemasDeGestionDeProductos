@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using SistemasDeGestionDeProductos;
-using SistemasDeGestionDeProductos.Controles;
-using SistemasDeGestionDeProductos.Entidades;
-using SistemasDeGestionDeProductos.Helpers;
-using SistemasDeGestionDeProductos.Service;
+﻿using SistemasDeGestionDeProductos.Clases.Helpers;
 
 namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
 {

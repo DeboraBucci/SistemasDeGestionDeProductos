@@ -1,6 +1,7 @@
-﻿using SistemasDeGestionDeProductos.Controles;
-using SistemasDeGestionDeProductos.Entidades;
-using SistemasDeGestionDeProductos.Helpers;
+﻿using SistemasDeGestionDeProductos.Clases.Entidades;
+using SistemasDeGestionDeProductos.Clases.Helpers;
+using SistemasDeGestionDeProductos.Clases.Mappers;
+using SistemasDeGestionDeProductos.Controles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

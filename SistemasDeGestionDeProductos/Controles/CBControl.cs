@@ -1,4 +1,4 @@
-﻿using SistemasDeGestionDeProductos.Interfaces;
+﻿using SistemasDeGestionDeProductos.Clases.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

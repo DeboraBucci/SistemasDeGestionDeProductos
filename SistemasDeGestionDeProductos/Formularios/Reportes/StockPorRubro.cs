@@ -1,4 +1,4 @@
-﻿using SistemasDeGestionDeProductos.Helpers;
+﻿using SistemasDeGestionDeProductos.Clases.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

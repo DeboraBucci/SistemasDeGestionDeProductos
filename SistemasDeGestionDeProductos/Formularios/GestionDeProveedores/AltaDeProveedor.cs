@@ -1,5 +1,5 @@
-﻿using SistemasDeGestionDeProductos.Controles;
-using SistemasDeGestionDeProductos.Helpers;
+﻿using SistemasDeGestionDeProductos.Clases.Helpers;
+using SistemasDeGestionDeProductos.Controles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

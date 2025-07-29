@@ -1,5 +1,5 @@
-using SistemasDeGestionDeProductos.Repositorios;
-using SistemasDeGestionDeProductos.Service;
+using SistemasDeGestionDeProductos.Clases.Repositorios;
+using SistemasDeGestionDeProductos.Clases.Service;
 
 namespace SistemasDeGestionDeProductos
 {
