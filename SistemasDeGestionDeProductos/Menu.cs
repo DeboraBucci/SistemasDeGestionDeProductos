@@ -153,7 +153,7 @@ namespace SistemasDeGestionDeProductos
 
         private void productosPorVencerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AbrirForm(productosPorVencer);
         }
 
         // RUBROS

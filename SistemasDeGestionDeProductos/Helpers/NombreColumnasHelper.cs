@@ -30,6 +30,17 @@ namespace SistemasDeGestionDeProductos.Helpers
             new("Id", "Id"),
             ];
 
+        public static NombreColumna[] nombresColumnasProductosVencer = [
+            new("Nombre", "Nombre"),
+            new("Stock", "Stock"),
+            new("FechaVencimiento", "Fecha de Vencimiento"),
+            new("Descripcion", "Descripción"),
+            new("PrecioUnitarioCompra", "Compra c/u"),
+            new("PrecioUnitarioVenta", "Venta c/u"),
+            new("Rubro", "Rubro"),
+            new("Id", "Id"),
+            ];
+
         public static NombreColumna[] nombresColumnasProductosStock = [
             new("Nombre", "Nombre"),
             new("Stock", "Stock"),
@@ -69,7 +80,6 @@ namespace SistemasDeGestionDeProductos.Helpers
             new("FechaVencimiento", "Fecha de Vencimiento"),
             new("Id", "Id"),
             ];
-
     }
 
 }

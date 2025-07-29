@@ -39,6 +39,7 @@
             dgvGenerica.Dock = DockStyle.Fill;
             dgvGenerica.Location = new Point(0, 0);
             dgvGenerica.Name = "dgvGenerica";
+            dgvGenerica.ReadOnly = true;
             dgvGenerica.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGenerica.Size = new Size(700, 500);
             dgvGenerica.TabIndex = 0;
