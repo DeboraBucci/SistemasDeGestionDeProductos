@@ -60,6 +60,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
                 {
                     Program.GestorDeMovimientos.EgresarStock(prodId.Value, cantidad, motivo);
                     ActualizarDataGrid();
+                    VaciarTextos();
+                    MessageHelper.ShowSuccessfulMessage("Se ha realizado el egreso manera exitosa!");
                 }
             }
 
@@ -74,6 +76,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
         {
             var movimientos = Program.GestorDeMovimientos.ListarEgresos();
             dgvControl1.Refrescar(MovimientosMapper.ListaMovimientoAMovimientoDTO(movimientos));
+        }
+
+        private void VaciarTextos()
+        {
+            txtCantidad.Text = string.Empty;
         }
     }
 }

@@ -22,7 +22,6 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
         private void btnAgregarProveedor_Click(object sender, EventArgs e)
         {
-
             try
             {
                 string nombre = txtNombre.Text.Trim();
@@ -51,6 +50,9 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
                 Program.GestorDeProveedores.Crear(nombre, contacto, telefono, direccion);
                 ActualizarDataGrid();
+                VaciarTextos();
+
+                MessageHelper.ShowSuccessfulMessage("Se ha creado el proveedor de manera exitosa!");
             }
 
             catch (Exception ex)

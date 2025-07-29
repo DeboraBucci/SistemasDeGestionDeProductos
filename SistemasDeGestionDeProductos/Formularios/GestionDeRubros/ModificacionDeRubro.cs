@@ -50,6 +50,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeRubros
                 Program.GestorDeRubros.Modificar(_rubroId, nombre, descripcion);
                 ActualizarDataGrid();
 
+                MessageHelper.ShowSuccessfulMessage("Se ha modificado el rubro de manera exitosa!");
+
             }
             catch (Exception ex)
             {

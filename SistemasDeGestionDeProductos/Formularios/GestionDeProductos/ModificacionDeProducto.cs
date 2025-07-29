@@ -63,6 +63,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
 
                 Program.GestorDeProductos.Modificar(_productoId, nombre, descripcion, precioUnit, rubroNombre);
                 ActualizarDataGrid();
+
+                MessageHelper.ShowSuccessfulMessage("Se ha modificado el producto de manera exitosa!");
             }
 
             catch (Exception ex)

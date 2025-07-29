@@ -66,6 +66,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProveedores
 
                 Program.GestorDeProveedores.Modificar(_proveedorId, nombre, contacto, telefono, direccion);
                 ActualizarDataGrid();
+
+                MessageHelper.ShowSuccessfulMessage("Se ha modificado el proveedor de manera exitosa!");
             }
 
             catch (Exception ex)

@@ -59,6 +59,8 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
                 {
                     Program.GestorDeMovimientos.IngresarStock(productoId.Value, stock, fechaVencimiento, proveedorId.Value);
                     ActualizarDataGrid();
+                    VaciarTextos();
+                    MessageHelper.ShowSuccessfulMessage("Se ha realizado el ingreso manera exitosa!");
                 }
 
                 else
@@ -75,6 +77,11 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
         {
             cbControl1.LlenarComboBox(Program.GestorDeProductos.BuscarTodos());
             cbControl2.LlenarComboBox(Program.GestorDeProveedores.BuscarTodos());
+        }
+
+        private void VaciarTextos()
+        {
+            txtStock.Text = string.Empty;
         }
     }
 }
