@@ -36,16 +36,16 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(25, 62);
+            dgvControl1.Location = new Point(76, 74);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(1038, 447);
+            dgvControl1.Size = new Size(948, 427);
             dgvControl1.TabIndex = 28;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F);
-            label6.Location = new Point(25, 29);
+            label6.Location = new Point(76, 30);
             label6.Name = "label6";
             label6.Size = new Size(136, 30);
             label6.TabIndex = 27;
@@ -57,7 +57,7 @@
             btnEliminarProveedor.FlatAppearance.BorderSize = 0;
             btnEliminarProveedor.FlatStyle = FlatStyle.Flat;
             btnEliminarProveedor.ForeColor = SystemColors.ButtonFace;
-            btnEliminarProveedor.Location = new Point(25, 525);
+            btnEliminarProveedor.Location = new Point(76, 518);
             btnEliminarProveedor.Name = "btnEliminarProveedor";
             btnEliminarProveedor.Size = new Size(265, 49);
             btnEliminarProveedor.TabIndex = 29;
