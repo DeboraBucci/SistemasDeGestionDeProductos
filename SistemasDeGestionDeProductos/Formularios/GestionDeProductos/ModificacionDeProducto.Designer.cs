@@ -59,7 +59,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(40, 326);
+            label7.Location = new Point(44, 382);
             label7.Name = "label7";
             label7.Size = new Size(39, 15);
             label7.TabIndex = 25;
@@ -67,7 +67,7 @@
             // 
             // txtPrecioUnitario
             // 
-            txtPrecioUnitario.Location = new Point(40, 282);
+            txtPrecioUnitario.Location = new Point(44, 338);
             txtPrecioUnitario.Name = "txtPrecioUnitario";
             txtPrecioUnitario.Size = new Size(265, 23);
             txtPrecioUnitario.TabIndex = 22;
@@ -75,7 +75,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(40, 264);
+            label5.Location = new Point(44, 320);
             label5.Name = "label5";
             label5.Size = new Size(85, 15);
             label5.TabIndex = 21;
@@ -83,7 +83,7 @@
             // 
             // rtxtDescripcion
             // 
-            rtxtDescripcion.Location = new Point(40, 176);
+            rtxtDescripcion.Location = new Point(44, 232);
             rtxtDescripcion.Name = "rtxtDescripcion";
             rtxtDescripcion.Size = new Size(265, 72);
             rtxtDescripcion.TabIndex = 20;
@@ -92,7 +92,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(40, 158);
+            label4.Location = new Point(44, 214);
             label4.Name = "label4";
             label4.Size = new Size(69, 15);
             label4.TabIndex = 19;
@@ -100,7 +100,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(40, 118);
+            txtNombre.Location = new Point(44, 174);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 18;
@@ -108,7 +108,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(40, 100);
+            label3.Location = new Point(44, 156);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 17;
@@ -118,7 +118,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(363, 22);
+            label2.Location = new Point(371, 24);
             label2.Name = "label2";
             label2.Size = new Size(110, 30);
             label2.TabIndex = 16;
@@ -128,7 +128,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(59, 47);
+            label1.Location = new Point(63, 103);
             label1.Name = "label1";
             label1.Size = new Size(199, 30);
             label1.TabIndex = 14;
@@ -138,7 +138,7 @@
             // 
             cbControl1.AutoSize = true;
             cbControl1.CbTxt = null;
-            cbControl1.Location = new Point(40, 344);
+            cbControl1.Location = new Point(44, 400);
             cbControl1.Name = "cbControl1";
             cbControl1.Size = new Size(268, 26);
             cbControl1.TabIndex = 28;
@@ -146,7 +146,7 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(363, 75);
+            dgvControl1.Location = new Point(371, 68);
             dgvControl1.Name = "dgvControl1";
             dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 29;
