@@ -78,6 +78,28 @@ namespace SistemasDeGestionDeProductos.Helpers
             new("Stock", "Stock"),
             new("FechaMovimiento", "Fecha de Movimiento"),
             new("FechaVencimiento", "Fecha de Vencimiento"),
+            new("Motivo", "Motivo"),
+            new("Proveedor", "Proveedor"),
+            new("Id", "Id"),
+            ];
+
+        public static NombreColumna[] nombresColumnasIngresos = [
+            new("Producto", "Producto"),
+            new("Tipo", "Tipo"),
+            new("Stock", "Stock"),
+            new("FechaMovimiento", "Fecha de Movimiento"),
+            new("FechaVencimiento", "Fecha de Vencimiento"),
+            new("Proveedor", "Proveedor"),
+            new("Id", "Id"),
+            ];
+
+        public static NombreColumna[] nombresColumnasEgresos = [
+            new("Producto", "Producto"),
+            new("Tipo", "Tipo"),
+            new("Stock", "Stock"),
+            new("FechaMovimiento", "Fecha de Movimiento"),
+            new("FechaVencimiento", "Fecha de Vencimiento"),
+            new("Motivo", "Motivo"),
             new("Id", "Id"),
             ];
     }

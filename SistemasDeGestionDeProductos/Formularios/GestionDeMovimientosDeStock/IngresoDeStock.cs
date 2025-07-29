@@ -20,7 +20,7 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeMovimientosDeStock
 
         private void IngresoDeStock_Load(object sender, EventArgs e)
         {
-            dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasMovimientos;
+            dgvControl1.DefinicionesColumnas = NombreColumnasHelper.nombresColumnasIngresos;
             ActualizarDataGrid();
             ActualizarComboBoxes();
         }

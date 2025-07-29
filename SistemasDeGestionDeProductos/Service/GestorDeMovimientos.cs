@@ -115,6 +115,8 @@ namespace SistemasDeGestionDeProductos.Service
             DateTime? desde = null,
             DateTime? hasta = null)
         {
+            VerificarYRegistrarVencimientos();
+
             return _repositorioMovimientos
                 .BuscarTodos()
                 .Where(m => productoId == null || m.ProductoId == productoId) 
@@ -219,6 +221,46 @@ namespace SistemasDeGestionDeProductos.Service
                 .ToList();
 
             return proveedores.AsReadOnly();
+        }
+
+        private void VerificarYRegistrarVencimientos()
+        {
+            var hoy = DateTime.Today;
+            var movimientos = _repositorioMovimientos.BuscarTodos();
+
+            var ingresosVencidos = movimientos
+                .Where(m => m.Tipo == TipoMovimiento.Ingreso && m.FechaVencimiento < hoy)
+                .ToList();
+
+            foreach (var ingreso in ingresosVencidos)
+            {
+                var totalEgresado = movimientos
+                    .Where(e => e.Tipo == TipoMovimiento.Egreso &&
+                                e.FechaVencimiento == ingreso.FechaVencimiento &&
+                                e.ProductoId == ingreso.ProductoId)
+                    .Sum(e => e.Stock);
+
+                int restante = ingreso.Stock - totalEgresado;
+
+                bool yaEgresadoPorVencimiento = movimientos.Any(e =>
+                    e.Tipo == TipoMovimiento.Egreso &&
+                    e.Motivo == "Vencimiento" &&
+                    e.FechaVencimiento == ingreso.FechaVencimiento &&
+                    e.ProductoId == ingreso.ProductoId);
+
+                if (restante > 0 && !yaEgresadoPorVencimiento)
+                {
+                    _repositorioMovimientos.Agregar(new MovimientoStock
+                    {
+                        ProductoId = ingreso.ProductoId,
+                        Tipo = TipoMovimiento.Egreso,
+                        Stock = restante,
+                        FechaMovimiento = DateTime.Now,
+                        FechaVencimiento = ingreso.FechaVencimiento,
+                        Motivo = "Vencimiento"
+                    });
+                }
+            }
         }
     }
 }
