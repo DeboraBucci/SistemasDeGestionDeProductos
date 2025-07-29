@@ -55,11 +55,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(616, 71);
+            label1.Location = new Point(577, 73);
             label1.Name = "label1";
-            label1.Size = new Size(135, 15);
+            label1.Size = new Size(174, 15);
             label1.TabIndex = 22;
-            label1.Text = "Elija el minimo de stock:";
+            label1.Text = "Elija el umbral maximo de stock";
             // 
             // txtMinStock
             // 

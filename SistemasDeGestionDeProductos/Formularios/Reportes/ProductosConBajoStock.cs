@@ -48,7 +48,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
                     if (minStock <= 0)
                         throw new ArgumentException("El stock minimo no puede ser igual a cero o menor.");
 
-                    var productos = ProductosMapper.ListaProductoAProductoDTO(Program.GestorDeProductos.BuscarTodos());
+                    var productos = ProductosMapper.ListaProductoAProductoDTO(Program.GestorDeProductos.BuscarActivos());
 
                     var productosConStock = productos.Select(p =>
                     {
@@ -82,7 +82,7 @@ namespace SistemasDeGestionDeProductos.Formularios.Reportes
 
         private void ActualizarDataGrid()
         {
-            var productos = ProductosMapper.ListaProductoAProductoDTO(Program.GestorDeProductos.BuscarTodos());
+            var productos = ProductosMapper.ListaProductoAProductoDTO(Program.GestorDeProductos.BuscarActivos());
 
             var productosConStock = productos.Select(p => new
             {

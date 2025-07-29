@@ -38,16 +38,16 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(29, 76);
+            dgvControl1.Location = new Point(28, 99);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(1042, 506);
+            dgvControl1.Size = new Size(1046, 469);
             dgvControl1.TabIndex = 21;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(39, 19);
+            label2.Location = new Point(28, 58);
             label2.Name = "label2";
             label2.Size = new Size(223, 30);
             label2.TabIndex = 20;
@@ -57,7 +57,7 @@
             // 
             cbPorVencer.FormattingEnabled = true;
             cbPorVencer.Items.AddRange(new object[] { "7", "15", "30" });
-            cbPorVencer.Location = new Point(896, 47);
+            cbPorVencer.Location = new Point(920, 67);
             cbPorVencer.Name = "cbPorVencer";
             cbPorVencer.Size = new Size(115, 23);
             cbPorVencer.TabIndex = 22;
@@ -66,7 +66,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(810, 50);
+            label1.Location = new Point(834, 71);
             label1.Name = "label1";
             label1.Size = new Size(77, 15);
             label1.TabIndex = 23;
@@ -75,7 +75,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1017, 50);
+            label3.Location = new Point(1041, 71);
             label3.Name = "label3";
             label3.Size = new Size(28, 15);
             label3.TabIndex = 24;
