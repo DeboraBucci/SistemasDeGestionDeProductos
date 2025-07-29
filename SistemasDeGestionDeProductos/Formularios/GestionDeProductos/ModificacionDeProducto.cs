@@ -88,7 +88,5 @@ namespace SistemasDeGestionDeProductos.Ventanas.GestionDeProductos
             var productos = Program.GestorDeProductos.BuscarProductos();
             dgvControl1.Refrescar(ProductosMapper.ListaProductoAProductoDTO(productos));
         }
-
-       
     }
 }

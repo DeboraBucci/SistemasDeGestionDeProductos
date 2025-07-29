@@ -19,5 +19,17 @@ namespace SistemasDeGestionDeProductos.Helpers
                 p.PrecioUnitarioVenta,
                 Program.GestorDeRubros.BuscarRubroPorId(p.IdRubro)?.Nombre ?? string.Empty
                 )).ToList();
+
+        public static ProductoVencerDTO
+                ProductoAProductoVencerDTO(Producto producto, DateTime fechaVencimiento, int stock) =>
+            new ProductoVencerDTO(
+                    producto.Id,
+                    producto.Nombre ?? string.Empty,
+                    producto.Descripcion ?? string.Empty,
+                    producto.PrecioUnitarioCompra,
+                    producto.PrecioUnitarioVenta,
+                    Program.GestorDeRubros.BuscarRubroPorId(producto.IdRubro)?.Nombre ?? string.Empty,
+                    stock,
+                    fechaVencimiento);
     }
 }

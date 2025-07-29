@@ -1,4 +1,5 @@
 ﻿using SistemasDeGestionDeProductos.Entidades;
+using SistemasDeGestionDeProductos.Helpers;
 using SistemasDeGestionDeProductos.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -155,42 +156,49 @@ namespace SistemasDeGestionDeProductos.Service
                             .Sum(m => m.Tipo == TipoMovimiento.Ingreso ? m.Stock : -m.Stock);
 
 
-        public IEnumerable<(Producto? producto, DateTime vencimiento, int stock)>
-            ProductosPorVencer(TimeSpan anticipacion = default)
+        public IReadOnlyCollection<ProductoVencerDTO>
+        ProductosPorVencer(TimeSpan anticipacion = default)
         {
             if (anticipacion == default)
                 anticipacion = TimeSpan.FromDays(7);
 
             var hoy = DateTime.Today;
+            var movimientos = _repositorioMovimientos.BuscarTodos();
 
-            // Agrupa movimientos por fecha, que tengan vencimiento dentro de los proximos 7 dias.
-            var movimientosPorFecha = 
-                _repositorioMovimientos
-                    .BuscarTodos()
-                    .Where(movimiento => movimiento.Tipo == TipoMovimiento.Ingreso
-                            && movimiento.FechaVencimiento > hoy
-                            && movimiento.FechaVencimiento <= hoy + anticipacion)
-                    .GroupBy(movimiento => movimiento.FechaVencimiento);
+            var ingresos = movimientos
+                .Where(m => m.Tipo == TipoMovimiento.Ingreso
+                            && m.FechaVencimiento > hoy
+                            && m.FechaVencimiento <= hoy + anticipacion);
 
-            return movimientosPorFecha
-                        .SelectMany(grupoFecha => 
-                            grupoFecha
-                                .Select(movimiento => 
-                                    (producto: Program.GestorDeProductos.BuscarProductoPorId(movimiento.ProductoId),
-                                    vencimiento: movimiento.FechaVencimiento,
-                                    stock: grupoFecha
-                                            .Sum(movFecha => 
-                                                movFecha.Stock) - 
-                                                _repositorioMovimientos
-                                                    .BuscarTodos()
-                                                    .Where(e => 
-                                                        e.Tipo == TipoMovimiento.Egreso
-                                                        && e.FechaVencimiento == movimiento.FechaVencimiento
-                                                        && e.ProductoId == movimiento.ProductoId)
-                                                    .Sum(e => e.Stock)
-                                             )
-                                )
-                        );
+            var grupos = ingresos
+                .GroupBy(m => new { m.ProductoId, m.FechaVencimiento });
+
+            var tuplasInfo = new List<(Producto? producto, DateTime vencimiento, int stock)>();
+
+            foreach (var grupo in grupos)
+            {
+                int stockIngresado = grupo.Sum(m => m.Stock);
+
+                int stockEgresado = movimientos
+                    .Where(e => e.Tipo == TipoMovimiento.Egreso
+                                && e.ProductoId == grupo.Key.ProductoId
+                                && e.FechaVencimiento == grupo.Key.FechaVencimiento)
+                    .Sum(e => e.Stock);
+
+                int stockDisponible = stockIngresado - stockEgresado;
+
+                if (stockDisponible > 0)
+                {
+                    var producto = Program.GestorDeProductos.BuscarProductoPorId(grupo.Key.ProductoId);
+                    tuplasInfo.Add((producto, grupo.Key.FechaVencimiento, stockDisponible));
+                }
+            }
+
+            return tuplasInfo
+                    .Where(t => t.producto != null)
+                    .Select(t => ProductosMapper.ProductoAProductoVencerDTO(t.producto!, t.vencimiento, t.stock))
+                    .ToList()
+                    .AsReadOnly();
         }
 
         public IReadOnlyCollection<Proveedor> ObtenerProveedoresPorProducto(Guid productoId)
