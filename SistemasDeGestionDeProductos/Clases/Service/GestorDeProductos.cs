@@ -51,7 +51,7 @@ namespace SistemasDeGestionDeProductos.Clases.Service
             .Where(p => 
                     txt == null || 
                     p.Nombre.Contains(txt, StringComparison.OrdinalIgnoreCase) ||
-                    p.Id.ToString().Contains(txt))
+                    p.Id.ToString().Contains(txt, StringComparison.OrdinalIgnoreCase))
             .ToList()
             .AsReadOnly();
 
