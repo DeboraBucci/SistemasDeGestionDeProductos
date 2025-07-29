@@ -42,7 +42,7 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(38, 258);
+            txtCantidad.Location = new Point(42, 258);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(265, 23);
             txtCantidad.TabIndex = 42;
@@ -50,7 +50,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(38, 240);
+            label4.Location = new Point(42, 240);
             label4.Name = "label4";
             label4.Size = new Size(146, 15);
             label4.TabIndex = 41;
@@ -59,7 +59,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(38, 183);
+            label2.Location = new Point(42, 183);
             label2.Name = "label2";
             label2.Size = new Size(99, 15);
             label2.TabIndex = 40;
@@ -69,7 +69,7 @@
             // 
             cbControl1.AutoSize = true;
             cbControl1.CbTxt = null;
-            cbControl1.Location = new Point(38, 201);
+            cbControl1.Location = new Point(42, 201);
             cbControl1.Name = "cbControl1";
             cbControl1.Size = new Size(268, 26);
             cbControl1.TabIndex = 39;
@@ -78,7 +78,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F);
-            label6.Location = new Point(359, 28);
+            label6.Location = new Point(374, 22);
             label6.Name = "label6";
             label6.Size = new Size(177, 30);
             label6.TabIndex = 38;
@@ -90,7 +90,7 @@
             btnAgregarEgreso.FlatAppearance.BorderSize = 0;
             btnAgregarEgreso.FlatStyle = FlatStyle.Flat;
             btnAgregarEgreso.ForeColor = SystemColors.ButtonFace;
-            btnAgregarEgreso.Location = new Point(38, 420);
+            btnAgregarEgreso.Location = new Point(42, 420);
             btnAgregarEgreso.Name = "btnAgregarEgreso";
             btnAgregarEgreso.Size = new Size(265, 49);
             btnAgregarEgreso.TabIndex = 37;
@@ -102,7 +102,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(58, 120);
+            label1.Location = new Point(62, 120);
             label1.Name = "label1";
             label1.Size = new Size(164, 30);
             label1.TabIndex = 36;
@@ -111,14 +111,14 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(359, 70);
+            dgvControl1.Location = new Point(374, 63);
             dgvControl1.Name = "dgvControl1";
             dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 35;
             // 
             // txtMotivo
             // 
-            txtMotivo.Location = new Point(38, 319);
+            txtMotivo.Location = new Point(42, 319);
             txtMotivo.Name = "txtMotivo";
             txtMotivo.Size = new Size(265, 23);
             txtMotivo.TabIndex = 44;
@@ -127,7 +127,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(38, 301);
+            label3.Location = new Point(42, 301);
             label3.Name = "label3";
             label3.Size = new Size(45, 15);
             label3.TabIndex = 43;

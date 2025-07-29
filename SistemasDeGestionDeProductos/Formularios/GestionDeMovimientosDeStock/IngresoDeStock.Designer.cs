@@ -46,7 +46,7 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(363, 70);
+            dgvControl1.Location = new Point(374, 63);
             dgvControl1.Name = "dgvControl1";
             dgvControl1.Size = new Size(703, 503);
             dgvControl1.TabIndex = 18;
@@ -55,7 +55,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16F);
-            label6.Location = new Point(363, 28);
+            label6.Location = new Point(374, 22);
             label6.Name = "label6";
             label6.Size = new Size(184, 30);
             label6.TabIndex = 28;

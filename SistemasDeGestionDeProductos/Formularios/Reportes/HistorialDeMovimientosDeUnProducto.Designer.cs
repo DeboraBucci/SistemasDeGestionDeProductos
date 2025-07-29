@@ -37,16 +37,16 @@
             // dgvControl1
             // 
             dgvControl1.AutoSize = true;
-            dgvControl1.Location = new Point(12, 64);
+            dgvControl1.Location = new Point(28, 99);
             dgvControl1.Name = "dgvControl1";
-            dgvControl1.Size = new Size(1076, 519);
+            dgvControl1.Size = new Size(1046, 469);
             dgvControl1.TabIndex = 23;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F);
-            label2.Location = new Point(12, 17);
+            label2.Location = new Point(28, 58);
             label2.Name = "label2";
             label2.Size = new Size(410, 30);
             label2.TabIndex = 22;
@@ -56,7 +56,7 @@
             // 
             cbControl1.AutoSize = true;
             cbControl1.CbTxt = null;
-            cbControl1.Location = new Point(820, 32);
+            cbControl1.Location = new Point(806, 67);
             cbControl1.Name = "cbControl1";
             cbControl1.Size = new Size(268, 26);
             cbControl1.TabIndex = 24;
@@ -65,7 +65,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(820, 14);
+            label1.Location = new Point(806, 44);
             label1.Name = "label1";
             label1.Size = new Size(99, 15);
             label1.TabIndex = 25;
